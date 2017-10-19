@@ -23,7 +23,8 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'spree_core', '>= 3.1.0', '< 4.0'
   s.add_dependency 'validates_cpf_cnpj'
-
+  s.add_dependency 'moip2'
+  
   s.add_development_dependency 'capybara'
   s.add_development_dependency 'capybara-screenshot'
   s.add_development_dependency 'coffee-rails'
@@ -35,9 +36,8 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'selenium-webdriver'
   s.add_development_dependency 'simplecov'
   s.add_development_dependency 'sqlite3'
-  s.add_development_dependency 'pg'
-  s.add_development_dependency 'mysql2'
   s.add_development_dependency 'appraisal'
   s.add_development_dependency 'vcr'
   s.add_development_dependency 'webmock'
+  s.add_development_dependency 'dotenv-rails'
 end
