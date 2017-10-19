@@ -1,3 +1,5 @@
+require 'validates_cpf_cnpj'
+
 module Spree
   Address.class_eval do
     enum tax_document_type: %i[cpf cnpj]
