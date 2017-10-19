@@ -1,11 +1,6 @@
 module Spree
   Address.class_eval do
     enum tax_document_type: %i[cpf cnpj]
-    attr_accessible :street_number,
-                    :complement,
-                    :district,
-                    :tax_document_type,
-                    :tax_document
 
     validates :street_number,
               :district,
