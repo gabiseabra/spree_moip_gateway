@@ -22,6 +22,7 @@ Gem::Specification.new do |s|
   s.requirements << 'none'
 
   s.add_dependency 'spree_core', '>= 3.1.0', '< 4.0'
+  s.add_dependency 'validates_cpf_cnpj'
 
   s.add_development_dependency 'capybara'
   s.add_development_dependency 'capybara-screenshot'
