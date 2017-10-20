@@ -37,8 +37,8 @@ module Spree::Moip
         fullname: data[:full_name],
         email: options.email,
         tax_document: {
-          type: data[:tax_document_type],
-          number: data[:tax_document].gsub(/[^\d]/, '')
+          type: options.tax_document_type,
+          number: options.tax_document.gsub(/[^\d]/, '')
         },
         phone: phone(options),
         shipping_address: address(options)

@@ -4,6 +4,14 @@ module Spree
       order.guest_token
     end
 
+    def tax_document_type
+      order.tax_tocument_type.to_s.upcase
+    end
+
+    def tax_document
+      order.tax_document
+    end
+
     def line_items
       order.line_items.map do |item|
         {
