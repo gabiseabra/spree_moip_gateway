@@ -24,7 +24,8 @@ Gem::Specification.new do |s|
   s.add_dependency 'spree_core', '>= 3.1.0', '< 4.0'
   s.add_dependency 'validates_cpf_cnpj'
   s.add_dependency 'moip2'
-  
+  s.add_dependency 'recursive-open-struct', '< 1.0.5'
+
   s.add_development_dependency 'capybara'
   s.add_development_dependency 'capybara-screenshot'
   s.add_development_dependency 'coffee-rails'
