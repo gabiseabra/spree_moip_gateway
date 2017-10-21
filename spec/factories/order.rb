@@ -28,15 +28,7 @@ FactoryGirl.modify do
     trait :at_payment do
       at_delivery
 
-      transient do
-        payment_method { create(:check_payment_method) }
-      end
-
-      after(:create) do |order, s|
-        payment = create(:payment, payment_method: s.payment_method, order: order)
-        order.payments << payment
-        order.next! while order.state != 'payment'
-      end
+      after(:create) { |order| order.next! while order.state != 'delivery' }
     end
   end
 end
