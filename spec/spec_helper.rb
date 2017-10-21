@@ -91,3 +91,7 @@ RSpec.configure do |config|
   config.fail_fast = ENV['FAIL_FAST'] || false
   config.order = "random"
 end
+
+Spree.config do |config|
+  config.currency = 'BRL'
+end

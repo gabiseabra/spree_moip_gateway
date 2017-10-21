@@ -5,7 +5,7 @@ module Spree
     end
 
     def tax_document_type
-      order.tax_document_type.to_s.upcase
+      order.tax_document_type
     end
 
     def tax_document

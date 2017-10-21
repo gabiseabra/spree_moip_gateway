@@ -5,9 +5,9 @@ module SpreeMoipGateway
     engine_name 'spree_moip_gateway'
 
     config.autoload_paths += Dir["#{config.root}/lib/**/"]
-  
+
     initializer 'spree.moip.payment_methods', after: 'spree.register.payment_methods' do |app|
-      app.config.spree.payment_methods << Spree::Gateway::MoipCreditCard
+      app.config.spree.payment_methods << Spree::Gateway::MoipCredit
     end
 
     # use rspec for tests

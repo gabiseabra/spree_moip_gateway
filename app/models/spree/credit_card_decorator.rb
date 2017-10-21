@@ -16,7 +16,7 @@ module Spree
     private
 
     def moip_payment?
-      payment_method.is_a? Spree::Gateway::MoipCreditCard
+      payment_method.is_a? Spree::Gateway::MoipCredit
     end
   end
 end

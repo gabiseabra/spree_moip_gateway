@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :moip_gateway, class: Spree::Gateway::MoipCreditCard do
+  factory :moip_gateway, class: Spree::Gateway::MoipCredit do
     name 'Moip Credit Card Gateway'
 
     transient do
