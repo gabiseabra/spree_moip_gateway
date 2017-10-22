@@ -7,7 +7,7 @@ describe Spree::Gateway::MoipCredit do
   let(:total_cents) { Spree::Money.new(payment.amount).cents }
   let(:source) { payment.payment_source }
   let(:add_payment_to_order!) { order.payments << payment }
-  before(:each) { VCR.insert_cassette 'moip_credit' }
+  before(:each) { VCR.insert_cassette 'moip_credit', record: :new_episodes }
   after(:each) { VCR.eject_cassette }
 
   it 'registers webhooks upon creation' do
@@ -26,6 +26,12 @@ describe Spree::Gateway::MoipCredit do
 
     it 'succeeds' do
       expect(response.success?).to be true
+    end
+
+    it 'saves gateway data to credit card' do
+      response
+      expect(source.gateway_customer_profile_id).to be_present
+      expect(source.gateway_payment_profile_id).to be_present
     end
   end
 end

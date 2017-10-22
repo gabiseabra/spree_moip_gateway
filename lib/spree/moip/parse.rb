@@ -19,7 +19,9 @@ module Spree
             tax_document: tax_document(source)
           }
         }
-        if source.encrypted_data.present?
+        if source.gateway_payment_profile_id.present?
+          data.merge(id: source.gateway_payment_profile_id)
+        elsif source.encrypted_data.present?
           data.merge(hash: source.encrypted_data)
         else
           data.merge(
@@ -31,12 +33,12 @@ module Spree
         end
       end
 
-      def order(options)
+      def order(options, customer_id: nil)
         {
           own_id: options.order_id,
           items: items(options),
           amount: amount(options),
-          customer: customer(options)
+          customer: customer_id ? { id: customer_id } : customer(options)
         }
       end
 
