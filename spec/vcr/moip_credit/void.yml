@@ -1,0 +1,88 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sandbox.moip.com.br/v2/orders
+    body:
+      encoding: UTF-8
+      string: '{"ownId":"R414447368-PZYL7DBW","items":[{"product":"Product #4 - 4261","quantity":1,"price":1999}],"amount":{"currency":"BRL","subtotals":{"shipping":0,"addition":0,"discount":0}},"customer":{"ownId":1,"fullname":"John
+        Doe","email":"archie.schmitt@balistreri.com","taxDocument":{"type":"CPF","number":"67822412183"},"phone":{"countryCode":"55","areaCode":"21","number":"00000000"},"shippingAddress":{"street":"Avenida
+        Faria Lima","streetNumber":100,"complement":null,"district":"Itaim","city":"São
+        Paulo","state":"SP","country":"BRA","zipCode":"01452-001"}}}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Basic RkFISEk1TERRWlczRU1ZUzI1WUQzUFNOVTJWR1JUUk06Sk9FM1FRTUlZWFJaUFRBUlM2STNWRFpGSE9TQlBQRTNLWTk1RUM1MA==
+      User-Agent:
+      - MoipRubySDK/1.0.0 (+https://github.com/moip/moip-sdk-ruby)
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Sun, 22 Oct 2017 05:25:35 GMT
+      Server:
+      - Apache
+      Status:
+      - 201 Created
+      X-Newrelic-App-Data:
+      - PxQFUlBXAQoTUVFWDgEDUVYTGhE1AwE2QgNWEVlbQFtcC2VOYwRAFjNTVTIDEU5aUwE9TUEDa0kLQ1JWEBVDSmAtazYRGhgCHVUVUR9RBFBQBgVQV08NBglIQwEPBlVeAVMCC1ZeVARUWwFAFF5VXkAAZA==
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '2543'
+      X-Content-Type-Options:
+      - nosniff
+      Vary:
+      - Accept-Encoding,Origin
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJpZCI6Ik9SRC1UWEhXV0w5NEJDRkciLCJvd25JZCI6IlI0MTQ0NDczNjgtUFpZTDdEQlciLCJzdGF0dXMiOiJDUkVBVEVEIiwicGxhdGZvcm0iOiJWMiIsImNyZWF0ZWRBdCI6IjIwMTctMTAtMjJUMDM6MjU6MzUuNTU0LTAyIiwidXBkYXRlZEF0IjoiMjAxNy0xMC0yMlQwMzoyNTozNS41NTQtMDIiLCJhbW91bnQiOnsicGFpZCI6MCwidG90YWwiOjE5OTksImZlZXMiOjAsInJlZnVuZHMiOjAsImxpcXVpZCI6MCwib3RoZXJSZWNlaXZlcnMiOjAsImN1cnJlbmN5IjoiQlJMIiwic3VidG90YWxzIjp7InNoaXBwaW5nIjowLCJhZGRpdGlvbiI6MCwiZGlzY291bnQiOjAsIml0ZW1zIjoxOTk5fX0sIml0ZW1zIjpbeyJwcm9kdWN0IjoiUHJvZHVjdCAjNCAtIDQyNjEiLCJwcmljZSI6MTk5OSwicXVhbnRpdHkiOjF9XSwiY3VzdG9tZXIiOnsiaWQiOiJDVVMtREQ2TjJCS0NPSVJTIiwib3duSWQiOiIxIiwiZnVsbG5hbWUiOiJKb2huIERvZSIsImNyZWF0ZWRBdCI6IjIwMTctMTAtMjFUMTc6MjI6NDYuMDAwLTAyIiwiZW1haWwiOiJjZWxpbmVAaGV0dGluZ2VyLmJpeiIsImZ1bmRpbmdJbnN0cnVtZW50Ijp7ImNyZWRpdENhcmQiOnsiaWQiOiJDUkMtTjNHUEpIRlVBRENYIiwiYnJhbmQiOiJWSVNBIiwiZmlyc3Q2IjoiNDExMTExIiwibGFzdDQiOiIxMTExIiwic3RvcmUiOnRydWV9LCJtZXRob2QiOiJDUkVESVRfQ0FSRCJ9LCJwaG9uZSI6eyJjb3VudHJ5Q29kZSI6IjU1IiwiYXJlYUNvZGUiOiIyMSIsIm51bWJlciI6IjAwMDAwMDAwIn0sInRheERvY3VtZW50Ijp7InR5cGUiOiJDUEYiLCJudW1iZXIiOiI2NzgyMjQxMjE4MyJ9LCJzaGlwcGluZ0FkZHJlc3MiOnsiemlwQ29kZSI6IjAxNDUyLTAwMSIsInN0cmVldCI6IkF2ZW5pZGEgRmFyaWEgTGltYSIsInN0cmVldE51bWJlciI6IjEwMCIsImNpdHkiOiJTw6NvIFBhdWxvIiwiZGlzdHJpY3QiOiJJdGFpbSIsInN0YXRlIjoiU1AiLCJjb3VudHJ5IjoiQlJBIn0sIl9saW5rcyI6eyJzZWxmIjp7ImhyZWYiOiJodHRwczovL3NhbmRib3gubW9pcC5jb20uYnIvdjIvY3VzdG9tZXJzL0NVUy1ERDZOMkJLQ09JUlMifSwiaG9zdGVkQWNjb3VudCI6eyJyZWRpcmVjdEhyZWYiOiJodHRwczovL2hvc3RlZGFjY291bnQtc2FuZGJveC5tb2lwLmNvbS5icj90b2tlbj1hMTg1MmZmZC01MWQ1LTQyZjQtOWQ0OS1mNGMyODQ2MmQ5MzEmaWQ9Q1VTLURENk4yQktDT0lSUyZtcGE9TVBBLTE2N0RERUMzQjM2MyJ9fSwiZnVuZGluZ0luc3RydW1lbnRzIjpbeyJjcmVkaXRDYXJkIjp7ImlkIjoiQ1JDLU4zR1BKSEZVQURDWCIsImJyYW5kIjoiVklTQSIsImZpcnN0NiI6IjQxMTExMSIsImxhc3Q0IjoiMTExMSIsInN0b3JlIjp0cnVlfSwibWV0aG9kIjoiQ1JFRElUX0NBUkQifV19LCJwYXltZW50cyI6W10sImVzY3Jvd3MiOltdLCJyZWZ1bmRzIjpbXSwiZW50cmllcyI6W10sImV2ZW50cyI6W3sidHlwZSI6Ik9SREVSLkNSRUFURUQiLCJjcmVhdGVkQXQiOiIyMDE3LTEwLTIyVDAzOjI1OjM1LjU1NC0wMiIsImRlc2NyaXB0aW9uIjoiIn1dLCJyZWNlaXZlcnMiOlt7Im1vaXBBY2NvdW50Ijp7ImlkIjoiTVBBLTE2N0RERUMzQjM2MyIsImxvZ2luIjoiZ2FicmllbGEubGltYS5zZUBnbWFpbC5jb20iLCJmdWxsbmFtZSI6IkdhYnJpZWxhIFNlYWJyYSJ9LCJ0eXBlIjoiUFJJTUFSWSIsImFtb3VudCI6eyJ0b3RhbCI6MTk5OSwiZmVlcyI6MCwicmVmdW5kcyI6MH0sImZlZVBheW9yIjp0cnVlfV0sInNoaXBwaW5nQWRkcmVzcyI6eyJ6aXBDb2RlIjoiMDE0NTItMDAxIiwic3RyZWV0IjoiQXZlbmlkYSBGYXJpYSBMaW1hIiwic3RyZWV0TnVtYmVyIjoiMTAwIiwiY2l0eSI6IlPDo28gUGF1bG8iLCJkaXN0cmljdCI6Ikl0YWltIiwic3RhdGUiOiJTUCIsImNvdW50cnkiOiJCUkEifSwiX2xpbmtzIjp7InNlbGYiOnsiaHJlZiI6Imh0dHBzOi8vc2FuZGJveC5tb2lwLmNvbS5ici92Mi9vcmRlcnMvT1JELVRYSFdXTDk0QkNGRyJ9LCJjaGVja291dCI6eyJwYXlDaGVja291dCI6eyJyZWRpcmVjdEhyZWYiOiJodHRwczovL2NoZWNrb3V0LW5ldy1zYW5kYm94Lm1vaXAuY29tLmJyP3Rva2VuPTA3NjU1MDM1LTk4NWMtNDNmYS05ZTk4LTZmMzMwMzAyN2VlOSZpZD1PUkQtVFhIV1dMOTRCQ0ZHIn0sInBheUNyZWRpdENhcmQiOnsicmVkaXJlY3RIcmVmIjoiaHR0cHM6Ly9jaGVja291dC1uZXctc2FuZGJveC5tb2lwLmNvbS5icj90b2tlbj0wNzY1NTAzNS05ODVjLTQzZmEtOWU5OC02ZjMzMDMwMjdlZTkmaWQ9T1JELVRYSFdXTDk0QkNGRyZwYXltZW50LW1ldGhvZD1jcmVkaXQtY2FyZCJ9LCJwYXlCb2xldG8iOnsicmVkaXJlY3RIcmVmIjoiaHR0cHM6Ly9jaGVja291dC1uZXctc2FuZGJveC5tb2lwLmNvbS5icj90b2tlbj0wNzY1NTAzNS05ODVjLTQzZmEtOWU5OC02ZjMzMDMwMjdlZTkmaWQ9T1JELVRYSFdXTDk0QkNGRyZwYXltZW50LW1ldGhvZD1ib2xldG8ifSwicGF5T25saW5lQmFua0RlYml0SXRhdSI6eyJyZWRpcmVjdEhyZWYiOiJodHRwczovL2NoZWNrb3V0LXNhbmRib3gubW9pcC5jb20uYnIvZGViaXQvaXRhdS9PUkQtVFhIV1dMOTRCQ0ZHIn19fX0=
+    http_version: 
+  recorded_at: Sun, 22 Oct 2017 05:25:34 GMT
+- request:
+    method: post
+    uri: https://sandbox.moip.com.br/v2/orders/ORD-TXHWWL94BCFG/payments
+    body:
+      encoding: UTF-8
+      string: '{"installmentCount":1,"fundingInstrument":{"method":"CREDIT_CARD","creditCard":{"holder":{"fullname":"Spree
+        Commerce","birthdate":"1990-01-01","taxDocument":{"type":"CPF","number":"67822412183"}},"number":"4111111111111111","expirationMonth":12,"expirationYear":2018,"cvc":123}},"delayCapture":true}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Basic RkFISEk1TERRWlczRU1ZUzI1WUQzUFNOVTJWR1JUUk06Sk9FM1FRTUlZWFJaUFRBUlM2STNWRFpGSE9TQlBQRTNLWTk1RUM1MA==
+      User-Agent:
+      - MoipRubySDK/1.0.0 (+https://github.com/moip/moip-sdk-ruby)
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Sun, 22 Oct 2017 05:25:37 GMT
+      Server:
+      - Apache
+      Status:
+      - 201 Created
+      X-Newrelic-App-Data:
+      - PxQFUlBXAQoTUVFWDgEDUVYTGhE1AwE2QgNWEVlbQFtcC2VOYwRAFjNTVTIDEU5aUwE9TUEDa0kLQ1JWEBU/TUsNSgZdSn1WTjkWEVAYXgcKQkRBTjN3YGRNQ04HHwdKVB8EAFJUW1IBTgpbARQWVFddDwVXBARUBwNTUARRXREcAgAORFRq
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '1102'
+      X-Content-Type-Options:
+      - nosniff
+      Vary:
+      - Accept-Encoding,Origin
+    body:
+      encoding: UTF-8
+      string: '{"id":"PAY-U7VZD95RM2BB","status":"IN_ANALYSIS","delayCapture":true,"amount":{"total":1999,"gross":1999,"fees":0,"refunds":0,"liquid":1999,"currency":"BRL"},"installmentCount":1,"fundingInstrument":{"creditCard":{"id":"CRC-N3GPJHFUADCX","brand":"VISA","first6":"411111","last4":"1111","store":true,"holder":{"birthdate":"1990-01-01","birthDate":"1990-01-01","taxDocument":{"type":"CPF","number":"67822412183"},"fullname":"Spree
+        Commerce"}},"method":"CREDIT_CARD"},"fees":[{"type":"TRANSACTION","amount":0}],"events":[{"type":"PAYMENT.IN_ANALYSIS","createdAt":"2017-10-22T03:25:37.816-02"},{"type":"PAYMENT.CREATED","createdAt":"2017-10-22T03:25:37.629-02"}],"receivers":[{"moipAccount":{"id":"MPA-167DDEC3B363","login":"gabriela.lima.se@gmail.com","fullname":"Gabriela
+        Seabra"},"type":"PRIMARY","amount":{"total":1999,"refunds":0}}],"_links":{"self":{"href":"https://sandbox.moip.com.br/v2/payments/PAY-U7VZD95RM2BB"},"order":{"href":"https://sandbox.moip.com.br/v2/orders/ORD-TXHWWL94BCFG","title":"ORD-TXHWWL94BCFG"}},"createdAt":"2017-10-22T03:25:37.627-02","updatedAt":"2017-10-22T03:25:37.816-02"}'
+    http_version: 
+  recorded_at: Sun, 22 Oct 2017 05:25:36 GMT
+recorded_with: VCR 3.0.3

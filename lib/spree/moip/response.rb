@@ -5,8 +5,8 @@ module Spree
         options = success_options response
         message = success_options response
       else
-        options = error_options response
-        message = error_options response
+        options = failure_options response
+        message = failure_message response
       end
       options[:test] = provider.test_mode?
       super(response.success?, message, {}, options)
@@ -34,6 +34,11 @@ module Spree
     end
 
     def failure_message(response)
+      if response.errors
+        response.errors.map(&:description).join('; ')
+      else
+        Spree.t('moip.failure')
+      end
     end
   end
 end

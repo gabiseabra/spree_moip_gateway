@@ -26,7 +26,7 @@ module Spree
     end
 
     def moip_order(options, customer_id:)
-      order_id = options.order_id
+      order_id = options[:order_id]
       if order = Spree::MoipOrder.find_by(order: order_id)
         order
       else
@@ -43,11 +43,34 @@ module Spree
     end
 
     def purchase(money, source, options)
+      payment(money, source, options)
+    end
+
+    def authorize(money, source, options)
+      payment(money, source, options, delay_capture: true)
+    end
+
+    # Capture funds for pre-authorized transaction
+    def capture(_, transaction_id, __)
+      Response.new self, api.payment.capture(transaction_id)
+    end
+
+    def void(transaction_id, _)
+      Response.new self, api.refund.create(transaction_id)
+    end
+
+    private
+
+    def payment(_, source, options, delay_capture: false)
       catch(:error) do
-        order = moip_order(options, customer_id: source.gateway_customer_profile_id)
-        response = api.payment.create order.token, Parse.payment(options, source: source)
+        customer_id = source.try(:gateway_customer_profile_id)
+        order = moip_order(options, customer_id: customer_id)
+        request = Parse.payment(options, source: source)
+        request[:delay_capture] = delay_capture
+        response = api.payment.create order.token, request
         source.gateway_customer_profile_id = order.customer_id
         source.gateway_payment_profile_id = response.funding_instrument.credit_card.id
+        # TODO - Add adjustments if needed
         Response.new self, response
       end
     end

@@ -16,7 +16,10 @@ module Spree
           holder: {
             fullname: source.name,
             birthdate: source.birth_date.strftime('%Y-%m-%d'),
-            tax_document: tax_document(source)
+            tax_document: {
+              type: source.tax_document_type.to_s.upcase,
+              number: source.tax_document.gsub(/[^\d]/, '')
+            }
           }
         }
         if source.gateway_payment_profile_id.present?
@@ -35,7 +38,7 @@ module Spree
 
       def order(options, customer_id: nil)
         {
-          own_id: options.order_id,
+          own_id: options[:order_id],
           items: items(options),
           amount: amount(options),
           customer: customer_id ? { id: customer_id } : customer(options)
@@ -43,7 +46,7 @@ module Spree
       end
 
       def items(options)
-        options.line_items.map do |item|
+        options[:line_items].map do |item|
           {
             product: item[:name],
             quantity: item[:quantity],
@@ -54,29 +57,32 @@ module Spree
 
       def amount(options)
         {
-          currency: options.currency,
+          currency: options[:currency],
           subtotals: {
-            shipping: options.shipping.to_i,
-            addition: options.tax.to_i,
-            discount: options.discount.to_i
+            shipping: options[:shipping].to_i,
+            addition: options[:tax].to_i,
+            discount: options[:discount].to_i
           }
         }
       end
 
       def customer(options)
-        data = options.moip_address
+        data = options[:moip_address]
         {
-          own_id: options.customer_id || options.guest_token,
+          own_id: options[:customer_id] || options[:guest_token],
           fullname: data[:full_name],
-          email: options.email,
-          tax_document: tax_document(options),
+          email: options[:email],
+          tax_document: {
+            type: options[:tax_document_type].to_s.upcase,
+            number: options[:tax_document].gsub(/[^\d]/, '')
+          },
           phone: phone(options),
           shipping_address: address(options)
         }
       end
 
       def address(options)
-        options.moip_address.extract!(
+        options[:moip_address].extract!(
           :street,
           :street_number,
           :complement,
@@ -89,7 +95,7 @@ module Spree
       end
 
       def phone(options)
-        phone = options.moip_address[:phone]
+        phone = options[:moip_address][:phone]
         country = '\+(\d){2}'
         area    = '\((\d){2}\)'
         number  = '(\d){4,5}-(\d){4,5}'
@@ -107,8 +113,8 @@ module Spree
 
       def tax_document(data)
         {
-          type: data.tax_document_type.to_s.upcase,
-          number: data.tax_document.gsub(/[^\d]/, '')
+          type: data[:tax_document_type].to_s.upcase,
+          number: data[:tax_document].gsub(/[^\d]/, '')
         }
       end
     end
