@@ -1,10 +1,5 @@
 module Spree
-  class Gateway::MoipCredit < Gateway
-    preference :token, :string
-    preference :key, :string
-
-    def provider_class
-      Spree::Moip
-    end
+  class Gateway
+    class MoipCredit < MoipBase; end
   end
 end

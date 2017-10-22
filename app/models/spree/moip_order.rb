@@ -1,2 +1,1 @@
-class Spree::MoipOrder < ApplicationRecord
-end
+class Spree::MoipOrder < Spree::Base; end
