@@ -1,0 +1,17 @@
+<!-- insert_after 'p[data-erb-id*="address1"]' -->
+<p class="form-group" id=<%="#{address_id}street_number" %>>
+  <%= form.label :street_number do %>
+    <%= Spree.t(:street_number) %><abbr class="required" title="required">*</abbr>
+  <% end %>
+  <%= form.text_field :street_number, class: 'form-control required' %>
+</p>
+<p class="form-group" id=<%="#{address_id}complement" %>>
+  <%= form.label :complement, Spree.t(:complement) %>
+  <%= form.text_field :complement, class: 'form-control' %>
+</p>
+<p class="form-group" id=<%="#{address_id}district" %>>
+  <%= form.label :district do %>
+    <%= Spree.t(:district) %><abbr class="required" title="required">*</abbr>
+  <% end %>
+  <%= form.text_field :district, class: 'form-control required' %>
+</p>
