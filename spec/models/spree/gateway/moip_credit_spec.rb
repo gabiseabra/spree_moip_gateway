@@ -22,13 +22,25 @@ describe Spree::Gateway::MoipCredit do
   before(:each) { VCR.insert_cassette 'moip_credit', record: :new_episodes }
   after(:each) { VCR.eject_cassette }
 
-  it 'registers webhooks upon creation' do
-    expect(gateway.moip_notifications).to exist
+  context 'with webhooks turned on' do
+    before(:each) { SpreeMoipGateway.register_webhooks = true }
+
+    it 'registers webhooks upon creation' do
+      expect(gateway.moip_notifications).to exist
+    end
+
+    it 'unregisters webhooks upon destruction' do
+      gateway.destroy!
+      expect(gateway.moip_notifications).not_to exist
+    end
   end
 
-  it 'unregisters webhooks upon destruction' do
-    gateway.destroy!
-    expect(gateway.moip_notifications).not_to exist
+  context 'with webhooks turned off' do
+    before(:each) { SpreeMoipGateway.register_webhooks = false }
+
+    it 'doesn\'t register webhooks upon creation' do
+      expect(gateway.moip_notifications).not_to exist
+    end
   end
 
   describe '#purchase' do

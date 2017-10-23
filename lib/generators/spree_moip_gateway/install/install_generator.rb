@@ -26,6 +26,10 @@ module SpreeMoipGateway
           puts 'Skipping rake db:migrate, don\'t forget to run it!'
         end
       end
+
+      def copy_initializer_file
+        template 'initializer.rb', "#{file_name}/config/initializers/spree_moip_gateway.rb"
+      end
     end
   end
 end
