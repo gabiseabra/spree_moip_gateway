@@ -1,0 +1,2 @@
+insert_bottom '.panel-body'
+partial 'spree/shared/tax_document_fields'

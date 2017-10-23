@@ -1,0 +1,14 @@
+<div class="form-group">
+  <%= form.label :tax_document %>
+  <div class="row">
+    <div class="col-sm-2">
+      <%= form.select :tax_document_type,
+                      [[Spree.t(:cpf), :cpf], [Spree.t(:cnpj), :cnpj]],
+                      {},
+                      class: 'form-control' %>
+    </div>
+    <div class="col-sm-10">
+      <%= form.text_field :tax_document, required: true, class: 'form-control required' %>
+    </div>
+  </div>
+</div>
