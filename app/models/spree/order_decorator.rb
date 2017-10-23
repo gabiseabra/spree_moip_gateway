@@ -6,13 +6,19 @@ module Spree
 
     before_create :set_default_tax_document
 
-    validates :tax_document_type,
-              :tax_document,
-              presence: true
-    validates :tax_document,
-              cpf_or_cnpj: true
+    with_options if: :require_tax_document? do
+      validates :tax_document_type,
+                :tax_document,
+                presence: true
+      validates :tax_document,
+                cpf_or_cnpj: true
+    end
 
     private
+
+    def require_tax_document?
+      true unless new_record? || %w[cart address].include?(state)
+    end
 
     def set_default_tax_document
       if user.present?
