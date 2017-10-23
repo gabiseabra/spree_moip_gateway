@@ -17,7 +17,7 @@ module Spree
     private
 
     def register_notifications
-      return if moip_notifications.present?
+      return if !SpreeMoipGateway.register_webhooks || moip_notifications.present?
       response = provider.api.notifications.create(
         events: ['PAYMENT.*'],
         target: url_helpers.moip_webhook_url(id),
