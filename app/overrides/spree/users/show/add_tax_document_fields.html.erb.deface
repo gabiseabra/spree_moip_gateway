@@ -1,0 +1,6 @@
+<!-- insert_after 'dd:contains("@user.email")' -->
+<br />
+<% if @user.tax_document.present? %>
+  <dt><%= Spree.t(@user.tax_document_type) %></dt>
+  <dd><%= @user.tax_document %></dd>
+<% end %>
