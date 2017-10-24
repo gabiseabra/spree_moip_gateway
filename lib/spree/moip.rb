@@ -26,20 +26,9 @@ module Spree
     end
 
     def moip_order(options, customer_id:)
-      order_id = options[:order_id]
-      if order = Spree::MoipOrder.find_by(order: order_id)
-        order
-      else
-        response = api.order.create Parse.order(options, customer_id: customer_id)
-        throw :error, Response.new(self, response) unless response.success?
-        Spree::MoipOrder.create(
-          token: response.id,
-          status: response.status,
-          total: response.amount[:total],
-          customer_id: response.customer.id,
-          order: order_id
-        )
-      end
+      response = api.order.create Parse.order(options, customer_id: customer_id)
+      throw :error, Response.new(self, response) unless response.success?
+      Spree::Moip::Order.new response
     end
 
     def purchase(money, source, options)
