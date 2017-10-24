@@ -11,8 +11,8 @@ describe Spree::Gateway::MoipCredit do
   let(:transaction_id) { payment.reload.transaction_id }
   let(:add_payment_to_order!) { order.payments << payment }
   let(:authorize_payment!) do
-    url = "/simulador/authorize?payment_id=#{transaction_id}&amount=#{total_cents}"
-    gateway.provider.client.get(url)
+    path = "/simulador/authorize?payment_id=#{transaction_id}&amount=#{total_cents}"
+    gateway.provider.client.get(path)
   end
   let(:complete_order!) do
     add_payment_to_order!
@@ -67,8 +67,8 @@ describe Spree::Gateway::MoipCredit do
     end
   end
 
-  xdescribe '#void' do
-    let(:void!) { gateway.void transaction_id, gateway_options }
+  describe '#void' do
+    let(:void!) { payment.reload.void! }
     before(:each) { VCR.insert_cassette 'moip_credit/void', record: :new_episodes }
     after(:each) { VCR.eject_cassette }
     before(:each) do
@@ -78,11 +78,12 @@ describe Spree::Gateway::MoipCredit do
     end
 
     it 'updates the payment state to "void"' do
-      expect(payment.reload.state).to be 'void'
+      expect(payment.reload.state).to eq 'void'
     end
   end
 
   xdescribe '#capture' do
+    let(:capture!) { payment.reload.capture! }
     before(:each) { VCR.insert_cassette 'moip_credit/capture', record: :new_episodes }
     after(:each) { VCR.eject_cassette }
     before(:each) do
@@ -93,7 +94,7 @@ describe Spree::Gateway::MoipCredit do
 
     it 'updates the payment state to "completed"' do
       expect(payment).to be_pending
-      payment.reload.capture!
+      capture!
       expect(payment).to be_completed
     end
   end
