@@ -68,10 +68,18 @@ module Spree
         request = Parse.payment(options, source: source)
         request[:delay_capture] = delay_capture
         response = api.payment.create order.token, request
-        source.gateway_customer_profile_id = order.customer_id
-        source.gateway_payment_profile_id = response.funding_instrument.credit_card.id
+        update_source source, order, response
         # TODO - Add adjustments if needed
         Response.new self, response
+      end
+    end
+
+    def update_source(source, order, response)
+      if source.is_a? Spree::CreditCard
+        source.gateway_customer_profile_id = order.customer_id
+        if credit_card = response.try(:funding_instrument).try(:credit_card)
+          source.gateway_payment_profile_id = credit_card.id
+        end
       end
     end
   end
