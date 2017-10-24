@@ -1,0 +1,13 @@
+pt-BR:
+  spree:
+    address1: Rua
+    street_number: Número
+    complement: Complemento
+    district: Bairro
+    address2: Endereço (complementar)
+    cpf: CPF
+    cnpj: CNPJ
+    tax_document_type: Tipo de documento
+    tax_document: Documento
+    birth_date: Data de nascimento
+  
