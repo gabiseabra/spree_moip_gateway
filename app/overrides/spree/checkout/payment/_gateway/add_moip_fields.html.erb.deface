@@ -1,0 +1,20 @@
+<!-- insert_before '[data-hook="card_number"]' -->
+<% if payment_method.is_a? Spree::Gateway::MoipBase %>
+  <p class="field">
+    <%= label_tag "birth_date_#{payment_method.id}" do %>
+      <%= Spree.t(:birth_date) %><abbr class="required" title="required">*</abbr>
+    <% end %>
+    <%= date_field_tag "#{param_prefix}[birth_date]", "",
+                      id: "birth_date_#{payment_method.id}",
+                      class: 'form-control required' %>
+  </p>
+
+  <p class="field">
+    <%= label_tag "tax_document_#{payment_method.id}" do %>
+      <%= Spree.t(:cpf) %><abbr class="required" title="required">*</abbr>
+    <% end %>
+    <%= text_field_tag "#{param_prefix}[tax_document]", "",
+                      id: "tax_document_#{payment_method.id}",
+                      class: 'form-control required' %>
+  </p>
+<% end %>
