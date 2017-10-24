@@ -2,6 +2,10 @@ module Spree
   Payment::GatewayOptions.class_eval do
     alias_method :original_hash_methods, :hash_methods
 
+    def payment_id
+      @payment.id
+    end
+
     def guest_token
       order.guest_token
     end
@@ -30,6 +34,7 @@ module Spree
 
     def hash_methods
       original_hash_methods + %i[
+        payment_id
         guest_token
         moip_address
         line_items

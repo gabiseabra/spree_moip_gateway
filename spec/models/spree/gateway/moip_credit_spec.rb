@@ -44,17 +44,24 @@ describe Spree::Gateway::MoipCredit do
   end
 
   describe '#purchase' do
-    let(:response) { gateway.purchase total_cents, source, gateway_options }
+    let(:purchase!) { gateway.purchase total_cents, source, gateway_options }
+    let(:transaction_id) { purchase!.authorization }
     before(:each) { VCR.insert_cassette 'moip_credit/purchase', record: :new_episodes }
     after(:each) { VCR.eject_cassette }
-    before(:each) { add_payment_to_order! }
+    before(:each) do
+      add_payment_to_order!
+      purchase!
+    end
 
-    it 'succeeds' do
-      expect(response.success?).to be true
+    it 'creates a MoipTransaction in analysis' do
+      transaction = Spree::MoipTransaction.find_by(transaction_id: transaction_id)
+      expect(transaction).to be_present
+      expect(transaction.payment.id).to eq payment.id
+      expect(transaction.payment_method.id).to eq gateway.id
+      expect(transaction.state).to eq 'IN_ANALYSIS'
     end
 
     it 'saves gateway data to credit card' do
-      response
       expect(source.gateway_customer_profile_id).to be_present
       expect(source.gateway_payment_profile_id).to be_present
     end

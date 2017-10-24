@@ -57,10 +57,22 @@ module Spree
         request = Parse.payment(options, source: source)
         request[:delay_capture] = delay_capture
         response = api.payment.create order.token, request
-        update_source source, order, response
+        update_source source, order, response if response.success?
+        create_transaction options, response if response.success?
         # TODO - Add adjustments if needed
         Response.new self, response
       end
+    end
+
+    def create_transaction(options, response)
+      Spree::MoipTransaction.create(
+        payment_id: options[:payment_id],
+        transaction_id: response.id,
+        state: response.status,
+        total: response.amount.total,
+        installments: response.installment_count,
+        changed_at: DateTime.now
+      )
     end
 
     def update_source(source, order, response)
