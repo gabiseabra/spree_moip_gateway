@@ -2,3 +2,9 @@
 Placeholder manifest file.
 the installer will append this file to the app vendored assets here: 'vendor/assets/stylesheets/spree/frontend/all.css'
 */
+
+.tax-document { display: flex }
+.tax-document div:first-child {
+  padding-right: 0;
+  min-width: 100px;
+}
