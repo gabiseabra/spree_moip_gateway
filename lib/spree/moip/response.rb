@@ -34,8 +34,8 @@ module Spree
     end
 
     def failure_message(response)
-      if response.errors
-        response.errors.map(&:description).join('; ')
+      if errors = response.try(:errors)
+        errors.map(&:description).join('; ')
       else
         Spree.t('moip.failure')
       end
