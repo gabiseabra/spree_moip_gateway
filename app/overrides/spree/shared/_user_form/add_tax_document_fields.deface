@@ -1,0 +1,2 @@
+insert_before 'hr'
+text '<%= render partial: "spree/shared/tax_document_fields", locals: { form: f, labeled: false } %>'
