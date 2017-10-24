@@ -76,11 +76,13 @@ module Spree
 
     def update_source(source, order, response)
       if source.is_a? Spree::CreditCard
-        source.gateway_customer_profile_id = order.customer_id
+        data = {}
+        data[:gateway_customer_profile_id] = order.customer_id
         if credit_card = response.try(:funding_instrument).try(:credit_card)
-          source.gateway_payment_profile_id = credit_card.id
+          data[:gateway_payment_profile_id] = credit_card.id
         end
       end
+      source.update(data) if data
     end
   end
 end
