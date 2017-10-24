@@ -17,7 +17,7 @@ module Spree
             fullname: source.name,
             birthdate: source.birth_date.strftime('%Y-%m-%d'),
             tax_document: {
-              type: source.tax_document_type.to_s.upcase,
+              type: 'CPF',
               number: source.tax_document.gsub(/[^\d]/, '')
             }
           }
