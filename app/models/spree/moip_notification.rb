@@ -3,6 +3,8 @@ class Spree::MoipNotification < Spree::Base
 
   belongs_to :payment_method, polymorphic: true
 
+  has_secure_token
+
   serialize :events
 
   before_create :register_webhook
@@ -13,11 +15,11 @@ class Spree::MoipNotification < Spree::Base
   def register_webhook
     response = payment_method.api.notifications.create(
       events: events,
-      target: url_helpers.moip_webhook_url(payment_method.id),
+      target: url_helpers.moip_webhook_url(token),
       media: 'WEBHOOK'
     )
     self.moip_id = response.id
-    self.token = response.token
+    self.moip_token = response.token
   end
 
   def unregister_webhook
