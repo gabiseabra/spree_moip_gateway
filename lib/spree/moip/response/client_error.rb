@@ -1,8 +1,9 @@
 module Spree
   class Moip::Response::ClientError < ActiveMerchant::Billing::Response
-    def initialize(response, test_mode: false)
+    def initialize(response, test_mode: false, order:)
       @response = response
       super(false, message, {}, { test: test_mode })
+      puts self.inspect
     end
 
     private
