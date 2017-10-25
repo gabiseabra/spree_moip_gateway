@@ -82,7 +82,7 @@ describe Spree::Gateway::MoipCredit do
     end
   end
 
-  xdescribe '#capture' do
+  describe '#capture' do
     let(:capture!) { payment.reload.capture! }
     before(:each) { VCR.insert_cassette 'moip_credit/capture', record: :new_episodes }
     after(:each) { VCR.eject_cassette }
@@ -90,12 +90,11 @@ describe Spree::Gateway::MoipCredit do
       Spree::Config[:auto_capture] = false
       complete_order!
       authorize_payment!
+      capture!
     end
 
     it 'updates the payment state to "completed"' do
-      expect(payment).to be_pending
-      capture!
-      expect(payment).to be_completed
+      expect(payment.reload.state).to eq 'completed'
     end
   end
 end
