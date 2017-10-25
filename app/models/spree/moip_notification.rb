@@ -11,7 +11,7 @@ class Spree::MoipNotification < Spree::Base
   private
 
   def register_webhook
-    response = payment_method.provider.api.notifications.create(
+    response = payment_method.api.notifications.create(
       events: events,
       target: url_helpers.moip_webhook_url(payment_method.id),
       media: 'WEBHOOK'
@@ -21,6 +21,6 @@ class Spree::MoipNotification < Spree::Base
   end
 
   def unregister_webhook
-    payment_method.provider.api.notifications.delete moip_id
+    payment_method.api.notifications.delete moip_id
   end
 end

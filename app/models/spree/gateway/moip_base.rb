@@ -3,6 +3,8 @@ module Spree
     preference :token, :string
     preference :key, :string
 
+    delegate :api, to: :provider
+
     has_many :moip_notifications, as: 'payment_method'
 
     after_create :register_webhooks

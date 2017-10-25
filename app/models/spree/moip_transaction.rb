@@ -21,7 +21,7 @@ class Spree::MoipTransaction < Spree::Base
 
   def fetch_updates
     begin
-      response = payment_method.provider.api.payment.show transaction_id
+      response = payment_method.api.payment.show transaction_id
       if response.status != state
         self.state = response.status
         puts response.inspect
