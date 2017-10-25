@@ -1,9 +1,17 @@
 module Spree
   class Moip::Response < ActiveMerchant::Billing::Response
-    def initialize(provider, response)
+    attr_reader :state, :total, :installment_count,
+                :customer_id, :credit_card_id
+
+    def initialize(provider, response, order: nil)
       if response.success?
         options = success_options response
         message = success_options response
+        @state = response.try(:status)
+        @total = response.try(:amount).try(:total)
+        @installment_count = response.try(:installment_count)
+        @credit_card_id = response.try(:funding_instrument).try(:credit_card).try(:id)
+        @customer_id = order.try(:customer_id)
       else
         options = failure_options response
         message = failure_message response

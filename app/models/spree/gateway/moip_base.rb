@@ -14,7 +14,30 @@ module Spree
       Spree::Moip
     end
 
+    def purchase(money, source, options)
+      response = provider.purchase(money, source, options)
+      create_transaction options, response if response.success?
+      response
+    end
+
+    def authorize(money, source, options)
+      response = provider.authorize(money, source, options)
+      create_transaction options, response if response.success?
+      response
+    end
+
     private
+
+    def create_transaction(options, response)
+      Spree::MoipTransaction.create(
+        payment_id: options[:payment_id],
+        transaction_id: response.authorization,
+        state: response.state,
+        total: response.total,
+        installments: response.installment_count,
+        changed_at: DateTime.now
+      )
+    end
 
     def register_notifications
       return if !SpreeMoipGateway.register_webhooks || moip_notifications.present?
