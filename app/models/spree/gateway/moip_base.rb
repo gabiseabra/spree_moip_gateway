@@ -7,8 +7,8 @@ module Spree
 
     has_many :moip_notifications, as: 'payment_method'
 
-    after_create :register_notifications
-    before_destroy :unregister_notifications
+    after_create :register_webhooks
+    before_destroy :unregister_webhooks
 
     def provider_class
       Spree::Moip
@@ -26,20 +26,7 @@ module Spree
       response
     end
 
-    private
-
-    def create_transaction(options, response)
-      Spree::MoipTransaction.create(
-        payment_id: options[:payment_id],
-        transaction_id: response.authorization,
-        state: response.state,
-        total: response.total,
-        installments: response.installment_count,
-        changed_at: DateTime.now
-      )
-    end
-
-    def register_notifications
+    def register_webhooks
       return if !SpreeMoipGateway.register_webhooks || moip_notifications.present?
       response = provider.api.notifications.create(
         events: ['PAYMENT.*'],
@@ -53,11 +40,23 @@ module Spree
       )
     end
 
-    def unregister_notifications
+    def unregister_webhooks
       moip_notifications.each do |notification|
-        provider.api.notifications.delete notification.moip_id
         notification.destroy!
       end
+    end
+
+    private
+
+    def create_transaction(options, response)
+      Spree::MoipTransaction.create(
+        payment_id: options[:payment_id],
+        transaction_id: response.authorization,
+        state: response.state,
+        total: response.total,
+        installments: response.installment_count,
+        changed_at: DateTime.now
+      )
     end
   end
 end
