@@ -27,7 +27,7 @@ module Spree
 
     def moip_order(options, customer_id:)
       response = api.order.create Parse.order(options, customer_id: customer_id)
-      throw :error, Response.new(self, response) unless response.success?
+      throw :error, Response.parse(self, response) unless response.success?
       Spree::Moip::Order.new response
     end
 
@@ -41,11 +41,11 @@ module Spree
 
     # Capture funds for pre-authorized transaction
     def capture(_, transaction_id, __)
-      Response.new self, api.payment.capture(transaction_id)
+      Response.parse self, api.payment.capture(transaction_id)
     end
 
     def void(transaction_id, _)
-      Response.new self, api.refund.create(transaction_id)
+      Response.parse self, api.refund.create(transaction_id)
     end
 
     private
@@ -57,7 +57,7 @@ module Spree
         request = Parse.payment(options, source: source)
         request[:delay_capture] = delay_capture
         response = api.payment.create order.token, request
-        Response.new self, response, order: order
+        Response.parse self, response, order: order
       end
     end
   end
