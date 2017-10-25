@@ -13,7 +13,7 @@ namespace :spree_moip_gateway do
   task register_webhooks: :environment do
     types = [Spree::Gateway::MoipCredit.name]
     Spree::PaymentMethod.where(type: types).each do |gateway|
-      gateway.register_webhooks
+      gateway.register_webhooks(true)
     end
   end
 end

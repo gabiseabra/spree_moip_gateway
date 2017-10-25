@@ -1,7 +1,5 @@
 module Spree
   class Gateway::MoipBase < Gateway
-    delegate :url_helpers, to: 'Spree::Core::Engine.routes'
-
     preference :token, :string
     preference :key, :string
 
@@ -26,17 +24,11 @@ module Spree
       response
     end
 
-    def register_webhooks
-      return if !SpreeMoipGateway.register_webhooks || moip_notifications.present?
-      response = provider.api.notifications.create(
-        events: ['PAYMENT.*'],
-        target: url_helpers.moip_webhook_url(id),
-        media: 'WEBHOOK'
-      )
+    def register_webhooks(force = false)
+      return unless force || (SpreeMoipGateway.register_webhooks && !moip_notifications.present?)
       Spree::MoipNotification.create(
-        payment_method: self,
-        moip_id: response.id,
-        token: response.token
+        events: ['PAYMENT.*'],
+        payment_method: self
       )
     end
 
