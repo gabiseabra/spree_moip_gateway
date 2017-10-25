@@ -27,7 +27,7 @@ module Spree
     end
 
     def register_webhooks(force = false)
-      return unless force || (SpreeMoipGateway.register_webhooks && !moip_notifications.present?)
+      return unless (force || SpreeMoipGateway.register_webhooks) && !moip_notifications.present?
       Spree::MoipNotification.create(
         events: ['PAYMENT.*'],
         payment_method: self
