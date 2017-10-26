@@ -15,7 +15,7 @@ module Spree
 
     def set_first_digits
       num = number.to_s.gsub(/\s/, '')
-      self.first_digits ||= num.length <= 6 ? number : num.slice(0..6)
+      self.first_digits ||= num.length <= 6 ? number : num.slice(0..5)
     end
 
     def moip_payment?
