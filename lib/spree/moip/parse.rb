@@ -1,18 +1,24 @@
 module Spree
   class Moip::Parse
     class << self
-      def payment(options, source:)
-        {
-          installment_count: 1,
-          funding_instrument: credit_card(source, store: false)
+      DATE_FORMAT = '%Y-%m-%d'
+
+      def payment(options, source:, method:)
+        data = {
+          funding_instrument: case method
+          when 'CREDIT_CARD' then credit_card(source, store: false)
+          when 'BOLETO' then billet(source)
+          end
         }
+        data[:installment_count] = 1 if method == 'CREDIT_CARD'
+        data
       end
 
       def credit_card(source, store: false)
         data = {
           holder: {
             fullname: source.name,
-            birthdate: source.birth_date.strftime('%Y-%m-%d'),
+            birthdate: source.birth_date.strftime(DATE_FORMAT),
             tax_document: {
               type: 'CPF',
               number: source.tax_document.gsub(/[^\d]/, '')
@@ -38,6 +44,16 @@ module Spree
           )
         end
         { method: 'CREDIT_CARD', credit_card: data }
+      end
+
+      def billet(source)
+        {
+          method: 'BOLETO',
+          boleto: {
+            expiration_date: source[:expiration_date].strftime(DATE_FORMAT),
+            instructionLines: source[:instructions]
+          }
+        }
       end
 
       def order(options, customer_id: nil)

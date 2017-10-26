@@ -1,0 +1,75 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sandbox.moip.com.br/v2/preferences/notifications
+    body:
+      encoding: UTF-8
+      string: '{"events":["PAYMENT.*"],"target":"http://example.com/moip_notification/EWXr4g5k91BrC9Cp8WAYpbSC","media":"WEBHOOK"}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Basic RkFISEk1TERRWlczRU1ZUzI1WUQzUFNOVTJWR1JUUk06Sk9FM1FRTUlZWFJaUFRBUlM2STNWRFpGSE9TQlBQRTNLWTk1RUM1MA==
+      User-Agent:
+      - MoipRubySDK/1.0.0 (+https://github.com/moip/moip-sdk-ruby)
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Thu, 26 Oct 2017 12:54:09 GMT
+      Server:
+      - Apache
+      Status:
+      - 201 Created
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '182'
+      X-Content-Type-Options:
+      - nosniff
+      Vary:
+      - Origin
+    body:
+      encoding: UTF-8
+      string: '{"events":["PAYMENT.*"],"target":"http://example.com/moip_notification/EWXr4g5k91BrC9Cp8WAYpbSC","media":"WEBHOOK","token":"e105cc3f577f43caa67a5ad14e472796","id":"NPR-J1VE6UW9WM3R"}'
+    http_version: 
+  recorded_at: Thu, 26 Oct 2017 12:54:09 GMT
+- request:
+    method: delete
+    uri: https://sandbox.moip.com.br/v2/preferences/notifications/NPR-J1VE6UW9WM3R
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Basic RkFISEk1TERRWlczRU1ZUzI1WUQzUFNOVTJWR1JUUk06Sk9FM1FRTUlZWFJaUFRBUlM2STNWRFpGSE9TQlBQRTNLWTk1RUM1MA==
+      User-Agent:
+      - MoipRubySDK/1.0.0 (+https://github.com/moip/moip-sdk-ruby)
+  response:
+    status:
+      code: 204
+      message: No Content
+    headers:
+      Date:
+      - Thu, 26 Oct 2017 12:54:11 GMT
+      Server:
+      - Apache
+      Status:
+      - 204 No Content
+      X-Newrelic-App-Data:
+      - PxQFUlBXAQoTUlFRBAcCVlATGhE1AwE2QgNWEVlbQFtcC2VOYhFBCwpRdA4IF0pcXAgEEGseQVQ4HkZBBwAGEFUMWwdLZBtcXBFQB1gCUhYNWVkSOkxDWlQZQUpzdHsjMHQfEU5WTVIcUhZSCQsDBwJRAFcdUR9AXQ5RBFYFCVUCVVAEVgRWUEYdUFIOFQY/
+      X-Content-Type-Options:
+      - nosniff
+      Vary:
+      - Origin
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 26 Oct 2017 12:54:10 GMT
+recorded_with: VCR 3.0.3

@@ -52,7 +52,7 @@ describe Spree::Gateway::MoipCredit,
       response
     end
 
-    it_behaves_like 'moip purchase'
+    it_behaves_like 'moip authorize', 'IN_ANALYSIS'
 
     xcontext 'with payment profile',
              with_order: { guest: false },

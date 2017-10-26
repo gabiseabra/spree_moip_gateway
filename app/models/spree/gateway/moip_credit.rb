@@ -3,6 +3,18 @@ module Spree
     class MoipCredit < MoipBase
       delegate :create_customer, to: :provider
 
+      def provider
+        Spree::Moip.new options, 'CREDIT_CARD'
+      end
+
+      def source_required?
+        true
+      end
+
+      def payment_source_class
+        Spree::CreditCard
+      end
+
       def payment_profiles_supported?
         SpreeMoipGateway.register_profiles
       end
@@ -10,7 +22,7 @@ module Spree
       def create_profile(payment)
         return unless (user = payment.order.user) && user.moip_profile_ready?
         catch(:error) do
-          cvc = 
+          # cvc = ...
           profile = user.moip_gateway_profile(self)
           response = provider.create_credit_card(
             payment.source,

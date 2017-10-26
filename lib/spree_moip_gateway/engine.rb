@@ -8,6 +8,7 @@ module SpreeMoipGateway
 
     initializer 'spree.moip.payment_methods', after: 'spree.register.payment_methods' do |app|
       app.config.spree.payment_methods << Spree::Gateway::MoipCredit
+      app.config.spree.payment_methods << Spree::Gateway::MoipBillet
     end
 
     # use rspec for tests

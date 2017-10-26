@@ -1,8 +1,13 @@
 shared_context 'moip', :moip do
-  let(:gateway) do |ex|
-    create(ex.metadata[:moip].is_a?(Symbol) ? ex.metadata[:moip] : :moip_credit)
+  let(:gateway_type) { |ex| ex.metadata[:moip].is_a?(Symbol) ? ex.metadata[:moip] : :moip_credit }
+  let(:gateway) { create(gateway_type) }
+  let(:payment) do
+    options = { payment_method: gateway, order: order }
+    case gateway_type
+    when :moip_credit then build(:payment, **options)
+    when :moip_billet then build(:payment, source: nil, **options)
+    end
   end
-  let(:payment) { build(:payment, payment_method: gateway, order: order) }
   let(:gateway_options) { Spree::Payment::GatewayOptions.new(payment).to_hash }
   let(:total) { payment.amount }
   let(:total_cents) { Spree::Money.new(payment.amount).cents }
@@ -44,14 +49,14 @@ shared_examples 'moip gateway' do
   end
 end
 
-shared_examples 'moip purchase' do
+shared_examples 'moip authorize' do |state|
   it { expect(response).to be_success }
 
-  it 'creates a MoipTransaction in analysis' do
+  it "creates a MoipTransaction with state #{state}" do
     transaction = payment.reload.moip_transaction
     expect(transaction).to be_present
     expect(transaction.payment.id).to eq payment.id
     expect(transaction.payment_method.id).to eq gateway.id
-    expect(transaction.state).to eq 'IN_ANALYSIS'
+    expect(transaction.state).to eq state
   end
 end

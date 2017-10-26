@@ -3,14 +3,28 @@ require 'recursive-open-struct'
 
 module Spree
   class Moip
-    def initialize(options)
+    def initialize(options, method = 'CREDIT_CARD')
+      @method = method
       @token = options[:token]
       @secret = options[:key]
       @test_mode = options[:test_mode]
+      @valid_days = options[:valid_days]
+      @instructions = {
+        first: options[:instruction_1],
+        second: options[:instruction_2],
+        third: options[:instruction_3]
+      }
     end
 
     def test_mode?
       @test_mode
+    end
+
+    def billet_options
+      {
+        expiration_date: @valid_days.days.from_now,
+        instructions: @instructions
+      }
     end
 
     def auth
@@ -66,8 +80,9 @@ module Spree
       catch(:error) do
         customer_id = source.try(:gateway_customer_profile_id)
         order = create_order(options, customer_id: customer_id)
-        request = Parse.payment(options, source: source)
-        request[:delay_capture] = delay_capture
+        source = billet_options if @method == 'BOLETO'
+        request = Parse.payment(options, source: source, method: @method)
+        request[:delay_capture] = delay_capture if @method == 'CREDIT_CARD'
         response = api.payment.create order.id, request
         Response.parse self, response, order: order
       end
