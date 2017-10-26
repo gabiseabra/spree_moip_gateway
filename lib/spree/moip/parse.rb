@@ -4,14 +4,11 @@ module Spree
       def payment(options, source:)
         {
           installment_count: 1,
-          funding_instrument: {
-            method: 'CREDIT_CARD',
-            credit_card: credit_card(options, source: source)
-          }
+          funding_instrument: credit_card(source)
         }
       end
 
-      def credit_card(_, source:)
+      def credit_card(source)
         data = {
           holder: {
             fullname: source.name,
@@ -23,29 +20,61 @@ module Spree
           }
         }
         if source.gateway_payment_profile_id.present?
-          data.merge(id: source.gateway_payment_profile_id)
+          data.merge!(id: source.gateway_payment_profile_id)
         elsif source.encrypted_data.present?
-          data.merge(hash: source.encrypted_data)
+          data.merge!(hash: source.encrypted_data)
         else
-          data.merge(
+          data.merge!(
             number: source.number,
             expiration_month: source.month,
             expiration_year: source.year,
             cvc: source.verification_value
           )
         end
+        { method: 'CREDIT_CARD', credit_card: data }
       end
 
       def order(options, customer_id: nil)
         {
           own_id: options[:order_id],
-          items: items(options),
-          amount: amount(options),
-          customer: customer_id ? { id: customer_id } : customer(options)
+          items: order_items(options),
+          amount: order_amount(options),
+          customer: customer_id ? { id: customer_id } : order_customer(options)
         }
       end
 
-      def items(options)
+      def customer(user, token:)
+        {
+          own_id: token || user.id,
+          fullname: user.shipping_address.full_name,
+          email: user.email,
+          tax_document: {
+            type: user.tax_document_type.to_s.upcase,
+            number: user.tax_document
+          },
+          phone: phone(user.shipping_address.phone),
+          shipping_address: address(user.shipping_address.moip_hash)
+        }
+      end
+
+      private
+
+      def order_customer(options)
+        data = options[:moip_address]
+        {
+          own_id: options[:customer_id] || options[:guest_token],
+          fullname: data[:full_name],
+          email: options[:email],
+          tax_document: {
+            type: options[:tax_document_type].to_s.upcase,
+            number: options[:tax_document].gsub(/[^\d]/, '')
+          },
+          phone: phone(options[:moip_address][:phone]),
+          shipping_address: address(options[:moip_address])
+        }
+      end
+
+      def order_items(options)
         options[:line_items].map do |item|
           {
             product: item[:name],
@@ -55,7 +84,7 @@ module Spree
         end
       end
 
-      def amount(options)
+      def order_amount(options)
         {
           currency: options[:currency],
           subtotals: {
@@ -66,23 +95,8 @@ module Spree
         }
       end
 
-      def customer(options)
-        data = options[:moip_address]
-        {
-          own_id: options[:customer_id] || options[:guest_token],
-          fullname: data[:full_name],
-          email: options[:email],
-          tax_document: {
-            type: options[:tax_document_type].to_s.upcase,
-            number: options[:tax_document].gsub(/[^\d]/, '')
-          },
-          phone: phone(options),
-          shipping_address: address(options)
-        }
-      end
-
-      def address(options)
-        options[:moip_address].extract!(
+      def address(moip_address)
+        moip_address.extract!(
           :street,
           :street_number,
           :complement,
@@ -94,8 +108,7 @@ module Spree
         )
       end
 
-      def phone(options)
-        phone = options[:moip_address][:phone]
+      def phone(phone)
         country = '\+(\d){2}'
         area    = '\((\d){2}\)'
         number  = '(\d){4,5}-(\d){4,5}'
@@ -106,15 +119,6 @@ module Spree
           country_code: match[:country] || '55',
           area_code: match[:area].gsub(/[^\d]/, ''),
           number: match[:number].gsub(/[^\d]/, '')
-        }
-      end
-
-      private
-
-      def tax_document(data)
-        {
-          type: data[:tax_document_type].to_s.upcase,
-          number: data[:tax_document].gsub(/[^\d]/, '')
         }
       end
     end

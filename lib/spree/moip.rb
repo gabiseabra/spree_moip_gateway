@@ -25,10 +25,22 @@ module Spree
       @api ||= Moip2::Api.new(client)
     end
 
-    def moip_order(options, customer_id:)
+    def create_customer(user, token:)
+      response = api.customer.create Parse.customer(user, token: token)
+      throw :error, Response.parse(self, response) unless response.success?
+      response
+    end
+
+    def create_credit_card(source, customer_id:)
+      response = api.customer.add_credit_card customer_id, Parse.credit_card(source)
+      throw :error, Response.parse(self, response) unless response.success?
+      response
+    end
+
+    def create_order(options, customer_id: nil)
       response = api.order.create Parse.order(options, customer_id: customer_id)
       throw :error, Response.parse(self, response) unless response.success?
-      Spree::Moip::Order.new response
+      response
     end
 
     def purchase(money, source, options)
@@ -53,10 +65,10 @@ module Spree
     def payment(_, source, options, delay_capture: false)
       catch(:error) do
         customer_id = source.try(:gateway_customer_profile_id)
-        order = moip_order(options, customer_id: customer_id)
+        order = create_order(options, customer_id: customer_id)
         request = Parse.payment(options, source: source)
         request[:delay_capture] = delay_capture
-        response = api.payment.create order.token, request
+        response = api.payment.create order.id, request
         Response.parse self, response, order: order
       end
     end

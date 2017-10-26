@@ -1,0 +1,42 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sandbox.moip.com.br/v2/customers/CUS-5FQX69H43JOZ/fundinginstruments
+    body:
+      encoding: UTF-8
+      string: '{"method":"CREDIT_CARD","creditCard":{"holder":{"fullname":"Spree Commerce","birthdate":"1990-01-01","taxDocument":{"type":"CPF","number":"67822412183"}},"number":"5555666677778884","expirationMonth":5,"expirationYear":2018,"cvc":"123"}}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Basic RkFISEk1TERRWlczRU1ZUzI1WUQzUFNOVTJWR1JUUk06Sk9FM1FRTUlZWFJaUFRBUlM2STNWRFpGSE9TQlBQRTNLWTk1RUM1MA==
+      User-Agent:
+      - MoipRubySDK/1.0.0 (+https://github.com/moip/moip-sdk-ruby)
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Thu, 26 Oct 2017 00:04:36 GMT
+      Server:
+      - Apache
+      Status:
+      - 201 Created
+      X-Newrelic-App-Data:
+      - PxQFUlBXAQoTUVFWDgEDUVYTGhE1AwE2QgNWEVlbQFtcC2VOYwRAFjNTVTIDEU5aUwE9TUEDa0kHREVHDQsGEEM+FxlRXEluHANMD1UIXQUNWEQVFBZVVl4QEkIfYXg1MBgUH1JIU04ATAhWDwgFBQZJC1IGTRFXAQRRUwJbWwYGUQRSBggEREhXV18RAz4=
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '173'
+      X-Content-Type-Options:
+      - nosniff
+      Vary:
+      - Accept-Encoding,Origin
+    body:
+      encoding: UTF-8
+      string: '{"creditCard":{"id":"CRC-9WIVR0D20K2D","brand":"MASTERCARD","first6":"555566","last4":"8884","store":true},"card":{"brand":"MASTERCARD","store":true},"method":"CREDIT_CARD"}'
+    http_version: 
+  recorded_at: Thu, 26 Oct 2017 00:04:37 GMT
+recorded_with: VCR 3.0.3

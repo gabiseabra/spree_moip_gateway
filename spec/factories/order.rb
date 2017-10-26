@@ -4,6 +4,10 @@ FactoryGirl.modify do
     tax_document_type :cpf
     tax_document '678.224.121-83'
 
+    trait :as_guest do
+      user nil
+    end
+
     trait :populated do
       before(:create) do |order|
         create(:line_item, order: order)

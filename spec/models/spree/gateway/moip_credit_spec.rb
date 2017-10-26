@@ -1,24 +1,10 @@
 require 'spec_helper'
 
 describe Spree::Gateway::MoipCredit do
-  let(:order) { create(:order, :populated, :at_payment) }
-  let(:gateway) { create(:moip_gateway) }
-  let(:payment) { build(:payment, payment_method: gateway, order: order) }
-  let(:gateway_options) { Spree::Payment::GatewayOptions.new(payment).to_hash }
-  let(:total) { payment.amount }
-  let(:total_cents) { Spree::Money.new(payment.amount).cents }
-  let(:source) { payment.payment_source }
-  let(:transaction_id) { payment.reload.transaction_id }
-  let(:add_payment_to_order!) { order.payments << payment }
-  let(:authorize_payment!) do
-    path = "/simulador/authorize?payment_id=#{transaction_id}&amount=#{total_cents}"
-    gateway.provider.client.get(path)
-  end
-  let(:complete_order!) do
-    add_payment_to_order!
-    until order.completed? do order.next! end
-  end
+  include_context 'guest_order'
+  include_context 'payment'
 
+  let(:gateway) { create(:moip_gateway) }
   before(:each) { VCR.insert_cassette 'moip_credit', record: :new_episodes }
   after(:each) { VCR.eject_cassette }
 
@@ -43,12 +29,56 @@ describe Spree::Gateway::MoipCredit do
     end
   end
 
+  describe '#create_profile' do
+    let(:profile) { order.user.moip_profiles.where(payment_method: gateway).last }
+    before(:each) { VCR.insert_cassette 'moip_credit/create_profile', record: :new_episodes }
+    after(:each) { VCR.eject_cassette }
+    before(:each) { gateway.create_profile payment }
+
+    context 'with a registered account' do
+      include_context 'order'
+
+      it 'creates a MoipProfile with a payment source' do
+        expect(profile).to be_present
+        expect(profile.credit_cards).to exist
+        expect(profile.credit_cards.count).to eq 1
+      end
+
+      it 'updates the payment source' do
+        expect(source.gateway_customer_profile_id).to be_present
+        expect(source.gateway_payment_profile_id).to be_present
+      end
+    end
+
+    context 'with an existing moip profile' do
+      include_context 'order'
+
+      let(:other_source) { build(:credit_card, number: '5555666677778884', verification_value: '123') }
+      let(:other_payment) { build(:payment, payment_method: gateway, source: other_source, order: order) }
+      before(:each) { VCR.insert_cassette 'moip_credit/create_other_profile', record: :new_episodes }
+      after(:each) { VCR.eject_cassette }
+      before(:each) { gateway.create_profile other_payment }
+
+      it 'adds a new payment source to the existing moip profile' do
+        expect(profile.credit_cards.count).to eq 2
+      end
+    end
+
+    context 'without a registered account' do
+      it 'doesn\'t update the payment source' do
+        expect(source.gateway_customer_profile_id).not_to be_present
+        expect(source.gateway_payment_profile_id).not_to be_present
+      end
+    end
+  end
+
   describe '#purchase' do
     let(:purchase!) { gateway.purchase total_cents, source, gateway_options }
     let(:transaction_id) { purchase!.authorization }
     before(:each) { VCR.insert_cassette 'moip_credit/purchase', record: :new_episodes }
     after(:each) { VCR.eject_cassette }
     before(:each) do
+      puts order.user
       add_payment_to_order!
       purchase!
     end
@@ -59,11 +89,6 @@ describe Spree::Gateway::MoipCredit do
       expect(transaction.payment.id).to eq payment.id
       expect(transaction.payment_method.id).to eq gateway.id
       expect(transaction.state).to eq 'IN_ANALYSIS'
-    end
-
-    it 'saves gateway data to credit card' do
-      expect(source.gateway_customer_profile_id).to be_present
-      expect(source.gateway_payment_profile_id).to be_present
     end
   end
 

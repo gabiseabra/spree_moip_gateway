@@ -1,0 +1,84 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sandbox.moip.com.br/v2/customers
+    body:
+      encoding: UTF-8
+      string: '{"ownId":"cgTR9Fe4Dm15pDSWDSM2uViV","fullname":"John Doe","email":"kenneth_champlin@hammesmurazik.name","taxDocument":{"type":"CPF","number":"67822412183"},"phone":{"countryCode":"55","areaCode":"21","number":"00000000"},"shippingAddress":{"street":"Avenida
+        Faria Lima","streetNumber":100,"complement":null,"district":"Itaim","city":"São
+        Paulo","state":"SP","country":"BRA","zipCode":"01452-001"}}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Basic RkFISEk1TERRWlczRU1ZUzI1WUQzUFNOVTJWR1JUUk06Sk9FM1FRTUlZWFJaUFRBUlM2STNWRFpGSE9TQlBQRTNLWTk1RUM1MA==
+      User-Agent:
+      - MoipRubySDK/1.0.0 (+https://github.com/moip/moip-sdk-ruby)
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Wed, 25 Oct 2017 23:37:18 GMT
+      Server:
+      - Apache
+      Status:
+      - 201 Created
+      X-Newrelic-App-Data:
+      - PxQFUlBXAQoTUVFWDgEDUVYTGhE1AwE2QgNWEVlbQFtcC2VOYwRAFjNTVTIDEU5aUwE9TUEDa0kHREVHDQsGEENCEDJ3a2AbEUkJTwFNA0xUBQFSVlMKBwZIUlsPHRUDAQEPBVFUAVIBVAtSAQwEEB8DWA1CBG4=
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '695'
+      X-Content-Type-Options:
+      - nosniff
+      Vary:
+      - Accept-Encoding,Origin
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJpZCI6IkNVUy01RlFYNjlINDNKT1oiLCJvd25JZCI6ImNnVFI5RmU0RG0xNXBEU1dEU00ydVZpViIsImZ1bGxuYW1lIjoiSm9obiBEb2UiLCJjcmVhdGVkQXQiOiIyMDE3LTEwLTI1VDIxOjM3OjE4LjAwMC0wMiIsImVtYWlsIjoia2VubmV0aF9jaGFtcGxpbkBoYW1tZXNtdXJhemlrLm5hbWUiLCJwaG9uZSI6eyJjb3VudHJ5Q29kZSI6IjU1IiwiYXJlYUNvZGUiOiIyMSIsIm51bWJlciI6IjAwMDAwMDAwIn0sInRheERvY3VtZW50Ijp7InR5cGUiOiJDUEYiLCJudW1iZXIiOiI2NzgyMjQxMjE4MyJ9LCJzaGlwcGluZ0FkZHJlc3MiOnsiemlwQ29kZSI6IjAxNDUyLTAwMSIsInN0cmVldCI6IkF2ZW5pZGEgRmFyaWEgTGltYSIsInN0cmVldE51bWJlciI6IjEwMCIsImNpdHkiOiJTw6NvIFBhdWxvIiwiZGlzdHJpY3QiOiJJdGFpbSIsInN0YXRlIjoiU1AiLCJjb3VudHJ5IjoiQlJBIn0sIl9saW5rcyI6eyJzZWxmIjp7ImhyZWYiOiJodHRwczovL3NhbmRib3gubW9pcC5jb20uYnIvdjIvY3VzdG9tZXJzL0NVUy01RlFYNjlINDNKT1oifSwiaG9zdGVkQWNjb3VudCI6eyJyZWRpcmVjdEhyZWYiOiJodHRwczovL2hvc3RlZGFjY291bnQtc2FuZGJveC5tb2lwLmNvbS5icj90b2tlbj04ZjgyNmZkNy1lNmZhLTQwOTEtYmQ5Yi1jODc1MzFkNWNkNGImaWQ9Q1VTLTVGUVg2OUg0M0pPWiZtcGE9TVBBLTE2N0RERUMzQjM2MyJ9fX0=
+    http_version: 
+  recorded_at: Wed, 25 Oct 2017 23:37:18 GMT
+- request:
+    method: post
+    uri: https://sandbox.moip.com.br/v2/customers/CUS-5FQX69H43JOZ/fundinginstruments
+    body:
+      encoding: UTF-8
+      string: '{"method":"CREDIT_CARD","creditCard":{"holder":{"fullname":"Spree Commerce","birthdate":"1990-01-01","taxDocument":{"type":"CPF","number":"67822412183"}},"number":"4012001037141112","expirationMonth":5,"expirationYear":2018,"cvc":"123"}}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Basic RkFISEk1TERRWlczRU1ZUzI1WUQzUFNOVTJWR1JUUk06Sk9FM1FRTUlZWFJaUFRBUlM2STNWRFpGSE9TQlBQRTNLWTk1RUM1MA==
+      User-Agent:
+      - MoipRubySDK/1.0.0 (+https://github.com/moip/moip-sdk-ruby)
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Wed, 25 Oct 2017 23:37:19 GMT
+      Server:
+      - Apache
+      Status:
+      - 201 Created
+      X-Newrelic-App-Data:
+      - PxQFUlBXAQoTUVFWDgEDUVYTGhE1AwE2QgNWEVlbQFtcC2VOYwRAFjNTVTIDEU5aUwE9TUEDa0kHREVHDQsGEEM+FxlRXEluHANMD1UIXQUNWEQVFBZVVl4QEkIfYXg1MBgUH1JIU04ATAhWDAwECgFSFVMCVh9AVwNTVV9VCAQHAgQHAwkCUUYdUFIOFQY/
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '161'
+      X-Content-Type-Options:
+      - nosniff
+      Vary:
+      - Accept-Encoding,Origin
+    body:
+      encoding: UTF-8
+      string: '{"creditCard":{"id":"CRC-XDY69R4THPPY","brand":"VISA","first6":"401200","last4":"1112","store":true},"card":{"brand":"VISA","store":true},"method":"CREDIT_CARD"}'
+    http_version: 
+  recorded_at: Wed, 25 Oct 2017 23:37:20 GMT
+recorded_with: VCR 3.0.3

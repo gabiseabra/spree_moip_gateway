@@ -1,28 +1,26 @@
 module Spree
   class Gateway
     class MoipCredit < MoipBase
-      def purchase(money, source, options)
-        response = super(money, source, options)
-        update_source source, response if response.success?
-        response
+      delegate :create_customer, to: :provider
+
+      def payment_profiles_supported?
+        true
       end
 
-      def authorize(money, source, options)
-        response = super(money, source, options)
-        update_source source, response if response.success?
-        response
+      def create_profile(payment)
+        return unless (user = payment.order.user) && user.moip_profile_ready?
+        catch(:error) do
+          profile = user.moip_gateway_profile(self)
+          response = provider.create_credit_card(
+            payment.source,
+            customer_id: profile.moip_id
+          )
+          payment.source.update(
+            gateway_customer_profile_id: profile.moip_id,
+            gateway_payment_profile_id: response.credit_card.id
+          )
+        end
       end
-    end
-
-    private
-
-    def update_source(source, response)
-      if source.is_a? Spree::CreditCard
-        data = {}
-        data[:gateway_customer_profile_id] = response.customer_id
-        data[:gateway_payment_profile_id] = response.credit_card_id
-      end
-      source.update(data) if data
     end
   end
 end

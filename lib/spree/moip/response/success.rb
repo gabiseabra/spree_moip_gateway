@@ -27,7 +27,7 @@ module Spree
     end
 
     def customer_id
-      @order.try(:customer_id)
+      @order.try(:customer).try(:id)
     end
 
     private
