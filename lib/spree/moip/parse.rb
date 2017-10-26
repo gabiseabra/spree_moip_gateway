@@ -10,7 +10,6 @@ module Spree
 
       def credit_card(source, store: false)
         data = {
-          store: store,
           holder: {
             fullname: source.name,
             birthdate: source.birth_date.strftime('%Y-%m-%d'),
@@ -28,9 +27,10 @@ module Spree
             brand: source.moip_brand
           )
         elsif source.encrypted_data.present?
-          data.merge!(hash: source.encrypted_data)
+          data.merge!(hash: source.encrypted_data, sotre: store)
         else
           data.merge!(
+            store: store,
             number: source.number,
             expiration_month: source.month,
             expiration_year: source.year,
