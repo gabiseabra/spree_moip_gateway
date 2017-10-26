@@ -1,32 +1,10 @@
 require 'spec_helper'
 
 describe Spree::Gateway::MoipCredit,
-         :with_payment,
+         moip: :moip_credit,
          with_order: { guest: true },
          vcr: { cassette_name: 'moip_credit' } do
-  let(:gateway) { create(:moip_gateway) }
-  after(:each) { SpreeMoipGateway.defaults! }
-
-  context 'with webhooks turned on' do
-    before(:each) { SpreeMoipGateway.register_webhooks = true }
-
-    it 'registers webhooks upon creation' do
-      expect(gateway.moip_notifications).to exist
-    end
-
-    it 'unregisters webhooks upon destruction' do
-      gateway.destroy!
-      expect(gateway.moip_notifications).not_to exist
-    end
-  end
-
-  context 'with webhooks turned off' do
-    before(:each) { SpreeMoipGateway.register_webhooks = false }
-
-    it 'doesn\'t register webhooks upon creation' do
-      expect(gateway.moip_notifications).not_to exist
-    end
-  end
+  it_behaves_like 'moip gateway'
 
   describe '#create_profile', vcr: { cassette_name: 'moip_credit/create_profile' } do
     let(:profile) { order.user.moip_profiles.where(payment_method: gateway).last }
@@ -68,34 +46,25 @@ describe Spree::Gateway::MoipCredit,
   end
 
   describe '#purchase', vcr: { cassette_name: 'moip_credit/purchase' } do
-    let(:purchase!) { gateway.purchase total_cents, source, gateway_options }
-    let(:transaction_id) { purchase!.authorization }
-    before(:each) { add_payment_to_order! }
-
-    it 'creates a MoipTransaction in analysis' do
-      purchase!
-      transaction = Spree::MoipTransaction.find_by(transaction_id: transaction_id)
-      expect(transaction).to be_present
-      expect(transaction.payment.id).to eq payment.id
-      expect(transaction.payment_method.id).to eq gateway.id
-      expect(transaction.state).to eq 'IN_ANALYSIS'
+    let(:response) { gateway.purchase total_cents, source, gateway_options }
+    before(:each) do
+      add_payment_to_order!
+      response
     end
 
-    context 'with guest order' do
-      it { expect(purchase!).to be_success }
-    end
+    it_behaves_like 'moip purchase'
 
     xcontext 'with payment profile',
              with_order: { guest: false },
              vcr: { cassette_name: 'moip_credit/purchase/profile' } do
       before(:each) { SpreeMoipGateway.register_profiles = true }
-      it { expect(purchase!).to be_success }
+      it { expect(response).to be_success }
     end
 
     xcontext 'with encryptped data',
              vcr: { cassette_name: 'moip_credit/purchase/encrypted' } do
       before { source.encrypted_data = 'test' }
-      it { expect(purchase!).to be_success }
+      it { expect(response).to be_success }
     end
   end
 

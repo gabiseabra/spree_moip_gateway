@@ -1,8 +1,7 @@
 describe Spree::MoipNotificationController,
+         :moip,
          :with_order,
-         :with_payment,
          vcr: { cassette_name: 'moip_notification_controller' } do
-  let(:gateway) { create(:moip_gateway) }
   let(:authorization) { gateway.api.notifications.show(notification.moip_id).token }
   let(:notification) { gateway.reload.moip_notifications.last }
   let(:token) { notification.token }
