@@ -44,6 +44,7 @@ describe Spree::Gateway::MoipCredit, vcr: { cassette_name: 'moip_credit' } do
       it 'updates the payment source' do
         expect(source.gateway_customer_profile_id).to be_present
         expect(source.gateway_payment_profile_id).to be_present
+        expect(source.moip_brand).to be_present
       end
     end
 
@@ -70,17 +71,29 @@ describe Spree::Gateway::MoipCredit, vcr: { cassette_name: 'moip_credit' } do
   describe '#purchase', vcr: { cassette_name: 'moip_credit/purchase' } do
     let(:purchase!) { gateway.purchase total_cents, source, gateway_options }
     let(:transaction_id) { purchase!.authorization }
-    before(:each) do
-      add_payment_to_order!
-      purchase!
-    end
+    before(:each) { add_payment_to_order! }
 
     it 'creates a MoipTransaction in analysis' do
+      purchase!
       transaction = Spree::MoipTransaction.find_by(transaction_id: transaction_id)
       expect(transaction).to be_present
       expect(transaction.payment.id).to eq payment.id
       expect(transaction.payment_method.id).to eq gateway.id
       expect(transaction.state).to eq 'IN_ANALYSIS'
+    end
+
+    context 'with guest order' do
+      it { expect(purchase!).to be_success }
+    end
+
+    xcontext 'with payment profile', vcr: { cassette_name: 'moip_credit/purchase/profile' } do
+      include_context 'order'
+      it { expect(purchase!).to be_success }
+    end
+
+    xcontext 'with encryptped data', vcr: { cassette_name: 'moip_credit/purchase/encrypted' } do
+      before { source.encrypted_data = 'test' }
+      it { expect(purchase!).to be_success }
     end
   end
 
