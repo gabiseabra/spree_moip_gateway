@@ -30,6 +30,10 @@ module Spree
       @order.try(:customer).try(:id)
     end
 
+    def updated_at
+      @response.try(:updated_at)
+    end
+
     private
 
     def message

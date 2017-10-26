@@ -49,7 +49,7 @@ module Spree
         state: response.state,
         total: response.total,
         installments: response.installment_count,
-        changed_at: DateTime.now
+        moip_updated_at: DateTime.parse(response.updated_at)
       )
     end
   end

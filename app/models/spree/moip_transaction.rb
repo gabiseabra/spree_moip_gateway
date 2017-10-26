@@ -34,13 +34,18 @@ class Spree::MoipTransaction < Spree::Base
   end
 
   def fetch_updates
+    parse_response payment_method.api.payment.show(transaction_id)
+  end
+
+  def parse_update(response)
     begin
-      response = payment_method.api.payment.show transaction_id
-      if response.status != state
+      updated_at = DateTime.parse(response.updated_at)
+      if response.status != state && moip_updated_at < updated_at
         self.state = response.status
+        self.moip_updated_at = updated_at
         payment.update(state: to_spree_state) if payment.state != to_spree_state
         save
-        return true
+        true
       end
     rescue StandardError => e
       logger.error(Spree.t('moip.failed_to_update'))
