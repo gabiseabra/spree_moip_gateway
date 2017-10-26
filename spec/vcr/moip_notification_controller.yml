@@ -1,0 +1,162 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sandbox.moip.com.br/v2/preferences/notifications
+    body:
+      encoding: UTF-8
+      string: '{"events":["PAYMENT.*"],"target":"http://example.com/moip_webhook/fPBLpMSn9CJ93GE52ch7c2Tz","media":"WEBHOOK"}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Basic RkFISEk1TERRWlczRU1ZUzI1WUQzUFNOVTJWR1JUUk06Sk9FM1FRTUlZWFJaUFRBUlM2STNWRFpGSE9TQlBQRTNLWTk1RUM1MA==
+      User-Agent:
+      - MoipRubySDK/1.0.0 (+https://github.com/moip/moip-sdk-ruby)
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Thu, 26 Oct 2017 09:09:38 GMT
+      Server:
+      - Apache
+      Status:
+      - 201 Created
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '177'
+      X-Content-Type-Options:
+      - nosniff
+      Vary:
+      - Origin
+    body:
+      encoding: UTF-8
+      string: '{"events":["PAYMENT.*"],"target":"http://example.com/moip_webhook/fPBLpMSn9CJ93GE52ch7c2Tz","media":"WEBHOOK","token":"4f6241870423440dba5279992f7f04dd","id":"NPR-MHQAFNIYYW7R"}'
+    http_version: 
+  recorded_at: Thu, 26 Oct 2017 09:09:38 GMT
+- request:
+    method: post
+    uri: https://sandbox.moip.com.br/v2/orders
+    body:
+      encoding: UTF-8
+      string: '{"ownId":"R951354698-PIRYEEWQ","items":[{"product":"Product #1 - 1481","quantity":1,"price":1999}],"amount":{"currency":"BRL","subtotals":{"shipping":0,"addition":0,"discount":0}},"customer":{"ownId":1,"fullname":"John
+        Doe","email":"andrea@larkin.co.uk","taxDocument":{"type":"CPF","number":"67822412183"},"phone":{"countryCode":"55","areaCode":"21","number":"00000000"},"shippingAddress":{"street":"Avenida
+        Faria Lima","streetNumber":100,"complement":null,"district":"Itaim","city":"São
+        Paulo","state":"SP","country":"BRA","zipCode":"01452-001"}}}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Basic RkFISEk1TERRWlczRU1ZUzI1WUQzUFNOVTJWR1JUUk06Sk9FM1FRTUlZWFJaUFRBUlM2STNWRFpGSE9TQlBQRTNLWTk1RUM1MA==
+      User-Agent:
+      - MoipRubySDK/1.0.0 (+https://github.com/moip/moip-sdk-ruby)
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Thu, 26 Oct 2017 09:09:40 GMT
+      Server:
+      - Apache
+      Status:
+      - 201 Created
+      X-Newrelic-App-Data:
+      - PxQFUlBXAQoTUVFWDgEDUVYTGhE1AwE2QgNWEVlbQFtcC2VOYwRAFjNTVTIDEU5aUwE9TUEDa0kLQ1JWEBVDSmAtazYRGhgCHVUVUR9RC1dWDgJUUU8NBwlIQ1MGCVZfBwMEUAADBgMGAFpAFF5VXkAAZA==
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '2668'
+      X-Content-Type-Options:
+      - nosniff
+      Vary:
+      - Accept-Encoding,Origin
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJpZCI6Ik9SRC1ZM1lJR0Y0NTNZV0oiLCJvd25JZCI6IlI5NTEzNTQ2OTgtUElSWUVFV1EiLCJzdGF0dXMiOiJDUkVBVEVEIiwicGxhdGZvcm0iOiJWMiIsImNyZWF0ZWRBdCI6IjIwMTctMTAtMjZUMDc6MDk6NDAuNjA0LTAyIiwidXBkYXRlZEF0IjoiMjAxNy0xMC0yNlQwNzowOTo0MC42MDQtMDIiLCJhbW91bnQiOnsicGFpZCI6MCwidG90YWwiOjE5OTksImZlZXMiOjAsInJlZnVuZHMiOjAsImxpcXVpZCI6MCwib3RoZXJSZWNlaXZlcnMiOjAsImN1cnJlbmN5IjoiQlJMIiwic3VidG90YWxzIjp7InNoaXBwaW5nIjowLCJhZGRpdGlvbiI6MCwiZGlzY291bnQiOjAsIml0ZW1zIjoxOTk5fX0sIml0ZW1zIjpbeyJwcm9kdWN0IjoiUHJvZHVjdCAjMSAtIDE0ODEiLCJwcmljZSI6MTk5OSwicXVhbnRpdHkiOjF9XSwiY3VzdG9tZXIiOnsiaWQiOiJDVVMtREQ2TjJCS0NPSVJTIiwib3duSWQiOiIxIiwiZnVsbG5hbWUiOiJKb2huIERvZSIsImNyZWF0ZWRBdCI6IjIwMTctMTAtMjFUMTc6MjI6NDYuMDAwLTAyIiwiZW1haWwiOiJjZWxpbmVAaGV0dGluZ2VyLmJpeiIsImZ1bmRpbmdJbnN0cnVtZW50Ijp7ImNyZWRpdENhcmQiOnsiaWQiOiJDUkMtMUtYUEdKTFlFUUw5IiwiYnJhbmQiOiJWSVNBIiwiZmlyc3Q2IjoiNDAxMjAwIiwibGFzdDQiOiIxMTEyIiwic3RvcmUiOnRydWV9LCJtZXRob2QiOiJDUkVESVRfQ0FSRCJ9LCJwaG9uZSI6eyJjb3VudHJ5Q29kZSI6IjU1IiwiYXJlYUNvZGUiOiIyMSIsIm51bWJlciI6IjAwMDAwMDAwIn0sInRheERvY3VtZW50Ijp7InR5cGUiOiJDUEYiLCJudW1iZXIiOiI2NzgyMjQxMjE4MyJ9LCJzaGlwcGluZ0FkZHJlc3MiOnsiemlwQ29kZSI6IjAxNDUyLTAwMSIsInN0cmVldCI6IkF2ZW5pZGEgRmFyaWEgTGltYSIsInN0cmVldE51bWJlciI6IjEwMCIsImNpdHkiOiJTw6NvIFBhdWxvIiwiZGlzdHJpY3QiOiJJdGFpbSIsInN0YXRlIjoiU1AiLCJjb3VudHJ5IjoiQlJBIn0sIl9saW5rcyI6eyJzZWxmIjp7ImhyZWYiOiJodHRwczovL3NhbmRib3gubW9pcC5jb20uYnIvdjIvY3VzdG9tZXJzL0NVUy1ERDZOMkJLQ09JUlMifSwiaG9zdGVkQWNjb3VudCI6eyJyZWRpcmVjdEhyZWYiOiJodHRwczovL2hvc3RlZGFjY291bnQtc2FuZGJveC5tb2lwLmNvbS5icj90b2tlbj1hMTg1MmZmZC01MWQ1LTQyZjQtOWQ0OS1mNGMyODQ2MmQ5MzEmaWQ9Q1VTLURENk4yQktDT0lSUyZtcGE9TVBBLTE2N0RERUMzQjM2MyJ9fSwiZnVuZGluZ0luc3RydW1lbnRzIjpbeyJjcmVkaXRDYXJkIjp7ImlkIjoiQ1JDLU4zR1BKSEZVQURDWCIsImJyYW5kIjoiVklTQSIsImZpcnN0NiI6IjQxMTExMSIsImxhc3Q0IjoiMTExMSIsInN0b3JlIjp0cnVlfSwibWV0aG9kIjoiQ1JFRElUX0NBUkQifSx7ImNyZWRpdENhcmQiOnsiaWQiOiJDUkMtMUtYUEdKTFlFUUw5IiwiYnJhbmQiOiJWSVNBIiwiZmlyc3Q2IjoiNDAxMjAwIiwibGFzdDQiOiIxMTEyIiwic3RvcmUiOnRydWV9LCJtZXRob2QiOiJDUkVESVRfQ0FSRCJ9XX0sInBheW1lbnRzIjpbXSwiZXNjcm93cyI6W10sInJlZnVuZHMiOltdLCJlbnRyaWVzIjpbXSwiZXZlbnRzIjpbeyJ0eXBlIjoiT1JERVIuQ1JFQVRFRCIsImNyZWF0ZWRBdCI6IjIwMTctMTAtMjZUMDc6MDk6NDAuNjA0LTAyIiwiZGVzY3JpcHRpb24iOiIifV0sInJlY2VpdmVycyI6W3sibW9pcEFjY291bnQiOnsiaWQiOiJNUEEtMTY3RERFQzNCMzYzIiwibG9naW4iOiJnYWJyaWVsYS5saW1hLnNlQGdtYWlsLmNvbSIsImZ1bGxuYW1lIjoiR2FicmllbGEgU2VhYnJhIn0sInR5cGUiOiJQUklNQVJZIiwiYW1vdW50Ijp7InRvdGFsIjoxOTk5LCJmZWVzIjowLCJyZWZ1bmRzIjowfSwiZmVlUGF5b3IiOnRydWV9XSwic2hpcHBpbmdBZGRyZXNzIjp7InppcENvZGUiOiIwMTQ1Mi0wMDEiLCJzdHJlZXQiOiJBdmVuaWRhIEZhcmlhIExpbWEiLCJzdHJlZXROdW1iZXIiOiIxMDAiLCJjaXR5IjoiU8OjbyBQYXVsbyIsImRpc3RyaWN0IjoiSXRhaW0iLCJzdGF0ZSI6IlNQIiwiY291bnRyeSI6IkJSQSJ9LCJfbGlua3MiOnsic2VsZiI6eyJocmVmIjoiaHR0cHM6Ly9zYW5kYm94Lm1vaXAuY29tLmJyL3YyL29yZGVycy9PUkQtWTNZSUdGNDUzWVdKIn0sImNoZWNrb3V0Ijp7InBheUNoZWNrb3V0Ijp7InJlZGlyZWN0SHJlZiI6Imh0dHBzOi8vY2hlY2tvdXQtbmV3LXNhbmRib3gubW9pcC5jb20uYnI/dG9rZW49OGZmNGQyMjAtODQ1YS00ZGNjLWJjNWMtODYyMzE0ODUzZGY4JmlkPU9SRC1ZM1lJR0Y0NTNZV0oifSwicGF5Q3JlZGl0Q2FyZCI6eyJyZWRpcmVjdEhyZWYiOiJodHRwczovL2NoZWNrb3V0LW5ldy1zYW5kYm94Lm1vaXAuY29tLmJyP3Rva2VuPThmZjRkMjIwLTg0NWEtNGRjYy1iYzVjLTg2MjMxNDg1M2RmOCZpZD1PUkQtWTNZSUdGNDUzWVdKJnBheW1lbnQtbWV0aG9kPWNyZWRpdC1jYXJkIn0sInBheUJvbGV0byI6eyJyZWRpcmVjdEhyZWYiOiJodHRwczovL2NoZWNrb3V0LW5ldy1zYW5kYm94Lm1vaXAuY29tLmJyP3Rva2VuPThmZjRkMjIwLTg0NWEtNGRjYy1iYzVjLTg2MjMxNDg1M2RmOCZpZD1PUkQtWTNZSUdGNDUzWVdKJnBheW1lbnQtbWV0aG9kPWJvbGV0byJ9LCJwYXlPbmxpbmVCYW5rRGViaXRJdGF1Ijp7InJlZGlyZWN0SHJlZiI6Imh0dHBzOi8vY2hlY2tvdXQtc2FuZGJveC5tb2lwLmNvbS5ici9kZWJpdC9pdGF1L09SRC1ZM1lJR0Y0NTNZV0oifX19fQ==
+    http_version: 
+  recorded_at: Thu, 26 Oct 2017 09:09:40 GMT
+- request:
+    method: post
+    uri: https://sandbox.moip.com.br/v2/orders/ORD-Y3YIGF453YWJ/payments
+    body:
+      encoding: UTF-8
+      string: '{"installmentCount":1,"fundingInstrument":{"method":"CREDIT_CARD","creditCard":{"holder":{"fullname":"Spree
+        Commerce","birthdate":"1990-01-01","taxDocument":{"type":"CPF","number":"67822412183"}},"store":false,"number":"4012001037141112","expirationMonth":5,"expirationYear":2018,"cvc":"123"}},"delayCapture":true}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Basic RkFISEk1TERRWlczRU1ZUzI1WUQzUFNOVTJWR1JUUk06Sk9FM1FRTUlZWFJaUFRBUlM2STNWRFpGSE9TQlBQRTNLWTk1RUM1MA==
+      User-Agent:
+      - MoipRubySDK/1.0.0 (+https://github.com/moip/moip-sdk-ruby)
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Thu, 26 Oct 2017 09:09:42 GMT
+      Server:
+      - Apache
+      Status:
+      - 201 Created
+      X-Newrelic-App-Data:
+      - PxQFUlBXAQoTUVFWDgEDUVYTGhE1AwE2QgNWEVlbQFtcC2VOYwRAFjNTVTIDEU5aUwE9TUEDa0kLQ1JWEBU/TUsNSgZdSn1WTjkWEVAYXgcKQkRBTjN3YGRNQ04HHwdKVB8AAlJQVlUJURRRCQwYEFVVAVMHVAsHXAADBFBVAQASSAcDW0JSOw==
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '1102'
+      X-Content-Type-Options:
+      - nosniff
+      Vary:
+      - Accept-Encoding,Origin
+    body:
+      encoding: UTF-8
+      string: '{"id":"PAY-NCXTT62HVD7K","status":"IN_ANALYSIS","delayCapture":true,"amount":{"total":1999,"gross":1999,"fees":0,"refunds":0,"liquid":1999,"currency":"BRL"},"installmentCount":1,"fundingInstrument":{"creditCard":{"id":"CRC-1KXPGJLYEQL9","brand":"VISA","first6":"401200","last4":"1112","store":true,"holder":{"birthdate":"1990-01-01","birthDate":"1990-01-01","taxDocument":{"type":"CPF","number":"67822412183"},"fullname":"Spree
+        Commerce"}},"method":"CREDIT_CARD"},"fees":[{"type":"TRANSACTION","amount":0}],"events":[{"type":"PAYMENT.IN_ANALYSIS","createdAt":"2017-10-26T07:09:42.960-02"},{"type":"PAYMENT.CREATED","createdAt":"2017-10-26T07:09:42.436-02"}],"receivers":[{"moipAccount":{"id":"MPA-167DDEC3B363","login":"gabriela.lima.se@gmail.com","fullname":"Gabriela
+        Seabra"},"type":"PRIMARY","amount":{"total":1999,"refunds":0}}],"_links":{"self":{"href":"https://sandbox.moip.com.br/v2/payments/PAY-NCXTT62HVD7K"},"order":{"href":"https://sandbox.moip.com.br/v2/orders/ORD-Y3YIGF453YWJ","title":"ORD-Y3YIGF453YWJ"}},"createdAt":"2017-10-26T07:09:42.434-02","updatedAt":"2017-10-26T07:09:42.960-02"}'
+    http_version: 
+  recorded_at: Thu, 26 Oct 2017 09:09:42 GMT
+- request:
+    method: get
+    uri: https://sandbox.moip.com.br/v2/preferences/notifications/NPR-MHQAFNIYYW7R
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Basic RkFISEk1TERRWlczRU1ZUzI1WUQzUFNOVTJWR1JUUk06Sk9FM1FRTUlZWFJaUFRBUlM2STNWRFpGSE9TQlBQRTNLWTk1RUM1MA==
+      User-Agent:
+      - MoipRubySDK/1.0.0 (+https://github.com/moip/moip-sdk-ruby)
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 26 Oct 2017 09:20:45 GMT
+      Server:
+      - Apache
+      Status:
+      - 200 OK
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '177'
+      X-Content-Type-Options:
+      - nosniff
+      Vary:
+      - Origin
+    body:
+      encoding: UTF-8
+      string: '{"events":["PAYMENT.*"],"target":"http://example.com/moip_webhook/fPBLpMSn9CJ93GE52ch7c2Tz","media":"WEBHOOK","token":"4f6241870423440dba5279992f7f04dd","id":"NPR-MHQAFNIYYW7R"}'
+    http_version: 
+  recorded_at: Thu, 26 Oct 2017 09:20:44 GMT
+recorded_with: VCR 3.0.3

@@ -37,11 +37,11 @@ class Spree::MoipTransaction < Spree::Base
     parse_response payment_method.api.payment.show(transaction_id)
   end
 
-  def parse_update(response)
+  def process_update(data)
     begin
-      updated_at = DateTime.parse(response.updated_at)
-      if response.status != state && moip_updated_at < updated_at
-        self.state = response.status
+      updated_at = DateTime.parse(data.updated_at)
+      if data.status != state && moip_updated_at < updated_at
+        self.state = data.status
         self.moip_updated_at = updated_at
         payment.update(state: to_spree_state) if payment.state != to_spree_state
         save
@@ -54,7 +54,7 @@ class Spree::MoipTransaction < Spree::Base
     false
   end
 
-  def to_spree_state
+  def self.to_spree_state(state)
     case state
     when 'CREATED' then 'checkout'
     when 'WAITING', 'IN_ANALYSIS', 'PRE_AUTHORIZED' then 'pending'
@@ -62,5 +62,9 @@ class Spree::MoipTransaction < Spree::Base
     when 'REFUNDED', 'REVERSED' then 'void'
     when 'AUTHORIZED', 'SETTLED' then 'completed'
     end
+  end
+
+  def to_spree_state
+    self.class.to_spree_state state
   end
 end

@@ -1,0 +1,37 @@
+{
+  "date" : "",
+  "env" : "",
+  "event" : "PAYMENT.{STATE}",
+  "resource" : {
+    "payment" : {
+      "id": "{TRANSACTION_ID}",
+      "installmentCount": 1,
+      "status":"{STATE}",
+      "_links": {},
+      "amount":{
+        "currency": "BRL",
+        "fees": 0,
+        "gross": 1999,
+        "liquid": 1999,
+        "refunds": 0,
+        "total":1999
+      },
+      "createdAt":"2017-10-25T03:42:30.000-02",
+      "delayCapture":true,
+      "events":[],
+      "fees": [ {"amount": 0, "type": "TRANSACTION"} ],
+      "fundingInstrument": {
+        "method": "CREDIT_CARD",
+        "creditCard": {
+          "id": "{CREDIT_CARD_ID}",
+          "brand": "VISA",
+          "first6": "401200",
+          "last4": "1112",
+          "holder": {}
+        }
+      },
+      "receivers": [],
+      "updatedAt": "{NOW}"
+    }
+  }
+}
