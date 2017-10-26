@@ -25,12 +25,14 @@ module Spree
     def purchase(money, source, options)
       response = provider.purchase(money, source, options)
       create_transaction options, response if response.success?
+      after_payment response, source, options if respond_to? :after_payment
       response
     end
 
     def authorize(money, source, options)
       response = provider.authorize(money, source, options)
       create_transaction options, response if response.success?
+      after_payment response, source, options if respond_to? :after_payment, true
       response
     end
 
@@ -51,13 +53,14 @@ module Spree
     private
 
     def create_transaction(options, response)
+      data = response.data
       Spree::MoipTransaction.create(
         payment_id: options[:payment_id],
         transaction_id: response.authorization,
         state: response.state,
-        total: response.total,
-        installments: response.installment_count,
-        moip_updated_at: DateTime.parse(response.updated_at)
+        total: data.amount.total,
+        installments: data.installment_count,
+        moip_updated_at: DateTime.parse(data.updated_at)
       )
     end
   end

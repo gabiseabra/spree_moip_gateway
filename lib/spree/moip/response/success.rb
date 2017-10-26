@@ -1,5 +1,8 @@
 module Spree
   class Moip::Response::Success < ActiveMerchant::Billing::Response
+    attr_reader :response
+    alias data response
+
     def initialize(response, order: nil, test_mode: false)
       @response = response
       @order = order
@@ -10,28 +13,12 @@ module Spree
       })
     end
 
+    def id
+      @response.try(:id)
+    end
+
     def state
       @response.try(:status)
-    end
-
-    def total
-      @response.try(:amount).try(:total)
-    end
-
-    def installment_count
-      @response.try(:installment_count)
-    end
-
-    def credit_card_id
-      @response.try(:funding_instrument).try(:credit_card).try(:id)
-    end
-
-    def customer_id
-      @order.try(:customer).try(:id)
-    end
-
-    def updated_at
-      @response.try(:updated_at)
     end
 
     private

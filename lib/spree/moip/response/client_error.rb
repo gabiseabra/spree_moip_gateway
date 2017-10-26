@@ -1,9 +1,11 @@
 module Spree
   class Moip::Response::ClientError < ActiveMerchant::Billing::Response
+    attr_accessor :response
+    alias data response
+
     def initialize(response, test_mode: false, order:)
       @response = response
       super(false, message, {}, { test: test_mode })
-      puts self.inspect
     end
 
     private

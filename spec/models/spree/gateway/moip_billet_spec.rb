@@ -14,5 +14,10 @@ describe Spree::Gateway::MoipBillet,
     end
 
     it_behaves_like 'moip authorize', 'WAITING'
+
+    it 'saves billet data to payment source' do
+      expect(source.url).to be_present
+      expect(source.expires_at).to be_present
+    end
   end
 end

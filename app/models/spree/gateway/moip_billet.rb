@@ -10,8 +10,26 @@ module Spree
         'BOLETO'
       end
 
-      def source_required?
+      def auto_capture?
         false
+      end
+
+      def source_required?
+        true
+      end
+
+      def payment_source_class
+        Spree::MoipBillet
+      end
+
+      protected
+
+      def after_payment(response, source, _)
+        data = response.data
+        source.update(
+          url: data._links.pay_boleto.print_href,
+          expires_at: Date.parse(data.funding_instrument.boleto.expiration_date)
+        )
       end
     end
   end

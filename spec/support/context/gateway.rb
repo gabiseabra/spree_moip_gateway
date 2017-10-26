@@ -1,11 +1,15 @@
 shared_context 'moip', :moip do
   let(:gateway_type) { |ex| ex.metadata[:moip].is_a?(Symbol) ? ex.metadata[:moip] : :moip_credit }
-  let(:gateway) { create(gateway_type) }
+  let(:gateway) { create("#{gateway_type}_gateway".to_sym) }
   let(:payment) do
     options = { payment_method: gateway, order: order }
     case gateway_type
     when :moip_credit then build(:payment, **options)
-    when :moip_billet then build(:payment, source: nil, **options)
+    when :moip_billet then build(
+      :payment,
+      source: Spree::MoipBillet.new(payment_method: gateway),
+      **options
+    )
     end
   end
   let(:gateway_options) { Spree::Payment::GatewayOptions.new(payment).to_hash }
