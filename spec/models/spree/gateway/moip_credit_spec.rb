@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Spree::Gateway::MoipCredit, cassette: 'moip_credit' do
+describe Spree::Gateway::MoipCredit, vcr: { cassette_name: 'moip_credit' } do
   include_context 'guest_order'
   include_context 'payment'
 
@@ -8,6 +8,7 @@ describe Spree::Gateway::MoipCredit, cassette: 'moip_credit' do
 
   context 'with webhooks turned on' do
     before(:each) { SpreeMoipGateway.register_webhooks = true }
+    after(:each) { SpreeMoipGateway.register_webhooks = false }
 
     it 'registers webhooks upon creation' do
       expect(gateway.moip_notifications).to exist
@@ -27,7 +28,7 @@ describe Spree::Gateway::MoipCredit, cassette: 'moip_credit' do
     end
   end
 
-  describe '#create_profile', cassette: 'moip_credit/create_profile' do
+  describe '#create_profile', vcr: { cassette_name: 'moip_credit/create_profile' } do
     let(:profile) { order.user.moip_profiles.where(payment_method: gateway).last }
     before(:each) { gateway.create_profile payment }
 
@@ -46,7 +47,7 @@ describe Spree::Gateway::MoipCredit, cassette: 'moip_credit' do
       end
     end
 
-    context 'with an existing moip profile', cassette: 'moip_credit/create_other_profile' do
+    context 'with an existing moip profile', vcr: { cassette_name: 'moip_credit/create_other_profile' } do
       include_context 'order'
 
       let(:other_source) { build(:credit_card, number: '5555666677778884', verification_value: '123') }
@@ -66,7 +67,7 @@ describe Spree::Gateway::MoipCredit, cassette: 'moip_credit' do
     end
   end
 
-  describe '#purchase', cassette: 'moip_credit/purchase' do
+  describe '#purchase', vcr: { cassette_name: 'moip_credit/purchase' } do
     let(:purchase!) { gateway.purchase total_cents, source, gateway_options }
     let(:transaction_id) { purchase!.authorization }
     before(:each) do
@@ -84,7 +85,7 @@ describe Spree::Gateway::MoipCredit, cassette: 'moip_credit' do
     end
   end
 
-  describe '#void', cassette: 'moip_credit/void' do
+  describe '#void', vcr: { cassette_name: 'moip_credit/void' } do
     let(:void!) { payment.reload.void! }
     before(:each) do
       complete_order!
@@ -97,7 +98,7 @@ describe Spree::Gateway::MoipCredit, cassette: 'moip_credit' do
     end
   end
 
-  describe '#capture', cassette: 'moip_credit/capture' do
+  describe '#capture', vcr: { cassette_name: 'moip_credit/capture' } do
     let(:capture!) { payment.reload.capture! }
     before(:each) do
       Spree::Config[:auto_capture] = false

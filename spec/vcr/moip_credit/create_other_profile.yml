@@ -2,7 +2,88 @@
 http_interactions:
 - request:
     method: post
-    uri: https://sandbox.moip.com.br/v2/customers/CUS-5FQX69H43JOZ/fundinginstruments
+    uri: https://sandbox.moip.com.br/v2/customers
+    body:
+      encoding: UTF-8
+      string: '{"ownId":"Sc8qaAqSLQCTXokHBw74Jd8b","fullname":"John Doe","email":"veta@dibbert.info","taxDocument":{"type":"CPF","number":"67822412183"},"phone":{"countryCode":"55","areaCode":"21","number":"00000000"},"shippingAddress":{"street":"Avenida
+        Faria Lima","streetNumber":100,"complement":null,"district":"Itaim","city":"São
+        Paulo","state":"SP","country":"BRA","zipCode":"01452-001"}}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Basic RkFISEk1TERRWlczRU1ZUzI1WUQzUFNOVTJWR1JUUk06Sk9FM1FRTUlZWFJaUFRBUlM2STNWRFpGSE9TQlBQRTNLWTk1RUM1MA==
+      User-Agent:
+      - MoipRubySDK/1.0.0 (+https://github.com/moip/moip-sdk-ruby)
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Thu, 26 Oct 2017 02:30:59 GMT
+      Server:
+      - Apache
+      Status:
+      - 201 Created
+      X-Newrelic-App-Data:
+      - PxQFUlBXAQoTUVFWDgEDUVYTGhE1AwE2QgNWEVlbQFtcC2VOYwRAFjNTVTIDEU5aUwE9TUEDa0kHREVHDQsGEENCEDJ3a2AbEUkJTwFNA0xUBQJQXlcKABxXWVIbEw9TAFBTC1ZWAgAEVQgAAF4WHlUEVRJUPA==
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '677'
+      X-Content-Type-Options:
+      - nosniff
+      Vary:
+      - Accept-Encoding,Origin
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJpZCI6IkNVUy1TOE1FWFBGSks5VUIiLCJvd25JZCI6IlNjOHFhQXFTTFFDVFhva0hCdzc0SmQ4YiIsImZ1bGxuYW1lIjoiSm9obiBEb2UiLCJjcmVhdGVkQXQiOiIyMDE3LTEwLTI2VDAwOjMwOjU5LjAwMC0wMiIsImVtYWlsIjoidmV0YUBkaWJiZXJ0LmluZm8iLCJwaG9uZSI6eyJjb3VudHJ5Q29kZSI6IjU1IiwiYXJlYUNvZGUiOiIyMSIsIm51bWJlciI6IjAwMDAwMDAwIn0sInRheERvY3VtZW50Ijp7InR5cGUiOiJDUEYiLCJudW1iZXIiOiI2NzgyMjQxMjE4MyJ9LCJzaGlwcGluZ0FkZHJlc3MiOnsiemlwQ29kZSI6IjAxNDUyLTAwMSIsInN0cmVldCI6IkF2ZW5pZGEgRmFyaWEgTGltYSIsInN0cmVldE51bWJlciI6IjEwMCIsImNpdHkiOiJTw6NvIFBhdWxvIiwiZGlzdHJpY3QiOiJJdGFpbSIsInN0YXRlIjoiU1AiLCJjb3VudHJ5IjoiQlJBIn0sIl9saW5rcyI6eyJzZWxmIjp7ImhyZWYiOiJodHRwczovL3NhbmRib3gubW9pcC5jb20uYnIvdjIvY3VzdG9tZXJzL0NVUy1TOE1FWFBGSks5VUIifSwiaG9zdGVkQWNjb3VudCI6eyJyZWRpcmVjdEhyZWYiOiJodHRwczovL2hvc3RlZGFjY291bnQtc2FuZGJveC5tb2lwLmNvbS5icj90b2tlbj1hN2E1NGYxMy1lY2Q3LTQ4YWYtYjlmMS0xNmQwZWMzOGUzNWEmaWQ9Q1VTLVM4TUVYUEZKSzlVQiZtcGE9TVBBLTE2N0RERUMzQjM2MyJ9fX0=
+    http_version: 
+  recorded_at: Thu, 26 Oct 2017 02:30:59 GMT
+- request:
+    method: post
+    uri: https://sandbox.moip.com.br/v2/customers/CUS-S8MEXPFJK9UB/fundinginstruments
+    body:
+      encoding: UTF-8
+      string: '{"method":"CREDIT_CARD","creditCard":{"holder":{"fullname":"Spree Commerce","birthdate":"1990-01-01","taxDocument":{"type":"CPF","number":"67822412183"}},"number":"4012001037141112","expirationMonth":5,"expirationYear":2018,"cvc":"123"}}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Basic RkFISEk1TERRWlczRU1ZUzI1WUQzUFNOVTJWR1JUUk06Sk9FM1FRTUlZWFJaUFRBUlM2STNWRFpGSE9TQlBQRTNLWTk1RUM1MA==
+      User-Agent:
+      - MoipRubySDK/1.0.0 (+https://github.com/moip/moip-sdk-ruby)
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Thu, 26 Oct 2017 02:31:01 GMT
+      Server:
+      - Apache
+      Status:
+      - 201 Created
+      X-Newrelic-App-Data:
+      - PxQFUlBXAQoTUVFWDgEDUVYTGhE1AwE2QgNWEVlbQFtcC2VOYwRAFjNTVTIDEU5aUwE9TUEDa0kHREVHDQsGEEM+FxlRXEluHANMD1UIXQUNWEQVFBZVVl4QEkIfYXg1MBgUH1JIU04ATAhWDAsMAAJXFVMCVh9AAlUFAlUAWgtVUlJRDwYPUEYdUFIOFQY/
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '161'
+      X-Content-Type-Options:
+      - nosniff
+      Vary:
+      - Accept-Encoding,Origin
+    body:
+      encoding: UTF-8
+      string: '{"creditCard":{"id":"CRC-KWXRB5OQ321D","brand":"VISA","first6":"401200","last4":"1112","store":true},"card":{"brand":"VISA","store":true},"method":"CREDIT_CARD"}'
+    http_version: 
+  recorded_at: Thu, 26 Oct 2017 02:31:01 GMT
+- request:
+    method: post
+    uri: https://sandbox.moip.com.br/v2/customers/CUS-S8MEXPFJK9UB/fundinginstruments
     body:
       encoding: UTF-8
       string: '{"method":"CREDIT_CARD","creditCard":{"holder":{"fullname":"Spree Commerce","birthdate":"1990-01-01","taxDocument":{"type":"CPF","number":"67822412183"}},"number":"5555666677778884","expirationMonth":5,"expirationYear":2018,"cvc":"123"}}'
@@ -19,13 +100,13 @@ http_interactions:
       message: Created
     headers:
       Date:
-      - Thu, 26 Oct 2017 00:04:36 GMT
+      - Thu, 26 Oct 2017 02:31:02 GMT
       Server:
       - Apache
       Status:
       - 201 Created
       X-Newrelic-App-Data:
-      - PxQFUlBXAQoTUVFWDgEDUVYTGhE1AwE2QgNWEVlbQFtcC2VOYwRAFjNTVTIDEU5aUwE9TUEDa0kHREVHDQsGEEM+FxlRXEluHANMD1UIXQUNWEQVFBZVVl4QEkIfYXg1MBgUH1JIU04ATAhWDwgFBQZJC1IGTRFXAQRRUwJbWwYGUQRSBggEREhXV18RAz4=
+      - PxQFUlBXAQoTUVFWDgEDUVYTGhE1AwE2QgNWEVlbQFtcC2VOYwRAFjNTVTIDEU5aUwE9TUEDa0kHREVHDQsGEEM+FxlRXEluHANMD1UIXQUNWEQVFBZVVl4QEkIfYXg1MBgUH1JIU04ATAhWAQkFBQNdFVMCVh9AXAdTBFdUCgNVVgRWAgZSA0YdUFIOFQY/
       Content-Type:
       - application/json
       Content-Length:
@@ -36,7 +117,7 @@ http_interactions:
       - Accept-Encoding,Origin
     body:
       encoding: UTF-8
-      string: '{"creditCard":{"id":"CRC-9WIVR0D20K2D","brand":"MASTERCARD","first6":"555566","last4":"8884","store":true},"card":{"brand":"MASTERCARD","store":true},"method":"CREDIT_CARD"}'
+      string: '{"creditCard":{"id":"CRC-E2VPBW8JK6EZ","brand":"MASTERCARD","first6":"555566","last4":"8884","store":true},"card":{"brand":"MASTERCARD","store":true},"method":"CREDIT_CARD"}'
     http_version: 
-  recorded_at: Thu, 26 Oct 2017 00:04:37 GMT
+  recorded_at: Thu, 26 Oct 2017 02:31:03 GMT
 recorded_with: VCR 3.0.3
