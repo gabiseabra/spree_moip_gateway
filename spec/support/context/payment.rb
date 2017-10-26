@@ -1,11 +1,3 @@
-shared_context 'order' do
-  let(:order) { create(:order, :populated, :at_payment) }
-end
-
-shared_context 'guest_order' do
-  let(:order) { create(:order, :populated, :at_payment, :as_guest) }
-end
-
 shared_context 'payment' do
   let(:payment) { build(:payment, payment_method: gateway, order: order) }
   let(:gateway_options) { Spree::Payment::GatewayOptions.new(payment).to_hash }
