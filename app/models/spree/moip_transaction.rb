@@ -6,7 +6,7 @@ class Spree::MoipTransaction < Spree::Base
   scope :in_state, ->(state) { where(state: state) }
   scope :not_in_state, ->(state) { where.not(state: state) }
 
-  STATES = %w[CREATED WAITING IN_ANAYSIS PRE_AUTHORIZED
+  STATES = %w[CREATED WAITING IN_ANALYSIS PRE_AUTHORIZED
               AUTHORIZED CANCELLED REFUNDED REVERSED SETTLED].freeze
   FINAL_STATES = %w[AUTHORIZED CANCELLED REFUNDED REVERSED SETTLED].freeze
   PROCESSING_STATES = (STATES - FINAL_STATES).freeze
@@ -14,7 +14,7 @@ class Spree::MoipTransaction < Spree::Base
   def self.fetch_updates
     updated = 0
     in_state(PROCESSING_STATES).each do |transaction|
-      ++updated if transaction.fetch_updates
+      updated += 1 if transaction.fetch_updates
     end
     updated
   end
@@ -24,7 +24,7 @@ class Spree::MoipTransaction < Spree::Base
   end
 
   def can_void?
-    %w[AUTHORIZED PRE_AUTHORIZED].include?(state)
+    %w[AUTHORIZED PRE_AUTHORIZED SETTLED].include?(state)
   end
 
   def actions
@@ -38,8 +38,7 @@ class Spree::MoipTransaction < Spree::Base
       response = payment_method.api.payment.show transaction_id
       if response.status != state
         self.state = response.status
-        puts response.inspect
-        payment.state = to_spree_state if payment.state != to_spree_state
+        payment.update(state: to_spree_state) if payment.state != to_spree_state
         save
         return true
       end
