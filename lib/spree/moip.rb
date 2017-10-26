@@ -56,7 +56,7 @@ module Spree
       Response.parse self, api.payment.capture(transaction_id)
     end
 
-    def void(transaction_id, _)
+    def void(transaction_id, _, __)
       Response.parse self, api.refund.create(transaction_id)
     end
 
