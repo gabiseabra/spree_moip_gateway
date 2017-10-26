@@ -8,7 +8,7 @@ module Spree
         elsif response.client_error?
           ClientError.new response, **options
         else
-          raise response.to_s
+          raise ActiveMerchant::ConnectionError, response.to_s
         end
       end
     end
