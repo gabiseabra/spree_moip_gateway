@@ -5,6 +5,8 @@ class Spree::MoipNotification < Spree::Base
 
   has_secure_token
 
+  has_secure_password validations: false
+
   serialize :events
 
   before_create :register_webhook
@@ -19,7 +21,7 @@ class Spree::MoipNotification < Spree::Base
       media: 'WEBHOOK'
     )
     self.moip_id = response.id
-    self.moip_token = response.token
+    self.password = response.token
   end
 
   def unregister_webhook
