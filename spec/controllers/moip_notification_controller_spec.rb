@@ -12,7 +12,7 @@ describe Spree::MoipNotificationController,
   end
 
   def build_body(replace)
-    body = file_fixture('authorized.json').read
+    body = file_fixture('payment.json').read
     replace.each { |key, value| body.gsub! key, value }
     body
   end
