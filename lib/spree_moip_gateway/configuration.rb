@@ -1,5 +1,6 @@
 module SpreeMoipGateway
   mattr_accessor :register_webhooks
+  mattr_accessor :register_profiles
 
   def self.config
     defaults!
@@ -8,5 +9,6 @@ module SpreeMoipGateway
 
   def self.defaults!
     @register_webhooks = false
+    @register_profiles = false
   end
 end

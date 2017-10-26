@@ -30,6 +30,7 @@ describe Spree::Gateway::MoipCredit, vcr: { cassette_name: 'moip_credit' } do
 
   describe '#create_profile', vcr: { cassette_name: 'moip_credit/create_profile' } do
     let(:profile) { order.user.moip_profiles.where(payment_method: gateway).last }
+    before(:each) { SpreeMoipGateway.register_profiles = true }
     before(:each) { gateway.create_profile payment }
 
     context 'with a registered account' do
@@ -88,6 +89,7 @@ describe Spree::Gateway::MoipCredit, vcr: { cassette_name: 'moip_credit' } do
 
     xcontext 'with payment profile', vcr: { cassette_name: 'moip_credit/purchase/profile' } do
       include_context 'order'
+      before(:each) { SpreeMoipGateway.register_profiles = true }
       it { expect(purchase!).to be_success }
     end
 

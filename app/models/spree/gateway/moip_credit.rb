@@ -4,7 +4,7 @@ module Spree
       delegate :create_customer, to: :provider
 
       def payment_profiles_supported?
-        true
+        SpreeMoipGateway.register_profiles
       end
 
       def create_profile(payment)
