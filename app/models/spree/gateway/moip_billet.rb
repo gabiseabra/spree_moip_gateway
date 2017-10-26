@@ -6,12 +6,12 @@ module Spree
       preference :instruction_2, :text
       preference :instruction_3, :text
 
-      def source_required?
-        false
+      def method
+        'BOLETO'
       end
 
-      def provider
-        Spree::Moip.new options, 'BOLETO'
+      def source_required?
+        false
       end
     end
   end

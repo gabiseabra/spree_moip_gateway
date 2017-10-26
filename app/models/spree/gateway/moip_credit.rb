@@ -3,8 +3,8 @@ module Spree
     class MoipCredit < MoipBase
       delegate :create_customer, to: :provider
 
-      def provider
-        Spree::Moip.new options, 'CREDIT_CARD'
+      def method
+        'CREDIT_CARD'
       end
 
       def source_required?

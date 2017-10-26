@@ -10,8 +10,16 @@ module Spree
     after_create :register_webhooks
     before_destroy :unregister_webhooks
 
+    METHODS = %w[CREDIT_CARD BOLETO ONLINE_BANK_DEBIT WALLET].freeze
+
     def provider_class
       Spree::Moip
+    end
+
+    def provider
+      raise NotImplementedError, 'Miop gateway must implement #method' unless respond_to?(:method)
+      raise "Unknown payment method #{method}" unless METHODS.include?(method)
+      Spree::Moip.new options, method
     end
 
     def purchase(money, source, options)
