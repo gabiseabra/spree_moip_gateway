@@ -71,7 +71,6 @@ describe Spree::Gateway::MoipCredit, vcr: { cassette_name: 'moip_credit' } do
     let(:purchase!) { gateway.purchase total_cents, source, gateway_options }
     let(:transaction_id) { purchase!.authorization }
     before(:each) do
-      puts order.user
       add_payment_to_order!
       purchase!
     end

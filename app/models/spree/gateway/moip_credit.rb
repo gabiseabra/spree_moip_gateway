@@ -17,7 +17,8 @@ module Spree
           )
           payment.source.update(
             gateway_customer_profile_id: profile.moip_id,
-            gateway_payment_profile_id: response.credit_card.id
+            gateway_payment_profile_id: response.credit_card.id,
+            moip_brand: response.credit_card.brand
           )
         end
       end
