@@ -5,10 +5,10 @@ describe Spree::Gateway::MoipCredit, vcr: { cassette_name: 'moip_credit' } do
   include_context 'payment'
 
   let(:gateway) { create(:moip_gateway) }
+  after(:each) { SpreeMoipGateway.defaults! }
 
   context 'with webhooks turned on' do
     before(:each) { SpreeMoipGateway.register_webhooks = true }
-    after(:each) { SpreeMoipGateway.register_webhooks = false }
 
     it 'registers webhooks upon creation' do
       expect(gateway.moip_notifications).to exist
