@@ -1,4 +1,4 @@
-shared_context 'payment' do
+shared_context 'with_payment', :with_payment do
   let(:payment) { build(:payment, payment_method: gateway, order: order) }
   let(:gateway_options) { Spree::Payment::GatewayOptions.new(payment).to_hash }
   let(:total) { payment.amount }

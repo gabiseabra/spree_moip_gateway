@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe Spree::Gateway::MoipCredit, vcr: { cassette_name: 'moip_credit' } do
-  include_context 'guest_order'
-  include_context 'payment'
-
+describe Spree::Gateway::MoipCredit,
+         :with_payment,
+         with_order: { guest: true },
+         vcr: { cassette_name: 'moip_credit' } do
   let(:gateway) { create(:moip_gateway) }
   after(:each) { SpreeMoipGateway.defaults! }
 
@@ -33,9 +33,7 @@ describe Spree::Gateway::MoipCredit, vcr: { cassette_name: 'moip_credit' } do
     before(:each) { SpreeMoipGateway.register_profiles = true }
     before(:each) { gateway.create_profile payment }
 
-    context 'with a registered account' do
-      include_context 'order'
-
+    context 'with a registered account', with_order: { guest: false } do
       it 'creates a MoipProfile with a payment source' do
         expect(profile).to be_present
         expect(profile.credit_cards).to exist
@@ -49,9 +47,9 @@ describe Spree::Gateway::MoipCredit, vcr: { cassette_name: 'moip_credit' } do
       end
     end
 
-    context 'with an existing moip profile', vcr: { cassette_name: 'moip_credit/create_other_profile' } do
-      include_context 'order'
-
+    context 'with an existing moip profile',
+            with_order: { guest: false },
+            vcr: { cassette_name: 'moip_credit/create_other_profile' } do
       let(:other_source) { build(:credit_card, number: '5555666677778884', verification_value: '123') }
       let(:other_payment) { build(:payment, payment_method: gateway, source: other_source, order: order) }
       before(:each) { gateway.create_profile other_payment }
@@ -87,13 +85,15 @@ describe Spree::Gateway::MoipCredit, vcr: { cassette_name: 'moip_credit' } do
       it { expect(purchase!).to be_success }
     end
 
-    xcontext 'with payment profile', vcr: { cassette_name: 'moip_credit/purchase/profile' } do
-      include_context 'order'
+    xcontext 'with payment profile',
+             with_order: { guest: false },
+             vcr: { cassette_name: 'moip_credit/purchase/profile' } do
       before(:each) { SpreeMoipGateway.register_profiles = true }
       it { expect(purchase!).to be_success }
     end
 
-    xcontext 'with encryptped data', vcr: { cassette_name: 'moip_credit/purchase/encrypted' } do
+    xcontext 'with encryptped data',
+             vcr: { cassette_name: 'moip_credit/purchase/encrypted' } do
       before { source.encrypted_data = 'test' }
       it { expect(purchase!).to be_success }
     end

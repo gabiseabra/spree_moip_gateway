@@ -8,7 +8,7 @@ module SpreeMoipGateway
   end
 
   def self.defaults!
-    @register_webhooks = false
-    @register_profiles = false
+    self.register_webhooks = false
+    self.register_profiles = false
   end
 end
