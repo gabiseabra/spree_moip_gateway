@@ -32,7 +32,7 @@ module Spree
     end
 
     def create_credit_card(source, customer_id:)
-      response = api.customer.add_credit_card customer_id, Parse.credit_card(source)
+      response = api.customer.add_credit_card customer_id, Parse.credit_card(source, store: true)
       throw :error, Response.parse(self, response) unless response.success?
       response
     end

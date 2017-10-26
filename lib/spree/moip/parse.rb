@@ -4,12 +4,13 @@ module Spree
       def payment(options, source:)
         {
           installment_count: 1,
-          funding_instrument: credit_card(source)
+          funding_instrument: credit_card(source, store: false)
         }
       end
 
-      def credit_card(source)
+      def credit_card(source, store: false)
         data = {
+          store: store,
           holder: {
             fullname: source.name,
             birthdate: source.birth_date.strftime('%Y-%m-%d'),
