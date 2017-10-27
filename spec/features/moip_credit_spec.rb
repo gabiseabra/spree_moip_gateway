@@ -5,7 +5,7 @@ feature 'Moip credit card checkout', moip: { type: :credit, guest: false }, vcr:
 
   before(:each) { stub_controller_for order }
 
-  xscenario 'Regular checkout' do
+  scenario 'Regular checkout' do
     visit spree.checkout_state_path(:payment)
     fill_in_credit_card
     expect { click_on 'Save and Continue' }.to change { Spree::MoipTransaction.count }.by(1)
