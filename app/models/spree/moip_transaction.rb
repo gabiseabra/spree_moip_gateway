@@ -27,12 +27,6 @@ class Spree::MoipTransaction < Spree::Base
     %w[AUTHORIZED PRE_AUTHORIZED SETTLED].include?(state)
   end
 
-  def actions
-    %w[capture void].select do |action|
-      !respond_to?("can_#{action}?") || send("can_#{action}?")
-    end
-  end
-
   def fetch_updates
     process_response payment_method.api.payment.show(transaction_id)
   end

@@ -29,6 +29,7 @@ shared_context 'moip', :moip do
 end
 
 shared_examples 'moip gateway' do
+  before { SpreeMoipGateway.defaults! }
   after(:each) { SpreeMoipGateway.defaults! }
 
   context 'with webhooks turned on' do

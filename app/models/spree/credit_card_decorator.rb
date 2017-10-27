@@ -9,6 +9,18 @@ module Spree
       validates :tax_document, cpf: true
     end
 
+    %w[capture void].each do |action|
+      alias_method :"original_can_#{action}?", :"can_#{action}?"
+
+      define_method :"can_#{action}?" do |payment|
+        if moip_payment?
+          payment.moip_transaction.send "can_#{action}?"
+        else
+          send "original_can_#{action}?", payment
+        end
+      end
+    end
+
     private
 
     def moip_payment?
