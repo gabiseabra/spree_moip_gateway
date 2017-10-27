@@ -18,7 +18,7 @@ describe Spree::Gateway::MoipCredit,
         expect(profile.credit_cards.count).to eq 1
       end
 
-      it 'updates the payment source' do
+      it 'saves moip data to payment source' do
         expect(source.gateway_customer_profile_id).to be_present
         expect(source.gateway_payment_profile_id).to be_present
         expect(source.moip_brand).to be_present
@@ -54,7 +54,7 @@ describe Spree::Gateway::MoipCredit,
 
     it_behaves_like 'moip authorize', 'IN_ANALYSIS'
 
-    xcontext 'with payment profile',
+    context 'with payment profile',
              with_order: { guest: false },
              vcr: { cassette_name: 'moip_credit/purchase/profile' } do
       before(:each) { SpreeMoipGateway.register_profiles = true }

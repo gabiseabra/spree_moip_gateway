@@ -28,9 +28,7 @@ module Spree
         if source.gateway_payment_profile_id.present?
           data.merge!(
             id: source.gateway_payment_profile_id,
-            first6: source.first_digits,
-            last4: source.last_digits,
-            brand: source.moip_brand
+            cvc: source.verification_value
           )
         elsif source.encrypted_data.present?
           data.merge!(hash: source.encrypted_data, sotre: store)
