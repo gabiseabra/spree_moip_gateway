@@ -2,6 +2,8 @@ require 'validates_cpf_cnpj'
 
 module Spree
   Order.class_eval do
+    attr_accessor :cvc_confirm
+
     enum tax_document_type: %i[cpf cnpj]
 
     before_create :set_default_tax_document

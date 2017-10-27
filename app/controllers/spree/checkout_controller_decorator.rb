@@ -9,7 +9,10 @@ Spree::CheckoutController.class_eval do
     end
   end
 
+  # Persist verification value for new payment profiles between
+  # profile creation (payment) and payment processing (confirm)
   def process_verification_value
+    yield and return unless SpreeMoipGateway.register_profiles
     restore_verification_value if params[:state] == 'confirm'
     yield
     persist_verification_value if params[:state] == 'payment'
@@ -25,8 +28,9 @@ Spree::CheckoutController.class_eval do
 
   def persist_verification_value
     session[:moip_checkout_cvc] = {}
+    cvc_confirm = params[:order].try(:[], :cvc_confirm)
     moip_payments.each do |payment|
-      session[:moip_checkout_cvc][payment.id.to_s] = payment.source.verification_value
+      session[:moip_checkout_cvc][payment.id.to_s] = payment.source.verification_value || cvc_confirm
     end
   end
 end

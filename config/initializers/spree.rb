@@ -10,6 +10,7 @@ Spree::PermittedAttributes.user_attributes.push(
 )
 
 Spree::PermittedAttributes.checkout_attributes.push(
+  :cvc_confirm,
   :tax_document_type,
   :tax_document
 )
