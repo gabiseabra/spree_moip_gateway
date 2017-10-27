@@ -23,7 +23,7 @@ module Spree
 
     private
 
-    def message
+    def response_message
       case state
       when 'WAITING' then Spree.t('moip.pending')
       when 'IN_ANALYSIS' then Spree.t('moip.in_analysis')

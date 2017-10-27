@@ -10,7 +10,7 @@ module Spree
 
     private
 
-    def message
+    def response_message
       if errors = @response.try(:errors)
         errors.map(&:description).join('; ')
       else
