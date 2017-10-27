@@ -28,7 +28,7 @@ class Spree::MoipTransaction < Spree::Base
   end
 
   def fetch_updates
-    process_response payment_method.api.payment.show(transaction_id)
+    process_update payment_method.api.payment.show(transaction_id)
   end
 
   def process_update(data)
