@@ -3,7 +3,7 @@ module Spree
     has_one :moip_transaction
 
     alias_method :original_actions, :actions
-    
+
     def actions
       if payment_method.is_a?(Spree::Gateway::MoipBase) && moip_transaction.present?
         moip_transaction.actions

@@ -10,6 +10,10 @@ module Spree
         'BOLETO'
       end
 
+      def method_type
+        'moip_billet'
+      end
+
       def auto_capture?
         false
       end

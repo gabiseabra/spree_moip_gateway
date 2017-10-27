@@ -15,6 +15,7 @@ Spree::PermittedAttributes.checkout_attributes.push(
 )
 
 Spree::PermittedAttributes.source_attributes.push(
+  :payment_method_id,
   :tax_document,
   :birth_date
 )
