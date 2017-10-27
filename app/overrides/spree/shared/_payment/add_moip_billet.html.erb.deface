@@ -1,6 +1,6 @@
 <!-- insert_before 'erb[silent]:contains("else")' -->
 <% elsif source.is_a? Spree::MoipBillet %>
-  <a href="<%= spree.moip_billet_path(payment) %>">
+  <a href="<%= payment.source.url %>" target="_blank" rel="noreferrer noopener">
     <button class="btn btn-default">
       <%= Spree.t(:print_billet) %>
     </button>
