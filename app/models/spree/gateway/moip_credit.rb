@@ -32,6 +32,7 @@ module Spree
             gateway_payment_profile_id: response.credit_card.id,
             moip_brand: response.credit_card.brand
           )
+          
         end
       end
     end

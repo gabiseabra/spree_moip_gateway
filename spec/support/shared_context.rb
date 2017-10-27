@@ -1,37 +1,43 @@
 shared_context 'moip', :moip do
-  let(:gateway_type) { |ex| ex.metadata[:moip].is_a?(Symbol) ? ex.metadata[:moip] : :moip_credit }
-  let(:gateway) { create("#{gateway_type}_gateway".to_sym) }
+  let(:moip_options) do |ex|
+    options = ex.metadata[:moip].is_a?(Hash) ? ex.metadata[:moip] : {}
+    options.reverse_merge(
+      type: :credit,
+      guest: true
+    )
+  end
+  let(:gateway) { create("moip_#{moip_options[:type]}_gateway".to_sym) }
+  let!(:order) do
+    traits = %i[populated at_payment]
+    traits << :as_guest if moip_options[:guest]
+    create(:order, *traits)
+  end
   let(:payment) do
     options = { payment_method: gateway, order: order }
-    case gateway_type
-    when :moip_credit then build(:payment, **options)
-    when :moip_billet then build(
-      :payment,
-      source: Spree::MoipBillet.new(payment_method: gateway),
-      **options
-    )
+    case moip_options[:type]
+    when :credit then build(:payment, **options)
+    when :billet then build(:payment, source: create(:moip_billet_source), **options)
     end
   end
   let(:gateway_options) { Spree::Payment::GatewayOptions.new(payment).to_hash }
-  let(:total) { payment.amount }
-  let(:total_cents) { Spree::Money.new(payment.amount).cents }
-  let(:source) { payment.payment_source }
+  let(:payment_source) { payment.payment_source }
   let(:transaction_id) { payment.reload.transaction_id }
   let(:add_payment_to_order!) { order.payments << payment }
   let(:authorize_payment!) do
-    path = "/simulador/authorize?payment_id=#{transaction_id}&amount=#{total_cents}"
+    cents = (payment.amount * 100).to_i
+    path = "/simulador/authorize?payment_id=#{transaction_id}&amount=#{cents}"
     gateway.provider.client.get(path)
   end
   let(:complete_order!) do
     add_payment_to_order!
     until order.completed? do order.next! end
   end
+
+  before { SpreeMoipGateway.defaults! }
+  after(:each) { SpreeMoipGateway.defaults! }
 end
 
 shared_examples 'moip gateway' do
-  before { SpreeMoipGateway.defaults! }
-  after(:each) { SpreeMoipGateway.defaults! }
-
   context 'with webhooks turned on' do
     before(:each) { SpreeMoipGateway.register_webhooks = true }
 

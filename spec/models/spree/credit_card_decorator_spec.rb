@@ -1,9 +1,6 @@
 require 'spec_helper'
 
-describe Spree::CreditCard,
-         :with_order,
-         moip: :moip_credit,
-         vcr: { cassette_name: 'credit_card_decorator' } do
+describe Spree::CreditCard, moip: { type: :credit }, vcr: { cassette_name: 'credit_card_decorator' } do
   before(:each) { complete_order! }
 
   CAPTURABLE_STATES = %w[PRE_AUTHORIZED]
@@ -19,7 +16,7 @@ describe Spree::CreditCard,
       Spree::MoipTransaction::STATES.each do |state|
         should_work = CAPTURABLE_STATES.include?(state)
         payment.moip_transaction.state = state
-        expect(source.can_capture?(payment)).to(
+        expect(payment_source.can_capture?(payment)).to(
           be(should_work),
           fail_message('capture', state, should_work)
         )
@@ -32,7 +29,7 @@ describe Spree::CreditCard,
       Spree::MoipTransaction::STATES.each do |state|
         should_work = VOIDABLE_STATES.include?(state)
         payment.moip_transaction.state = state
-        expect(source.can_void?(payment)).to(
+        expect(payment_source.can_void?(payment)).to(
           be(should_work),
           fail_message('void', state, should_work)
         )

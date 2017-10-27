@@ -1,4 +1,4 @@
-describe Spree::MoipNotificationController, :moip, :with_order do
+describe Spree::MoipNotificationController, :moip do
   let(:authorization) { gateway.api.notifications.show(notification.moip_id).token }
   let(:notification) { gateway.reload.moip_notifications.last }
   let(:token) { notification.token }
