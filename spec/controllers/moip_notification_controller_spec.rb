@@ -3,7 +3,7 @@ describe Spree::MoipNotificationController, :moip do
   let(:notification) { gateway.reload.moip_notifications.last }
   let(:token) { notification.token }
   before(:each) do
-    VCR.use_cassette('moip_notification_controller') do
+    VCR.use_cassette('controllers/moip_notification') do
       gateway.register_webhooks(true)
       request.headers['Authorization'] = authorization
       complete_order!

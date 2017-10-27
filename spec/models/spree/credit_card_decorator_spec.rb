@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Spree::CreditCard, moip: { type: :credit }, vcr: { cassette_name: 'credit_card_decorator' } do
+describe Spree::CreditCard, moip: { type: :credit }, vcr: { cassette_name: 'models/credit_card' } do
   before(:each) { complete_order! }
 
   CAPTURABLE_STATES = %w[PRE_AUTHORIZED]

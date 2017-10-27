@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe Spree::Gateway::MoipCredit, moip: { type: :credit }, vcr: { cassette_name: 'moip_credit' } do
+describe Spree::Gateway::MoipCredit, moip: { type: :credit }, vcr: { cassette_name: 'models/moip_credit' } do
   it_behaves_like 'moip gateway'
 
-  describe '#create_profile', vcr: { cassette_name: 'moip_credit/create_profile' } do
+  describe '#create_profile', vcr: { cassette_name: 'models/moip_credit/create_profile' } do
     let(:profile) { order.user.moip_profiles.where(payment_method: gateway).last }
     before(:each) { SpreeMoipGateway.register_profiles = true }
     before(:each) { gateway.create_profile payment }
@@ -22,7 +22,7 @@ describe Spree::Gateway::MoipCredit, moip: { type: :credit }, vcr: { cassette_na
       end
     end
 
-    context 'with an existing moip profile', moip: { guest: false }, vcr: { cassette_name: 'moip_credit/create_other_profile' } do
+    context 'with an existing moip profile', moip: { guest: false }, vcr: { cassette_name: 'models/moip_credit/create_other_profile' } do
       let(:other_source) { build(:credit_card, number: '5555666677778884', verification_value: '123') }
       let(:other_payment) { build(:payment, payment_method: gateway, source: other_source, order: order) }
       before(:each) { gateway.create_profile other_payment }
@@ -40,7 +40,7 @@ describe Spree::Gateway::MoipCredit, moip: { type: :credit }, vcr: { cassette_na
     end
   end
 
-  describe '#purchase', vcr: { cassette_name: 'moip_credit/purchase' } do
+  describe '#purchase', vcr: { cassette_name: 'models/moip_credit/purchase' } do
     let(:response) { gateway.purchase 1000, payment_source, gateway_options }
     before(:each) do
       add_payment_to_order!
@@ -49,18 +49,18 @@ describe Spree::Gateway::MoipCredit, moip: { type: :credit }, vcr: { cassette_na
 
     it_behaves_like 'moip authorize', 'IN_ANALYSIS'
 
-    context 'with payment profile', moip: { guest: false }, vcr: { cassette_name: 'moip_credit/purchase/profile' } do
+    context 'with payment profile', moip: { guest: false }, vcr: { cassette_name: 'models/moip_credit/purchase/profile' } do
       before(:each) { SpreeMoipGateway.register_profiles = true }
       it { expect(response).to be_success }
     end
 
-    xcontext 'with encryptped data', vcr: { cassette_name: 'moip_credit/purchase/encrypted' } do
+    xcontext 'with encryptped data', vcr: { cassette_name: 'models/moip_credit/purchase/encrypted' } do
       before { payment_source.encrypted_data = 'test' }
       it { expect(response).to be_success }
     end
   end
 
-  describe '#void', vcr: { cassette_name: 'moip_credit/void' } do
+  describe '#void', vcr: { cassette_name: 'models/moip_credit/void' } do
     let(:void!) { payment.reload.void! }
     before(:each) do
       complete_order!
@@ -73,7 +73,7 @@ describe Spree::Gateway::MoipCredit, moip: { type: :credit }, vcr: { cassette_na
     end
   end
 
-  describe '#capture', vcr: { cassette_name: 'moip_credit/capture' } do
+  describe '#capture', vcr: { cassette_name: 'models/moip_credit/capture' } do
     let(:capture!) { payment.reload.capture! }
     before(:each) do
       Spree::Config[:auto_capture] = false
