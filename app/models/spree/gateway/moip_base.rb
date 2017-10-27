@@ -38,8 +38,10 @@ module Spree
 
     def register_webhooks(force = false)
       return unless (force || SpreeMoipGateway.register_webhooks) && !moip_notifications.present?
+      states = (Spree::MoipTransaction.STATES - Spree::MoipTransaction.INITIAL_STATES)
+      events = states.map { |state| "PAYMENT.#{state}" }
       Spree::MoipNotification.create(
-        events: ['PAYMENT.*'],
+        events: events,
         payment_method: self
       )
     end
