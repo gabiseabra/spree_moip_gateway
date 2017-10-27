@@ -32,7 +32,7 @@ FactoryGirl.modify do
     trait :at_payment do
       at_delivery
 
-      after(:create) { |order| order.next! while order.state != 'delivery' }
+      after(:create) { |order| order.next! while order.state != 'payment' }
     end
   end
 end

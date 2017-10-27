@@ -20,7 +20,9 @@ module Spree
       end
 
       def create_profile(payment)
-        return unless (user = payment.order.user) && user.moip_profile_ready?
+        source = payment.source
+        user = payment.order.user
+        return unless user && !source.has_payment_profile? && user.moip_profile_ready?
         catch(:error) do
           profile = user.moip_gateway_profile(self)
           response = provider.create_credit_card(
@@ -32,7 +34,6 @@ module Spree
             gateway_payment_profile_id: response.credit_card.id,
             moip_brand: response.credit_card.brand
           )
-          
         end
       end
     end
