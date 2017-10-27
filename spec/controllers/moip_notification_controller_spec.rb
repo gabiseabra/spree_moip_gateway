@@ -1,14 +1,13 @@
-describe Spree::MoipNotificationController,
-         :moip,
-         :with_order,
-         vcr: { cassette_name: 'moip_notification_controller' } do
+describe Spree::MoipNotificationController, :moip, :with_order do
   let(:authorization) { gateway.api.notifications.show(notification.moip_id).token }
   let(:notification) { gateway.reload.moip_notifications.last }
   let(:token) { notification.token }
   before(:each) do
-    gateway.register_webhooks(true)
-    request.headers.merge!('Authorization' => authorization)
-    complete_order!
+    VCR.use_cassette('moip_notification_controller') do
+      gateway.register_webhooks(true)
+      request.headers['Authorization'] = authorization
+      complete_order!
+    end
   end
 
   def build_body(replace)
