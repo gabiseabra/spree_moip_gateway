@@ -1,13 +1,13 @@
 SpreeMoipGateway
 ================
 
-Introduction goes here.
+This gem adds Moip credit card and boleto checkout to spree.
 
 ## Installation
 
 1. Add this extension to your Gemfile with this line:
   ```ruby
-  gem 'spree_moip_gateway', github: '[your-github-handle]/spree_moip_gateway'
+  gem 'spree_moip_gateway', github: 'gabiseabra/spree_moip_gateway'
   ```
 
 2. Install the gem using Bundler:
@@ -23,6 +23,10 @@ Introduction goes here.
 4. Restart your server
 
   If your server was running, restart it so that it can find the assets properly.
+
+## Webhooks
+
+Your application should update payment states with webhooks or by running the `spree_moip_gateway:update_transactions` rake task with a scheduler (cron, whenever, etc). Webhooks are turned off by default. To change this behaviour, set `register_webhooks` to `true` in your spree_moip_gateway initializer.
 
 ## Testing
 
@@ -40,11 +44,4 @@ Simply add this require statement to your spec_helper:
 require 'spree_moip_gateway/factories'
 ```
 
-
-## Contributing
-
-If you'd like to contribute, please take a look at the
-[instructions](CONTRIBUTING.md) for installing dependencies and crafting a good
-pull request.
-
-Copyright (c) 2017 [name of extension creator], released under the New BSD License
+Copyright (c) 2017 Gabriela Seabra, released under the New BSD License
