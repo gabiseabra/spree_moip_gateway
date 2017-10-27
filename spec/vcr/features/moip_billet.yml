@@ -1,0 +1,87 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sandbox.moip.com.br/v2/orders
+    body:
+      encoding: UTF-8
+      string: '{"ownId":"R394220782-P4TMQ5XF","items":[{"product":"Product #22 - 6021","quantity":1,"price":1999}],"amount":{"currency":"BRL","subtotals":{"shipping":0,"addition":0,"discount":0}},"customer":{"ownId":1,"fullname":"John
+        Doe","email":"gilberto@romaguera.info","taxDocument":{"type":"CPF","number":"67822412183"},"phone":{"countryCode":"55","areaCode":"21","number":"00000000"},"shippingAddress":{"street":"Avenida
+        Faria Lima","streetNumber":100,"complement":null,"district":"Itaim","city":"São
+        Paulo","state":"SP","country":"BRA","zipCode":"01452-001"}}}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Basic RkFISEk1TERRWlczRU1ZUzI1WUQzUFNOVTJWR1JUUk06Sk9FM1FRTUlZWFJaUFRBUlM2STNWRFpGSE9TQlBQRTNLWTk1RUM1MA==
+      User-Agent:
+      - MoipRubySDK/1.0.0 (+https://github.com/moip/moip-sdk-ruby)
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Fri, 27 Oct 2017 18:17:56 GMT
+      Server:
+      - Apache
+      Status:
+      - 201 Created
+      X-Newrelic-App-Data:
+      - PxQFUlBXAQoTUVFWDgEDUVYTGhE1AwE2QgNWEVlbQFtcC2VOYwRAFjNTVTIDEU5aUwE9TUEDa0kLQ1JWEBVDSmAtazYRGhgCHVUVUR9RBFRUAgRZUk8NBgRIQwdUAQNQXQJQVgMDVQQEVlpAFF5VXkAAZA==
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '2669'
+      X-Content-Type-Options:
+      - nosniff
+      Vary:
+      - Accept-Encoding,Origin
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJpZCI6Ik9SRC1ZRFgwT1Y5SktVUVIiLCJvd25JZCI6IlIzOTQyMjA3ODItUDRUTVE1WEYiLCJzdGF0dXMiOiJDUkVBVEVEIiwicGxhdGZvcm0iOiJWMiIsImNyZWF0ZWRBdCI6IjIwMTctMTAtMjdUMTY6MTc6NTYuNTY5LTAyIiwidXBkYXRlZEF0IjoiMjAxNy0xMC0yN1QxNjoxNzo1Ni41NjktMDIiLCJhbW91bnQiOnsicGFpZCI6MCwidG90YWwiOjE5OTksImZlZXMiOjAsInJlZnVuZHMiOjAsImxpcXVpZCI6MCwib3RoZXJSZWNlaXZlcnMiOjAsImN1cnJlbmN5IjoiQlJMIiwic3VidG90YWxzIjp7InNoaXBwaW5nIjowLCJhZGRpdGlvbiI6MCwiZGlzY291bnQiOjAsIml0ZW1zIjoxOTk5fX0sIml0ZW1zIjpbeyJwcm9kdWN0IjoiUHJvZHVjdCAjMjIgLSA2MDIxIiwicHJpY2UiOjE5OTksInF1YW50aXR5IjoxfV0sImN1c3RvbWVyIjp7ImlkIjoiQ1VTLURENk4yQktDT0lSUyIsIm93bklkIjoiMSIsImZ1bGxuYW1lIjoiSm9obiBEb2UiLCJjcmVhdGVkQXQiOiIyMDE3LTEwLTIxVDE3OjIyOjQ2LjAwMC0wMiIsImVtYWlsIjoiY2VsaW5lQGhldHRpbmdlci5iaXoiLCJmdW5kaW5nSW5zdHJ1bWVudCI6eyJjcmVkaXRDYXJkIjp7ImlkIjoiQ1JDLTFLWFBHSkxZRVFMOSIsImJyYW5kIjoiVklTQSIsImZpcnN0NiI6IjQwMTIwMCIsImxhc3Q0IjoiMTExMiIsInN0b3JlIjp0cnVlfSwibWV0aG9kIjoiQ1JFRElUX0NBUkQifSwicGhvbmUiOnsiY291bnRyeUNvZGUiOiI1NSIsImFyZWFDb2RlIjoiMjEiLCJudW1iZXIiOiIwMDAwMDAwMCJ9LCJ0YXhEb2N1bWVudCI6eyJ0eXBlIjoiQ1BGIiwibnVtYmVyIjoiNjc4MjI0MTIxODMifSwic2hpcHBpbmdBZGRyZXNzIjp7InppcENvZGUiOiIwMTQ1Mi0wMDEiLCJzdHJlZXQiOiJBdmVuaWRhIEZhcmlhIExpbWEiLCJzdHJlZXROdW1iZXIiOiIxMDAiLCJjaXR5IjoiU8OjbyBQYXVsbyIsImRpc3RyaWN0IjoiSXRhaW0iLCJzdGF0ZSI6IlNQIiwiY291bnRyeSI6IkJSQSJ9LCJfbGlua3MiOnsic2VsZiI6eyJocmVmIjoiaHR0cHM6Ly9zYW5kYm94Lm1vaXAuY29tLmJyL3YyL2N1c3RvbWVycy9DVVMtREQ2TjJCS0NPSVJTIn0sImhvc3RlZEFjY291bnQiOnsicmVkaXJlY3RIcmVmIjoiaHR0cHM6Ly9ob3N0ZWRhY2NvdW50LXNhbmRib3gubW9pcC5jb20uYnI/dG9rZW49YTE4NTJmZmQtNTFkNS00MmY0LTlkNDktZjRjMjg0NjJkOTMxJmlkPUNVUy1ERDZOMkJLQ09JUlMmbXBhPU1QQS0xNjdEREVDM0IzNjMifX0sImZ1bmRpbmdJbnN0cnVtZW50cyI6W3siY3JlZGl0Q2FyZCI6eyJpZCI6IkNSQy1OM0dQSkhGVUFEQ1giLCJicmFuZCI6IlZJU0EiLCJmaXJzdDYiOiI0MTExMTEiLCJsYXN0NCI6IjExMTEiLCJzdG9yZSI6dHJ1ZX0sIm1ldGhvZCI6IkNSRURJVF9DQVJEIn0seyJjcmVkaXRDYXJkIjp7ImlkIjoiQ1JDLTFLWFBHSkxZRVFMOSIsImJyYW5kIjoiVklTQSIsImZpcnN0NiI6IjQwMTIwMCIsImxhc3Q0IjoiMTExMiIsInN0b3JlIjp0cnVlfSwibWV0aG9kIjoiQ1JFRElUX0NBUkQifV19LCJwYXltZW50cyI6W10sImVzY3Jvd3MiOltdLCJyZWZ1bmRzIjpbXSwiZW50cmllcyI6W10sImV2ZW50cyI6W3sidHlwZSI6Ik9SREVSLkNSRUFURUQiLCJjcmVhdGVkQXQiOiIyMDE3LTEwLTI3VDE2OjE3OjU2LjU2OS0wMiIsImRlc2NyaXB0aW9uIjoiIn1dLCJyZWNlaXZlcnMiOlt7Im1vaXBBY2NvdW50Ijp7ImlkIjoiTVBBLTE2N0RERUMzQjM2MyIsImxvZ2luIjoiZ2FicmllbGEubGltYS5zZUBnbWFpbC5jb20iLCJmdWxsbmFtZSI6IkdhYnJpZWxhIFNlYWJyYSJ9LCJ0eXBlIjoiUFJJTUFSWSIsImFtb3VudCI6eyJ0b3RhbCI6MTk5OSwiZmVlcyI6MCwicmVmdW5kcyI6MH0sImZlZVBheW9yIjp0cnVlfV0sInNoaXBwaW5nQWRkcmVzcyI6eyJ6aXBDb2RlIjoiMDE0NTItMDAxIiwic3RyZWV0IjoiQXZlbmlkYSBGYXJpYSBMaW1hIiwic3RyZWV0TnVtYmVyIjoiMTAwIiwiY2l0eSI6IlPDo28gUGF1bG8iLCJkaXN0cmljdCI6Ikl0YWltIiwic3RhdGUiOiJTUCIsImNvdW50cnkiOiJCUkEifSwiX2xpbmtzIjp7InNlbGYiOnsiaHJlZiI6Imh0dHBzOi8vc2FuZGJveC5tb2lwLmNvbS5ici92Mi9vcmRlcnMvT1JELVlEWDBPVjlKS1VRUiJ9LCJjaGVja291dCI6eyJwYXlDaGVja291dCI6eyJyZWRpcmVjdEhyZWYiOiJodHRwczovL2NoZWNrb3V0LW5ldy1zYW5kYm94Lm1vaXAuY29tLmJyP3Rva2VuPTk2OWQyNWI2LWRmMTktNGMzOS1iNjUzLThkMWJiMGRkYmNjNSZpZD1PUkQtWURYME9WOUpLVVFSIn0sInBheUNyZWRpdENhcmQiOnsicmVkaXJlY3RIcmVmIjoiaHR0cHM6Ly9jaGVja291dC1uZXctc2FuZGJveC5tb2lwLmNvbS5icj90b2tlbj05NjlkMjViNi1kZjE5LTRjMzktYjY1My04ZDFiYjBkZGJjYzUmaWQ9T1JELVlEWDBPVjlKS1VRUiZwYXltZW50LW1ldGhvZD1jcmVkaXQtY2FyZCJ9LCJwYXlCb2xldG8iOnsicmVkaXJlY3RIcmVmIjoiaHR0cHM6Ly9jaGVja291dC1uZXctc2FuZGJveC5tb2lwLmNvbS5icj90b2tlbj05NjlkMjViNi1kZjE5LTRjMzktYjY1My04ZDFiYjBkZGJjYzUmaWQ9T1JELVlEWDBPVjlKS1VRUiZwYXltZW50LW1ldGhvZD1ib2xldG8ifSwicGF5T25saW5lQmFua0RlYml0SXRhdSI6eyJyZWRpcmVjdEhyZWYiOiJodHRwczovL2NoZWNrb3V0LXNhbmRib3gubW9pcC5jb20uYnIvZGViaXQvaXRhdS9PUkQtWURYME9WOUpLVVFSIn19fX0=
+    http_version: 
+  recorded_at: Fri, 27 Oct 2017 18:17:55 GMT
+- request:
+    method: post
+    uri: https://sandbox.moip.com.br/v2/orders/ORD-YDX0OV9JKUQR/payments
+    body:
+      encoding: UTF-8
+      string: '{"fundingInstrument":{"method":"BOLETO","boleto":{"expirationDate":"2017-10-30","instructionLines":{"first":"test","second":"test","third":"test"}}}}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Basic RkFISEk1TERRWlczRU1ZUzI1WUQzUFNOVTJWR1JUUk06Sk9FM1FRTUlZWFJaUFRBUlM2STNWRFpGSE9TQlBQRTNLWTk1RUM1MA==
+      User-Agent:
+      - MoipRubySDK/1.0.0 (+https://github.com/moip/moip-sdk-ruby)
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Fri, 27 Oct 2017 18:17:58 GMT
+      Server:
+      - Apache
+      Status:
+      - 201 Created
+      X-Newrelic-App-Data:
+      - PxQFUlBXAQoTUVFWDgEDUVYTGhE1AwE2QgNWEVlbQFtcC2VOYwRAFjNTVTIDEU5aUwE9TUEDa0kLQ1JWEBU/TUsNSgZdSn1WTjkWEVAYXgcKQkRBTjN3YGRNQ04HHwdKVB8HB1JfVFoAVRRTDAEYEANUAQcJBQRUXAQCVABSDlESSAcDW0JSOw==
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '1198'
+      X-Content-Type-Options:
+      - nosniff
+      Vary:
+      - Accept-Encoding,Origin
+    body:
+      encoding: UTF-8
+      string: '{"id":"PAY-63F0Y5UN2J7C","status":"WAITING","delayCapture":false,"amount":{"total":1999,"gross":1999,"fees":0,"refunds":0,"liquid":1999,"currency":"BRL"},"installmentCount":1,"fundingInstrument":{"boleto":{"expirationDate":"2017-10-30","lineCode":"23793.39126
+        60000.135065 27001.747909 1 73280000001999","instructionLines":{"first":"test","second":"test","third":"test"}},"method":"BOLETO"},"fees":[{"type":"TRANSACTION","amount":0}],"events":[{"type":"PAYMENT.CREATED","createdAt":"2017-10-27T16:17:58.363-02"},{"type":"PAYMENT.WAITING","createdAt":"2017-10-27T16:17:58.363-02"}],"receivers":[{"moipAccount":{"id":"MPA-167DDEC3B363","login":"gabriela.lima.se@gmail.com","fullname":"Gabriela
+        Seabra"},"type":"PRIMARY","amount":{"total":1999,"refunds":0}}],"_links":{"self":{"href":"https://sandbox.moip.com.br/v2/payments/PAY-63F0Y5UN2J7C"},"order":{"href":"https://sandbox.moip.com.br/v2/orders/ORD-YDX0OV9JKUQR","title":"ORD-YDX0OV9JKUQR"},"payBoleto":{"printHref":"https://checkout-sandbox.moip.com.br/boleto/PAY-63F0Y5UN2J7C/print","redirectHref":"https://checkout-sandbox.moip.com.br/boleto/PAY-63F0Y5UN2J7C"}},"createdAt":"2017-10-27T16:17:58.361-02","updatedAt":"2017-10-27T16:17:58.361-02"}'
+    http_version: 
+  recorded_at: Fri, 27 Oct 2017 18:17:57 GMT
+recorded_with: VCR 3.0.3
