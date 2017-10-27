@@ -36,6 +36,10 @@ module Spree
           )
         end
       end
+
+      def disable_customer_profile(source)
+        api.customer.delete_credit_card! source.gateway_payment_profile_id
+      end
     end
   end
 end
