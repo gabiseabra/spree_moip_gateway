@@ -16,21 +16,26 @@ Spree::CheckoutController.class_eval do
     restore_verification_value if params[:state] == 'confirm'
     yield
     persist_verification_value if params[:state] == 'payment'
-    session.delete(:moip_checkout_cvc) if @order.complete?
+    session.delete(:moip_checkout) if @order.complete?
   end
 
   def restore_verification_value
-    return unless session[:moip_checkout_cvc].present?
+    return unless session[:moip_checkout].present?
     moip_payments.each do |payment|
-      payment.source.verification_value = session[:moip_checkout_cvc][payment.id.to_s]
+      data = session[:moip_checkout][payment.id.to_s]
+      payment.source.verification_value = data['cvc']
+      payment.source.number = data['number']
     end
   end
 
   def persist_verification_value
-    session[:moip_checkout_cvc] = {}
+    session[:moip_checkout] = {}
     cvc_confirm = params[:order].try(:[], :cvc_confirm)
     moip_payments.each do |payment|
-      session[:moip_checkout_cvc][payment.id.to_s] = payment.source.verification_value || cvc_confirm
+      session[:moip_checkout][payment.id.to_s] = {
+        'number' => payment.source.number,
+        'cvc' => payment.source.verification_value || cvc_confirm
+      }
     end
   end
 end

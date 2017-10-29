@@ -1,4 +1,17 @@
 module MoipFeatureHelper
+  def self.included(feat)
+    feat.before(:each) do
+      if moip_options[:guest]
+        token = cookies.signed[:guest_token] = order.guest_token
+        page.driver.browser.set_cookie "guest_token=#{token}"
+      end
+    end
+  end
+
+  def cookies
+    ActionDispatch::Request.new(Rails.application.env_config).cookie_jar
+  end
+
   def stub_controller_for(current_order)
     allow(current_order).to receive_messages(available_payment_methods: [gateway])
     allow_any_instance_of(Spree::CheckoutController).to receive_messages(current_order: current_order)

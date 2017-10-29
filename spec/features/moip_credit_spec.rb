@@ -5,7 +5,7 @@ feature 'Moip credit card checkout', moip: { type: :credit }, vcr: { cassette_na
 
   before(:each) { stub_controller_for order }
 
-  scenario 'Regular checkout' do
+  scenario 'Complete checkout' do
     visit spree.checkout_state_path(:payment)
     fill_in_credit_card
     expect { click_on 'Save and Continue' }.to change { Spree::MoipTransaction.count }.by(1)
@@ -43,6 +43,16 @@ feature 'Moip credit card checkout', moip: { type: :credit }, vcr: { cassette_na
     end
 
     context 'guest', moip: { guest: true } do
+      scenario 'Complete checkout', vcr: { cassette_name: 'features/moip_credit/guest' } do
+        visit spree.checkout_state_path(:payment)
+        fill_in_credit_card
+        expect { click_on 'Save and Continue' }.not_to change { Spree::MoipProfile.count }
+
+        expect(current_path).to eq spree.checkout_state_path(:confirm)
+        expect { click_on 'Place Order' }.to change { Spree::MoipTransaction.count }.by(1)
+
+        expect(current_path).to eq spree.order_path(Spree::Order.last)
+      end
     end
   end
 end

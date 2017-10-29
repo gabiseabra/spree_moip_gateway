@@ -6,6 +6,7 @@ FactoryGirl.modify do
 
     trait :as_guest do
       user nil
+      guest_token 'test'
     end
 
     trait :populated do
