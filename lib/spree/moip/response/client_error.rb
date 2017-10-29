@@ -14,7 +14,7 @@ module Spree
         if errors = @data.try(:errors)
           errors.map(&:description).join('; ')
         else
-          Spree.t('moip.failure')
+          Spree.t(:moip_failure)
         end
       end
     end

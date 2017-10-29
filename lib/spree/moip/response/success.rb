@@ -24,9 +24,9 @@ module Spree
 
       def response_message
         case state
-        when 'WAITING' then Spree.t('moip.pending')
-        when 'IN_ANALYSIS' then Spree.t('moip.in_analysis')
-        else Spree.t('moip.success')
+        when 'WAITING' then Spree.t(:moip_pending)
+        when 'IN_ANALYSIS' then Spree.t(:moip_in_analysis)
+        else Spree.t(:moip_success)
         end
       end
     end

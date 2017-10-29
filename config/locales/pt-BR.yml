@@ -26,9 +26,8 @@ pt-BR:
     district: Bairro
     birth_date: Data de nascimento
     print_billet: Imprimir Boleto
-    moip:
-      failure: Falha ao processar pagamento
-      success: Pagamento realizado com sucesso
-      pending: Pagamento pendente
-      in_analysis: Pagamento em análise
+    moip_failure: Falha ao processar pagamento
+    moip_success: Pagamento realizado com sucesso
+    moip_pending: Pagamento pendente
+    moip_in_analysis: Pagamento em análise
   
