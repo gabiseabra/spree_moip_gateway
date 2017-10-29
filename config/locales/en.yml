@@ -1,5 +1,24 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
-en:
-  hello: "Hello world"
+pt-BR:
+  activerecord:
+    attributes:
+      spree/credit_card:
+        tax_document: Document
+      spree/user:
+        tax_document: Document
+      spree/order:
+        tax_document: Document
+  spree:
+    cpf: CPF
+    cnpj: CNPJ
+    tax_document: Document
+    street_address: Street
+    street_number: Street Number
+    complement: Complement
+    district: District
+    birth_date: Birth date
+    print_billet: Print Billet
+    moip:
+      failure: Falha ao processar pagamento
+      success: Pagamento realizado com sucesso
+      pending: Pagamento pendente
+      in_analysis: Pagamento em análise

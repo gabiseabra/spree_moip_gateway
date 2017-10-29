@@ -1,13 +1,26 @@
 pt-BR:
+  activerecord:
+    attributes:
+      spree/credit_card:
+        tax_document: Documento
+      spree/user:
+        tax_document: Documento
+      spree/order:
+        tax_document: Documento
   spree:
-    address1: Rua
+    cpf: CPF
+    cnpj: CNPJ
+    tax_document: Documento
+    # tax_document_type: Tipo de documento
+    street_address: Rua
     street_number: Número
     complement: Complemento
     district: Bairro
-    address2: Endereço (complementar)
-    cpf: CPF
-    cnpj: CNPJ
-    tax_document_type: Tipo de documento
-    tax_document: Documento
     birth_date: Data de nascimento
+    print_billet: Imprimir Boleto
+    moip:
+      failure: Falha ao processar pagamento
+      success: Pagamento realizado com sucesso
+      pending: Pagamento pendente
+      in_analysis: Pagamento em análise
   
