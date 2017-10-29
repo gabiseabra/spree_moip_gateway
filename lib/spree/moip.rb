@@ -1,5 +1,4 @@
 require 'moip2'
-require 'recursive-open-struct'
 
 module Spree
   class Moip
@@ -84,7 +83,7 @@ module Spree
         request = Parse.payment(options, source: source, method: @method)
         request[:delay_capture] = delay_capture if @method == 'CREDIT_CARD'
         response = api.payment.create order.id, request
-        Response.parse self, response, order: order
+        Response.parse self, response
       end
     end
   end

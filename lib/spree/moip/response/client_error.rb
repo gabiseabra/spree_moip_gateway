@@ -1,20 +1,21 @@
 module Spree
-  class Moip::Response::ClientError < ActiveMerchant::Billing::Response
-    attr_accessor :response
-    alias data response
+  class Moip
+    class Response::ClientError < Response
+      attr_reader :data
 
-    def initialize(response, test_mode: false, order:)
-      @response = response
-      super(false, response_message, {}, { test: test_mode })
-    end
+      def initialize(data, test_mode: false)
+        @data = data
+        super(false, response_message, {}, { test: test_mode })
+      end
 
-    private
+      private
 
-    def response_message
-      if errors = @response.try(:errors)
-        errors.map(&:description).join('; ')
-      else
-        Spree.t('moip.failure')
+      def response_message
+        if errors = @data.try(:errors)
+          errors.map(&:description).join('; ')
+        else
+          Spree.t('moip.failure')
+        end
       end
     end
   end

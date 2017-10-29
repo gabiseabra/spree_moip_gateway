@@ -64,6 +64,7 @@ shared_examples 'moip authorize' do |state|
   it { expect(response).to be_success }
 
   it "creates a MoipTransaction with state #{state}" do
+    response
     transaction = payment.reload.moip_transaction
     expect(transaction).to be_present
     expect(transaction.payment.id).to eq payment.id

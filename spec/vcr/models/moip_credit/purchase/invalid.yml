@@ -1,0 +1,89 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sandbox.moip.com.br/v2/orders
+    body:
+      encoding: UTF-8
+      string: '{"ownId":"R306561096-PXLP48WT","items":[{"product":"Product #1 - 4998","quantity":1,"price":1999}],"amount":{"currency":"BRL","subtotals":{"shipping":0,"addition":0,"discount":0}},"customer":{"ownId":"rWK8uVHkZmseQG_BZk5xfQ1509258454297","fullname":"John
+        Doe","email":"spree@example.com","taxDocument":{"type":"CPF","number":"67822412183"},"phone":{"countryCode":"55","areaCode":"21","number":"00000000"},"shippingAddress":{"street":"Avenida
+        Faria Lima","streetNumber":100,"complement":null,"district":"Itaim","city":"São
+        Paulo","state":"SP","country":"BRA","zipCode":"01452-001"}}}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Basic RkFISEk1TERRWlczRU1ZUzI1WUQzUFNOVTJWR1JUUk06Sk9FM1FRTUlZWFJaUFRBUlM2STNWRFpGSE9TQlBQRTNLWTk1RUM1MA==
+      User-Agent:
+      - MoipRubySDK/1.0.0 (+https://github.com/moip/moip-sdk-ruby)
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Sun, 29 Oct 2017 06:27:40 GMT
+      Server:
+      - Apache
+      Status:
+      - 201 Created
+      X-Newrelic-App-Data:
+      - PxQFUlBXAQoTUVFWDgEDUVYTGhE1AwE2QgNWEVlbQFtcC2VOYwRAFjNTVTIDEU5aUwE9TUEDa0kLQ1JWEBVDSmAtazYRGhgCHVUVUR9RBFpTAgVQX08NCwNIQ1YFCQNeBQhVAFtQBVpRUltAFF5VXkAAZA==
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '2281'
+      X-Content-Type-Options:
+      - nosniff
+      Vary:
+      - Accept-Encoding,Origin
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJpZCI6Ik9SRC1RS1RINDg1UDFKTTEiLCJvd25JZCI6IlIzMDY1NjEwOTYtUFhMUDQ4V1QiLCJzdGF0dXMiOiJDUkVBVEVEIiwicGxhdGZvcm0iOiJWMiIsImNyZWF0ZWRBdCI6IjIwMTctMTAtMjlUMDQ6Mjc6NDAuODAzLTAyIiwidXBkYXRlZEF0IjoiMjAxNy0xMC0yOVQwNDoyNzo0MC44MDMtMDIiLCJhbW91bnQiOnsicGFpZCI6MCwidG90YWwiOjE5OTksImZlZXMiOjAsInJlZnVuZHMiOjAsImxpcXVpZCI6MCwib3RoZXJSZWNlaXZlcnMiOjAsImN1cnJlbmN5IjoiQlJMIiwic3VidG90YWxzIjp7InNoaXBwaW5nIjowLCJhZGRpdGlvbiI6MCwiZGlzY291bnQiOjAsIml0ZW1zIjoxOTk5fX0sIml0ZW1zIjpbeyJwcm9kdWN0IjoiUHJvZHVjdCAjMSAtIDQ5OTgiLCJwcmljZSI6MTk5OSwicXVhbnRpdHkiOjF9XSwiY3VzdG9tZXIiOnsiaWQiOiJDVVMtWVI5QTJLVzRXQklKIiwib3duSWQiOiJyV0s4dVZIa1ptc2VRR19CWms1eGZRMTUwOTI1ODQ1NDI5NyIsImZ1bGxuYW1lIjoiSm9obiBEb2UiLCJjcmVhdGVkQXQiOiIyMDE3LTEwLTI5VDA0OjI3OjQwLjgwNi0wMiIsImVtYWlsIjoic3ByZWVAZXhhbXBsZS5jb20iLCJwaG9uZSI6eyJjb3VudHJ5Q29kZSI6IjU1IiwiYXJlYUNvZGUiOiIyMSIsIm51bWJlciI6IjAwMDAwMDAwIn0sInRheERvY3VtZW50Ijp7InR5cGUiOiJDUEYiLCJudW1iZXIiOiI2NzgyMjQxMjE4MyJ9LCJzaGlwcGluZ0FkZHJlc3MiOnsiemlwQ29kZSI6IjAxNDUyLTAwMSIsInN0cmVldCI6IkF2ZW5pZGEgRmFyaWEgTGltYSIsInN0cmVldE51bWJlciI6IjEwMCIsImNpdHkiOiJTw6NvIFBhdWxvIiwiZGlzdHJpY3QiOiJJdGFpbSIsInN0YXRlIjoiU1AiLCJjb3VudHJ5IjoiQlJBIn0sIl9saW5rcyI6eyJzZWxmIjp7ImhyZWYiOiJodHRwczovL3NhbmRib3gubW9pcC5jb20uYnIvdjIvY3VzdG9tZXJzL0NVUy1ZUjlBMktXNFdCSUoifSwiaG9zdGVkQWNjb3VudCI6eyJyZWRpcmVjdEhyZWYiOiJodHRwczovL2hvc3RlZGFjY291bnQtc2FuZGJveC5tb2lwLmNvbS5icj90b2tlbj1jOTRmYzg0MC02NWY5LTRiZWEtYWVjZi0wODZjZjBiM2E0YjAmaWQ9Q1VTLVlSOUEyS1c0V0JJSiZtcGE9TVBBLTE2N0RERUMzQjM2MyJ9fX0sInBheW1lbnRzIjpbXSwiZXNjcm93cyI6W10sInJlZnVuZHMiOltdLCJlbnRyaWVzIjpbXSwiZXZlbnRzIjpbeyJ0eXBlIjoiT1JERVIuQ1JFQVRFRCIsImNyZWF0ZWRBdCI6IjIwMTctMTAtMjlUMDQ6Mjc6NDAuODAzLTAyIiwiZGVzY3JpcHRpb24iOiIifV0sInJlY2VpdmVycyI6W3sibW9pcEFjY291bnQiOnsiaWQiOiJNUEEtMTY3RERFQzNCMzYzIiwibG9naW4iOiJnYWJyaWVsYS5saW1hLnNlQGdtYWlsLmNvbSIsImZ1bGxuYW1lIjoiR2FicmllbGEgU2VhYnJhIn0sInR5cGUiOiJQUklNQVJZIiwiYW1vdW50Ijp7InRvdGFsIjoxOTk5LCJmZWVzIjowLCJyZWZ1bmRzIjowfSwiZmVlUGF5b3IiOnRydWV9XSwic2hpcHBpbmdBZGRyZXNzIjp7InppcENvZGUiOiIwMTQ1Mi0wMDEiLCJzdHJlZXQiOiJBdmVuaWRhIEZhcmlhIExpbWEiLCJzdHJlZXROdW1iZXIiOiIxMDAiLCJjaXR5IjoiU8OjbyBQYXVsbyIsImRpc3RyaWN0IjoiSXRhaW0iLCJzdGF0ZSI6IlNQIiwiY291bnRyeSI6IkJSQSJ9LCJfbGlua3MiOnsic2VsZiI6eyJocmVmIjoiaHR0cHM6Ly9zYW5kYm94Lm1vaXAuY29tLmJyL3YyL29yZGVycy9PUkQtUUtUSDQ4NVAxSk0xIn0sImNoZWNrb3V0Ijp7InBheUNoZWNrb3V0Ijp7InJlZGlyZWN0SHJlZiI6Imh0dHBzOi8vY2hlY2tvdXQtbmV3LXNhbmRib3gubW9pcC5jb20uYnI/dG9rZW49ZjQ5MDg3YjktYzQ2MS00NGQ0LTgzYzAtNTdmNTczZjU0MDYwJmlkPU9SRC1RS1RINDg1UDFKTTEifSwicGF5Q3JlZGl0Q2FyZCI6eyJyZWRpcmVjdEhyZWYiOiJodHRwczovL2NoZWNrb3V0LW5ldy1zYW5kYm94Lm1vaXAuY29tLmJyP3Rva2VuPWY0OTA4N2I5LWM0NjEtNDRkNC04M2MwLTU3ZjU3M2Y1NDA2MCZpZD1PUkQtUUtUSDQ4NVAxSk0xJnBheW1lbnQtbWV0aG9kPWNyZWRpdC1jYXJkIn0sInBheUJvbGV0byI6eyJyZWRpcmVjdEhyZWYiOiJodHRwczovL2NoZWNrb3V0LW5ldy1zYW5kYm94Lm1vaXAuY29tLmJyP3Rva2VuPWY0OTA4N2I5LWM0NjEtNDRkNC04M2MwLTU3ZjU3M2Y1NDA2MCZpZD1PUkQtUUtUSDQ4NVAxSk0xJnBheW1lbnQtbWV0aG9kPWJvbGV0byJ9LCJwYXlPbmxpbmVCYW5rRGViaXRJdGF1Ijp7InJlZGlyZWN0SHJlZiI6Imh0dHBzOi8vY2hlY2tvdXQtc2FuZGJveC5tb2lwLmNvbS5ici9kZWJpdC9pdGF1L09SRC1RS1RINDg1UDFKTTEifX19fQ==
+    http_version: 
+  recorded_at: Sun, 29 Oct 2017 06:27:40 GMT
+- request:
+    method: post
+    uri: https://sandbox.moip.com.br/v2/orders/ORD-QKTH485P1JM1/payments
+    body:
+      encoding: UTF-8
+      string: '{"fundingInstrument":{"method":"CREDIT_CARD","creditCard":{"holder":{"fullname":"Spree
+        Commerce","birthdate":"1990-01-01","taxDocument":{"type":"CPF","number":"67822412183"}},"store":false,"number":"","expirationMonth":5,"expirationYear":2018,"cvc":"123"}},"installmentCount":1,"delayCapture":false}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Basic RkFISEk1TERRWlczRU1ZUzI1WUQzUFNOVTJWR1JUUk06Sk9FM1FRTUlZWFJaUFRBUlM2STNWRFpGSE9TQlBQRTNLWTk1RUM1MA==
+      User-Agent:
+      - MoipRubySDK/1.0.0 (+https://github.com/moip/moip-sdk-ruby)
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Date:
+      - Sun, 29 Oct 2017 06:27:42 GMT
+      Server:
+      - Apache
+      Status:
+      - 400 Bad Request
+      X-Newrelic-App-Data:
+      - PxQFUlBXAQoTUVFWDgEDUVYTGhE1AwE2QgNWEVlbQFtcC2VOYgRBFAhTQz1JMV1ARAEAEU4TG1ZKARoDTFZTUAFbAFoLABgAClwVQwBRAFUBBVRVB1JZBAVXVwcVHVEHCEJTbg==
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '155'
+      X-Content-Type-Options:
+      - nosniff
+      Vary:
+      - Accept-Encoding,Origin
+      Connection:
+      - close
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJlcnJvcnMiOlt7ImNvZGUiOiJQQVktNjQxIiwicGF0aCI6ImZ1bmRpbmdJbnN0cnVtZW50LmNyZWRpdENhcmQudmFsaWROdW1iZXIiLCJkZXNjcmlwdGlvbiI6Ik8gbsO6bWVybyBpbmZvcm1hZG8gbsOjbyDDqSB1bSBuw7ptZXJvIGRlIGNhcnTDo28gdsOhbGlkbyJ9XX0=
+    http_version: 
+  recorded_at: Sun, 29 Oct 2017 06:27:41 GMT
+recorded_with: VCR 3.0.3

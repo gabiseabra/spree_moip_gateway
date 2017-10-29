@@ -42,12 +42,22 @@ describe Spree::Gateway::MoipCredit, moip: { type: :credit }, vcr: { cassette_na
 
   describe '#purchase', vcr: { cassette_name: 'models/moip_credit/purchase' } do
     let(:response) { gateway.purchase 1000, payment_source, gateway_options }
-    before(:each) do
-      add_payment_to_order!
-      response
-    end
+    before(:each) { add_payment_to_order! }
 
     it_behaves_like 'moip authorize', 'IN_ANALYSIS'
+
+    it 'doesn\'t log sensitive data' do
+      expect(response.to_yaml).not_to include payment_source.number
+    end
+
+    context 'with an invalid credit card number', vcr: { cassette_name: 'models/moip_credit/purchase/invalid' } do
+      before(:each) { payment_source.number = 'TEST_NUMBER' }
+
+      it 'responds with an error message' do
+        expect(response).not_to be_success
+        expect(response.message).to be_present
+      end
+    end
 
     context 'with payment profile', moip: { guest: false }, vcr: { cassette_name: 'models/moip_credit/purchase/profile' } do
       before(:each) { SpreeMoipGateway.register_profiles = true }
