@@ -1,18 +1,25 @@
 pt-BR:
   activerecord:
     attributes:
+      spree/address:
+        address1: Street
+        street_number: Street number
+        complement: Complement
+        district: District
       spree/credit_card:
         tax_document: Document
       spree/user:
+        tax_document_type: Document type
         tax_document: Document
       spree/order:
+        tax_document_type: Document type
         tax_document: Document
   spree:
     cpf: CPF
     cnpj: CNPJ
     tax_document: Document
     street_address: Street
-    street_number: Street Number
+    street_number: Street number
     complement: Complement
     district: District
     birth_date: Birth date

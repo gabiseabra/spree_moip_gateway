@@ -1,11 +1,19 @@
 pt-BR:
   activerecord:
     attributes:
+      spree/address:
+        address1: Rua
+        street_number: Número da rua
+        complement: Complemento
+        district: Bairro
       spree/credit_card:
         tax_document: Documento
+        birth_date: Data de nascimento
       spree/user:
+        tax_document_type: Tipo de documento
         tax_document: Documento
       spree/order:
+        tax_document_type: Tipo de documento
         tax_document: Documento
   spree:
     cpf: CPF
