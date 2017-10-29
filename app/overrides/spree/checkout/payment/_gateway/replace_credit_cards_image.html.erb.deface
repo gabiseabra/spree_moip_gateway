@@ -1,0 +1,6 @@
+<!-- surround 'erb[loud]:contains("credit_cards/credit_card.gif")' -->
+<% if payment_method.is_a? Spree::Gateway::MoipBase %>
+  <%= image_tag 'credit_cards/moip_credit_cards.png', id: 'credit-card-image', class: 'pull-right', height: 'auto', width: '250px' %>
+<% else %>
+  <%= render_original %>
+<% end %>
