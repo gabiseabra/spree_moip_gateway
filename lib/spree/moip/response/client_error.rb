@@ -5,7 +5,7 @@ module Spree
 
     def initialize(response, test_mode: false, order:)
       @response = response
-      super(false, message, {}, { test: test_mode })
+      super(false, response_message, {}, { test: test_mode })
     end
 
     private

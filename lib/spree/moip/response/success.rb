@@ -6,7 +6,7 @@ module Spree
     def initialize(response, order: nil, test_mode: false)
       @response = response
       @order = order
-      super(true, message, {}, {
+      super(true, response_message, {}, {
         authorization: response.try(:id),
         fraud_review: state == 'IN_ANALYSIS',
         test: test_mode
