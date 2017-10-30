@@ -10,7 +10,7 @@ module SpreeMoipGateway
   module VERSION
     MAJOR = 0
     MINOR = 3
-    TINY  = 1
+    TINY  = 2
     # PRE   = 'alpha'.freeze
 
     STRING = [MAJOR, MINOR, TINY].compact.join('.')
