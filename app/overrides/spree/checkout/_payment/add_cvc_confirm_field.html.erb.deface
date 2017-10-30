@@ -4,5 +4,5 @@
     <%= Spree.t(:card_code) %><abbr class="required" title="required">*</abbr>
   <% end %>
   <%= text_field_tag 'order[cvc_confirm]', '', id: 'cvc_confirm', class: 'form-control required cardCode', size: 5 %>
-  <%= link_to "(#{Spree.t(:what_is_this)})", spree.cvv_path, target: '_blank', id: 'cvv_confirm_link' %>
+  <%= link_to "(#{Spree.t(:what_is_this)})", spree.cvv_path, target: '_blank', id: 'cvv_link' %>
 </p>
