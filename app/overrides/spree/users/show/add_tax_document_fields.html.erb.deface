@@ -2,5 +2,9 @@
 <br />
 <% if @user.tax_document.present? %>
   <dt><%= Spree.t(@user.tax_document_type) %></dt>
-  <dd><%= @user.tax_document %></dd>
+  <dd>
+    <div class="<%= @user.tax_document_type %>">
+      <%= @user.tax_document %>
+    </div>
+  </dd>
 <% end %>

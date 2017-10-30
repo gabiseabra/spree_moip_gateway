@@ -7,7 +7,7 @@ module Spree
               presence: true
     validates :phone,
               presence: true,
-              format: { with: /\A(\+(\d){2})?\((\d){2}\)(\d){4,5}-?(\d){4,5}\z/ }
+              format: { with: /\A(\+(\d){2})?\s?\((\d){2}\)\s?(\d){4,5}-?(\d){4,5}\z/ }
 
     def moip_hash
       {

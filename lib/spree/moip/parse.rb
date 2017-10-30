@@ -132,7 +132,7 @@ module Spree
         country = '\+(\d){2}'
         area    = '\((\d){2}\)'
         number  = '(\d){4,5}-?(\d){4,5}'
-        pattern = /(?<country>#{country})?(?<area>#{area})(?<number>#{number})/
+        pattern = /(?<country>#{country})?\s?(?<area>#{area})\s?(?<number>#{number})/
         match = phone.match(pattern)
         raise 'Invalid phone number' unless match
         {

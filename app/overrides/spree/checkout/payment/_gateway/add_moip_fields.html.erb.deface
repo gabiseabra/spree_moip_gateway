@@ -16,6 +16,6 @@
     <%= text_field_tag "#{param_prefix}[tax_document]",
                        @order.tax_document_type == :cpf ? @order.tax_document : "",
                        id: "tax_document_#{payment_method.id}",
-                       class: 'form-control required' %>
+                       class: 'form-control required cpf' %>
   </p>
 <% end %>
