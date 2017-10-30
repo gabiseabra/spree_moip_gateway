@@ -30,5 +30,5 @@ pt-BR:
     moip_success: Pagamento realizado com sucesso
     moip_pending: Pagamento pendente
     moip_in_analysis: Pagamento em análise
-    use_existing_cc: Usar cartão registrado
+    use_existing_cc: Usar um cartão registrado
     use_new_cc_or_payment_method: Usar outra forma de pagamento
