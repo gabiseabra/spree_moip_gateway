@@ -4,9 +4,10 @@
     <%= label_tag "birth_date_#{payment_method.id}" do %>
       <%= Spree.t(:birth_date) %><abbr class="required" title="required">*</abbr>
     <% end %>
-    <%= date_field_tag "#{param_prefix}[birth_date]", "",
-                      id: "birth_date_#{payment_method.id}",
-                      class: 'form-control required' %>
+    <%= text_field_tag "#{param_prefix}[birth_date]", "",
+                       id: "birth_date_#{payment_method.id}",
+                       placeholder: 'dd/mm/yyyy',
+                       class: 'form-control required date' %>
   </p>
 
   <p class="field">

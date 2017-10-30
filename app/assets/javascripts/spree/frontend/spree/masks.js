@@ -42,6 +42,7 @@ $(function () {
     if($this.is("input")) $this.inputmask(type)
     else $this.text($.inputmask.format($this.text().trim(), masks[type]))
   })
+  $("input.date").inputmask("dd/mm/yyyy")
   $("input[type=tel]")
     .on("input, keyup", phoneMask)
     .trigger("input")
