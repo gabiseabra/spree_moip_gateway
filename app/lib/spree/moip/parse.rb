@@ -15,31 +15,20 @@ module Spree
       end
 
       def credit_card(source, store: false)
-        data = {
-          holder: {
-            fullname: source.name,
-            birthdate: source.birth_date.strftime(DATE_FORMAT),
-            tax_document: {
-              type: 'CPF',
-              number: source.tax_document.gsub(/[^\d]/, '')
-            }
-          }
-        }
-        if source.gateway_payment_profile_id.present?
-          data.merge!(
-            id: source.gateway_payment_profile_id,
-            cvc: source.verification_value
-          )
-        elsif source.encrypted_data.present?
-          data.merge!(hash: source.encrypted_data, sotre: store)
+        data = case
+        when source.gateway_payment_profile_id.present?
+          { id: source.gateway_payment_profile_id, cvc: source.verification_value }
+        when source.encrypted_data.present?
+          { sotre: store, hash: source.encrypted_data, holder: cc_holder(source) }
         else
-          data.merge!(
+          {
             store: store,
             number: source.number,
             expiration_month: source.month,
             expiration_year: source.year,
-            cvc: source.verification_value
-          )
+            cvc: source.verification_value,
+            holder: cc_holder(source)
+          }
         end
         { method: 'CREDIT_CARD', credit_card: data }
       end
@@ -78,6 +67,17 @@ module Spree
       end
 
       private
+
+      def cc_holder(source)
+        {
+          fullname: source.name,
+          birthdate: source.birth_date.strftime(DATE_FORMAT),
+          tax_document: {
+            type: 'CPF',
+            number: source.tax_document.gsub(/[^\d]/, '')
+          }
+        }
+      end
 
       def order_customer(options)
         data = options[:moip_address]
