@@ -5,7 +5,7 @@ http_interactions:
     uri: https://sandbox.moip.com.br/v2/customers
     body:
       encoding: UTF-8
-      string: '{"ownId":"cgTR9Fe4Dm15pDSWDSM2uViV","fullname":"John Doe","email":"kenneth_champlin@hammesmurazik.name","taxDocument":{"type":"CPF","number":"67822412183"},"phone":{"countryCode":"55","areaCode":"21","number":"00000000"},"shippingAddress":{"street":"Avenida
+      string: '{"ownId":"BYXP5YyVNL7AWPTk54qE9tMV","fullname":"Some Person","email":"sebrina_kovacek@hintztorp.info","taxDocument":{"type":"CPF","number":"67822412183"},"phone":{"countryCode":"55","areaCode":"21","number":"00000000"},"shippingAddress":{"street":"Avenida
         Faria Lima","streetNumber":100,"complement":null,"district":"Itaim","city":"São
         Paulo","state":"SP","country":"BRA","zipCode":"01452-001"}}'
     headers:
@@ -21,17 +21,15 @@ http_interactions:
       message: Created
     headers:
       Date:
-      - Wed, 25 Oct 2017 23:37:18 GMT
+      - Fri, 03 Nov 2017 20:52:06 GMT
       Server:
       - Apache
-      Status:
-      - 201 Created
       X-Newrelic-App-Data:
-      - PxQFUlBXAQoTUVFWDgEDUVYTGhE1AwE2QgNWEVlbQFtcC2VOYwRAFjNTVTIDEU5aUwE9TUEDa0kHREVHDQsGEENCEDJ3a2AbEUkJTwFNA0xUBQFSVlMKBwZIUlsPHRUDAQEPBVFUAVIBVAtSAQwEEB8DWA1CBG4=
+      - PxQFUlBXAQoTUVFWDgEDUVYTGhE1AwE2QgNWEVlbQFtcC2VOYwRAFjNTVTIDEU5aUwE9TUEDa0kHREVHDQsGEENCEDJ3a2AbEUkJTwFNA0xUAgRYVFMOCgZIUlsBHRUHAlJVUAdeUFQJVQFSXQwAEB8DWA1CBG4=
       Content-Type:
       - application/json
       Content-Length:
-      - '695'
+      - '693'
       X-Content-Type-Options:
       - nosniff
       Vary:
@@ -39,15 +37,16 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        eyJpZCI6IkNVUy01RlFYNjlINDNKT1oiLCJvd25JZCI6ImNnVFI5RmU0RG0xNXBEU1dEU00ydVZpViIsImZ1bGxuYW1lIjoiSm9obiBEb2UiLCJjcmVhdGVkQXQiOiIyMDE3LTEwLTI1VDIxOjM3OjE4LjAwMC0wMiIsImVtYWlsIjoia2VubmV0aF9jaGFtcGxpbkBoYW1tZXNtdXJhemlrLm5hbWUiLCJwaG9uZSI6eyJjb3VudHJ5Q29kZSI6IjU1IiwiYXJlYUNvZGUiOiIyMSIsIm51bWJlciI6IjAwMDAwMDAwIn0sInRheERvY3VtZW50Ijp7InR5cGUiOiJDUEYiLCJudW1iZXIiOiI2NzgyMjQxMjE4MyJ9LCJzaGlwcGluZ0FkZHJlc3MiOnsiemlwQ29kZSI6IjAxNDUyLTAwMSIsInN0cmVldCI6IkF2ZW5pZGEgRmFyaWEgTGltYSIsInN0cmVldE51bWJlciI6IjEwMCIsImNpdHkiOiJTw6NvIFBhdWxvIiwiZGlzdHJpY3QiOiJJdGFpbSIsInN0YXRlIjoiU1AiLCJjb3VudHJ5IjoiQlJBIn0sIl9saW5rcyI6eyJzZWxmIjp7ImhyZWYiOiJodHRwczovL3NhbmRib3gubW9pcC5jb20uYnIvdjIvY3VzdG9tZXJzL0NVUy01RlFYNjlINDNKT1oifSwiaG9zdGVkQWNjb3VudCI6eyJyZWRpcmVjdEhyZWYiOiJodHRwczovL2hvc3RlZGFjY291bnQtc2FuZGJveC5tb2lwLmNvbS5icj90b2tlbj04ZjgyNmZkNy1lNmZhLTQwOTEtYmQ5Yi1jODc1MzFkNWNkNGImaWQ9Q1VTLTVGUVg2OUg0M0pPWiZtcGE9TVBBLTE2N0RERUMzQjM2MyJ9fX0=
+        eyJpZCI6IkNVUy1KNFBVN1I2MUNSU0YiLCJvd25JZCI6IkJZWFA1WXlWTkw3QVdQVGs1NHFFOXRNViIsImZ1bGxuYW1lIjoiU29tZSBQZXJzb24iLCJjcmVhdGVkQXQiOiIyMDE3LTExLTAzVDE4OjUyOjA2LjAwMC0wMiIsImVtYWlsIjoic2VicmluYV9rb3ZhY2VrQGhpbnR6dG9ycC5pbmZvIiwicGhvbmUiOnsiY291bnRyeUNvZGUiOiI1NSIsImFyZWFDb2RlIjoiMjEiLCJudW1iZXIiOiIwMDAwMDAwMCJ9LCJ0YXhEb2N1bWVudCI6eyJ0eXBlIjoiQ1BGIiwibnVtYmVyIjoiNjc4MjI0MTIxODMifSwic2hpcHBpbmdBZGRyZXNzIjp7InppcENvZGUiOiIwMTQ1Mi0wMDEiLCJzdHJlZXQiOiJBdmVuaWRhIEZhcmlhIExpbWEiLCJzdHJlZXROdW1iZXIiOiIxMDAiLCJjaXR5IjoiU8OjbyBQYXVsbyIsImRpc3RyaWN0IjoiSXRhaW0iLCJzdGF0ZSI6IlNQIiwiY291bnRyeSI6IkJSQSJ9LCJfbGlua3MiOnsic2VsZiI6eyJocmVmIjoiaHR0cHM6Ly9zYW5kYm94Lm1vaXAuY29tLmJyL3YyL2N1c3RvbWVycy9DVVMtSjRQVTdSNjFDUlNGIn0sImhvc3RlZEFjY291bnQiOnsicmVkaXJlY3RIcmVmIjoiaHR0cHM6Ly9ob3N0ZWRhY2NvdW50LXNhbmRib3gubW9pcC5jb20uYnI/dG9rZW49NDE1NjQ0YzctY2IyZS00NzkyLTg5MjQtOTcxMjY4OTQ5OWE1JmlkPUNVUy1KNFBVN1I2MUNSU0YmbXBhPU1QQS0xNjdEREVDM0IzNjMifX19
     http_version: 
-  recorded_at: Wed, 25 Oct 2017 23:37:18 GMT
+  recorded_at: Fri, 03 Nov 2017 20:52:07 GMT
 - request:
     method: post
-    uri: https://sandbox.moip.com.br/v2/customers/CUS-5FQX69H43JOZ/fundinginstruments
+    uri: https://sandbox.moip.com.br/v2/customers/CUS-J4PU7R61CRSF/fundinginstruments
     body:
       encoding: UTF-8
-      string: '{"method":"CREDIT_CARD","creditCard":{"holder":{"fullname":"Spree Commerce","birthdate":"1990-01-01","taxDocument":{"type":"CPF","number":"67822412183"}},"number":"4012001037141112","expirationMonth":5,"expirationYear":2018,"cvc":"123"}}'
+      string: '{"method":"CREDIT_CARD","creditCard":{"store":true,"number":"4012001037141112","expirationMonth":5,"expirationYear":2018,"cvc":"123","holder":{"fullname":"Spree
+        Commerce","birthdate":"1990-01-01","taxDocument":{"type":"CPF","number":"67822412183"}}}}'
     headers:
       Content-Type:
       - application/json
@@ -61,13 +60,11 @@ http_interactions:
       message: Created
     headers:
       Date:
-      - Wed, 25 Oct 2017 23:37:19 GMT
+      - Fri, 03 Nov 2017 20:52:08 GMT
       Server:
       - Apache
-      Status:
-      - 201 Created
       X-Newrelic-App-Data:
-      - PxQFUlBXAQoTUVFWDgEDUVYTGhE1AwE2QgNWEVlbQFtcC2VOYwRAFjNTVTIDEU5aUwE9TUEDa0kHREVHDQsGEEM+FxlRXEluHANMD1UIXQUNWEQVFBZVVl4QEkIfYXg1MBgUH1JIU04ATAhWDAwECgFSFVMCVh9AVwNTVV9VCAQHAgQHAwkCUUYdUFIOFQY/
+      - PxQFUlBXAQoTUVFWDgEDUVYTGhE1AwE2QgNWEVlbQFtcC2VOYwRAFjNTVTIDEU5aUwE9TUEDa0kHREVHDQsGEEM+FxlRXEluHANMD1UIXQUNWEQVFBZVVl4QEkIfYXg1MBgUH1JIU04ATAhVCwwABQRJC1QBTRFTXQAPVwRRDAAFXFJVBFcPREhXV18RAz4=
       Content-Type:
       - application/json
       Content-Length:
@@ -78,7 +75,7 @@ http_interactions:
       - Accept-Encoding,Origin
     body:
       encoding: UTF-8
-      string: '{"creditCard":{"id":"CRC-XDY69R4THPPY","brand":"VISA","first6":"401200","last4":"1112","store":true},"card":{"brand":"VISA","store":true},"method":"CREDIT_CARD"}'
+      string: '{"creditCard":{"id":"CRC-WFYO44JE82C7","brand":"VISA","first6":"401200","last4":"1112","store":true},"card":{"brand":"VISA","store":true},"method":"CREDIT_CARD"}'
     http_version: 
-  recorded_at: Wed, 25 Oct 2017 23:37:20 GMT
+  recorded_at: Fri, 03 Nov 2017 20:52:09 GMT
 recorded_with: VCR 3.0.3
