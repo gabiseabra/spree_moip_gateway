@@ -5,7 +5,7 @@ http_interactions:
     uri: https://sandbox.moip.com.br/v2/customers
     body:
       encoding: UTF-8
-      string: '{"ownId":"qeCg7pyVxT3TfYywP8GbSisa","fullname":"John Doe","email":"ilse@mohrharber.com","taxDocument":{"type":"CPF","number":"67822412183"},"phone":{"countryCode":"55","areaCode":"21","number":"00000000"},"shippingAddress":{"street":"Avenida
+      string: '{"ownId":"y5dQhLnwFwjPFuJaQ1QU22fR","fullname":"Some Person","email":"maris@schoenmclaughlin.name","taxDocument":{"type":"CPF","number":"67822412183"},"phone":{"countryCode":"55","areaCode":"21","number":"00000000"},"shippingAddress":{"street":"Avenida
         Faria Lima","streetNumber":100,"complement":null,"district":"Itaim","city":"São
         Paulo","state":"SP","country":"BRA","zipCode":"01452-001"}}'
     headers:
@@ -21,17 +21,15 @@ http_interactions:
       message: Created
     headers:
       Date:
-      - Fri, 27 Oct 2017 16:58:06 GMT
+      - Fri, 03 Nov 2017 16:05:38 GMT
       Server:
       - Apache
-      Status:
-      - 201 Created
       X-Newrelic-App-Data:
-      - PxQFUlBXAQoTUVFWDgEDUVYTGhE1AwE2QgNWEVlbQFtcC2VOYwRAFjNTVTIDEU5aUwE9TUEDa0kHREVHDQsGEENCEDJ3a2AbEUkJTwFNA0xUBQNYXlYMAQNIUloFHRVRUANQVVQDAgAIVglWWgtQEB8DWA1CBG4=
+      - PxQFUlBXAQoTUVFWDgEDUVYTGhE1AwE2QgNWEVlbQFtcC2VOYwRAFjNTVTIDEU5aUwE9TUEDa0kHREVHDQsGEENCEDJ3a2AbEUkJTwFNA0xUBQNYUFYKAwJIUlsEHRUFXFcEUVJSBQRVVggECg4CEB8DWA1CBG4=
       Content-Type:
       - application/json
       Content-Length:
-      - '679'
+      - '690'
       X-Content-Type-Options:
       - nosniff
       Vary:
@@ -39,12 +37,12 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        eyJpZCI6IkNVUy1DU1ZFRjZBWlY1TjAiLCJvd25JZCI6InFlQ2c3cHlWeFQzVGZZeXdQOEdiU2lzYSIsImZ1bGxuYW1lIjoiSm9obiBEb2UiLCJjcmVhdGVkQXQiOiIyMDE3LTEwLTI3VDE0OjU4OjA2LjAwMC0wMiIsImVtYWlsIjoiaWxzZUBtb2hyaGFyYmVyLmNvbSIsInBob25lIjp7ImNvdW50cnlDb2RlIjoiNTUiLCJhcmVhQ29kZSI6IjIxIiwibnVtYmVyIjoiMDAwMDAwMDAifSwidGF4RG9jdW1lbnQiOnsidHlwZSI6IkNQRiIsIm51bWJlciI6IjY3ODIyNDEyMTgzIn0sInNoaXBwaW5nQWRkcmVzcyI6eyJ6aXBDb2RlIjoiMDE0NTItMDAxIiwic3RyZWV0IjoiQXZlbmlkYSBGYXJpYSBMaW1hIiwic3RyZWV0TnVtYmVyIjoiMTAwIiwiY2l0eSI6IlPDo28gUGF1bG8iLCJkaXN0cmljdCI6Ikl0YWltIiwic3RhdGUiOiJTUCIsImNvdW50cnkiOiJCUkEifSwiX2xpbmtzIjp7InNlbGYiOnsiaHJlZiI6Imh0dHBzOi8vc2FuZGJveC5tb2lwLmNvbS5ici92Mi9jdXN0b21lcnMvQ1VTLUNTVkVGNkFaVjVOMCJ9LCJob3N0ZWRBY2NvdW50Ijp7InJlZGlyZWN0SHJlZiI6Imh0dHBzOi8vaG9zdGVkYWNjb3VudC1zYW5kYm94Lm1vaXAuY29tLmJyP3Rva2VuPTczZTY0OWJiLWI0MjMtNGUxZi1iOGZjLWZkYzBjMjc4NmJhZCZpZD1DVVMtQ1NWRUY2QVpWNU4wJm1wYT1NUEEtMTY3RERFQzNCMzYzIn19fQ==
+        eyJpZCI6IkNVUy01OVlTUUc2VUlYT1AiLCJvd25JZCI6Ink1ZFFoTG53RndqUEZ1SmFRMVFVMjJmUiIsImZ1bGxuYW1lIjoiU29tZSBQZXJzb24iLCJjcmVhdGVkQXQiOiIyMDE3LTExLTAzVDE0OjA1OjM4LjAwMC0wMiIsImVtYWlsIjoibWFyaXNAc2Nob2VubWNsYXVnaGxpbi5uYW1lIiwicGhvbmUiOnsiY291bnRyeUNvZGUiOiI1NSIsImFyZWFDb2RlIjoiMjEiLCJudW1iZXIiOiIwMDAwMDAwMCJ9LCJ0YXhEb2N1bWVudCI6eyJ0eXBlIjoiQ1BGIiwibnVtYmVyIjoiNjc4MjI0MTIxODMifSwic2hpcHBpbmdBZGRyZXNzIjp7InppcENvZGUiOiIwMTQ1Mi0wMDEiLCJzdHJlZXQiOiJBdmVuaWRhIEZhcmlhIExpbWEiLCJzdHJlZXROdW1iZXIiOiIxMDAiLCJjaXR5IjoiU8OjbyBQYXVsbyIsImRpc3RyaWN0IjoiSXRhaW0iLCJzdGF0ZSI6IlNQIiwiY291bnRyeSI6IkJSQSJ9LCJfbGlua3MiOnsic2VsZiI6eyJocmVmIjoiaHR0cHM6Ly9zYW5kYm94Lm1vaXAuY29tLmJyL3YyL2N1c3RvbWVycy9DVVMtNTlZU1FHNlVJWE9QIn0sImhvc3RlZEFjY291bnQiOnsicmVkaXJlY3RIcmVmIjoiaHR0cHM6Ly9ob3N0ZWRhY2NvdW50LXNhbmRib3gubW9pcC5jb20uYnI/dG9rZW49ODI4ZmU0ZjQtZjRhZi00YjBjLWFjMjEtNTAxZTExNjRmNjRiJmlkPUNVUy01OVlTUUc2VUlYT1AmbXBhPU1QQS0xNjdEREVDM0IzNjMifX19
     http_version: 
-  recorded_at: Fri, 27 Oct 2017 16:58:05 GMT
+  recorded_at: Fri, 03 Nov 2017 16:05:38 GMT
 - request:
     method: post
-    uri: https://sandbox.moip.com.br/v2/customers/CUS-CSVEF6AZV5N0/fundinginstruments
+    uri: https://sandbox.moip.com.br/v2/customers/CUS-59YSQG6UIXOP/fundinginstruments
     body:
       encoding: UTF-8
       string: '{"method":"CREDIT_CARD","creditCard":{"holder":{"fullname":"Spree Commerce","birthdate":"1990-01-01","taxDocument":{"type":"CPF","number":"67822412183"}},"store":true,"number":"4012001037141112","expirationMonth":5,"expirationYear":2018,"cvc":"123"}}'
@@ -61,13 +59,11 @@ http_interactions:
       message: Created
     headers:
       Date:
-      - Fri, 27 Oct 2017 16:58:08 GMT
+      - Fri, 03 Nov 2017 16:05:40 GMT
       Server:
       - Apache
-      Status:
-      - 201 Created
       X-Newrelic-App-Data:
-      - PxQFUlBXAQoTUVFWDgEDUVYTGhE1AwE2QgNWEVlbQFtcC2VOYwRAFjNTVTIDEU5aUwE9TUEDa0kHREVHDQsGEEM+FxlRXEluHANMD1UIXQUNWEQVFBZVVl4QEkIfYXg1MBgUH1JIU04ATA1RAQEFCh9XDFEdQ1UBUQ8BBVdRCAoIAlkAAVcVSgJQWkAHOw==
+      - PxQFUlBXAQoTUVFWDgEDUVYTGhE1AwE2QgNWEVlbQFtcC2VOYwRAFjNTVTIDEU5aUwE9TUEDa0kHREVHDQsGEEM+FxlRXEluHANMD1UIXQUNWEQVFBZVVl4QEkIfYXg1MBgUH1JIU04ATAhWDAkDCgZQCk0DVANORlVSVARTXgEHXQVQAAJVBF0TGlUDChAHbQ==
       Content-Type:
       - application/json
       Content-Length:
@@ -78,15 +74,15 @@ http_interactions:
       - Accept-Encoding,Origin
     body:
       encoding: UTF-8
-      string: '{"creditCard":{"id":"CRC-HM025CA6ZU6T","brand":"VISA","first6":"401200","last4":"1112","store":true},"card":{"brand":"VISA","store":true},"method":"CREDIT_CARD"}'
+      string: '{"creditCard":{"id":"CRC-O7J1CQNI1NBX","brand":"VISA","first6":"401200","last4":"1112","store":true},"card":{"brand":"VISA","store":true},"method":"CREDIT_CARD"}'
     http_version: 
-  recorded_at: Fri, 27 Oct 2017 16:58:07 GMT
+  recorded_at: Fri, 03 Nov 2017 16:05:40 GMT
 - request:
     method: post
     uri: https://sandbox.moip.com.br/v2/orders
     body:
       encoding: UTF-8
-      string: '{"ownId":"R708845552-PALCMY34","items":[{"product":"Product #2 - 1821","quantity":1,"price":1999}],"amount":{"currency":"BRL","subtotals":{"shipping":0,"addition":0,"discount":0}},"customer":{"id":"CUS-CSVEF6AZV5N0"}}'
+      string: '{"ownId":"R947006852-PPBWL8X5","items":[{"product":"Product #1 - 6294","quantity":1,"price":1999}],"amount":{"currency":"BRL","subtotals":{"shipping":0,"addition":0,"discount":0}},"customer":{"id":"CUS-59YSQG6UIXOP"}}'
     headers:
       Content-Type:
       - application/json
@@ -100,17 +96,15 @@ http_interactions:
       message: Created
     headers:
       Date:
-      - Fri, 27 Oct 2017 17:22:38 GMT
+      - Fri, 03 Nov 2017 16:05:49 GMT
       Server:
       - Apache
-      Status:
-      - 201 Created
       X-Newrelic-App-Data:
-      - PxQFUlBXAQoTUVFWDgEDUVYTGhE1AwE2QgNWEVlbQFtcC2VOYwRAFjNTVTIDEU5aUwE9TUEDa0kLQ1JWEBVDSmAtazYRGhgCHVUVUR9RBVtTAQFWUk8KAgdIQ1YFBFIEXFICAFNUBlIJV15AFF5VXkAAZA==
+      - PxQFUlBXAQoTUVFWDgEDUVYTGhE1AwE2QgNWEVlbQFtcC2VOYwRAFjNTVTIDEU5aUwE9TUEDa0kLQ1JWEBVDSmAtazYRGhgCHVUVUR9RBFVRBwRQX1UUAQFTTUAHCAZXBQVTAlRSBQEEA1wBGhRSU18WXDw=
       Content-Type:
       - application/json
       Content-Length:
-      - '2754'
+      - '2762'
       X-Content-Type-Options:
       - nosniff
       Vary:
@@ -118,16 +112,16 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        eyJpZCI6Ik9SRC1aTE1LRDlHR0JKU0siLCJvd25JZCI6IlI3MDg4NDU1NTItUEFMQ01ZMzQiLCJzdGF0dXMiOiJDUkVBVEVEIiwicGxhdGZvcm0iOiJWMiIsImNyZWF0ZWRBdCI6IjIwMTctMTAtMjdUMTU6MjI6MzguNTQ0LTAyIiwidXBkYXRlZEF0IjoiMjAxNy0xMC0yN1QxNToyMjozOC41NDQtMDIiLCJhbW91bnQiOnsicGFpZCI6MCwidG90YWwiOjE5OTksImZlZXMiOjAsInJlZnVuZHMiOjAsImxpcXVpZCI6MCwib3RoZXJSZWNlaXZlcnMiOjAsImN1cnJlbmN5IjoiQlJMIiwic3VidG90YWxzIjp7InNoaXBwaW5nIjowLCJhZGRpdGlvbiI6MCwiZGlzY291bnQiOjAsIml0ZW1zIjoxOTk5fX0sIml0ZW1zIjpbeyJwcm9kdWN0IjoiUHJvZHVjdCAjMiAtIDE4MjEiLCJwcmljZSI6MTk5OSwicXVhbnRpdHkiOjF9XSwiYWRkcmVzc2VzIjpbeyJzdHJlZXROdW1iZXIiOiIxMDAiLCJzdHJlZXQiOiJBdmVuaWRhIEZhcmlhIExpbWEiLCJjaXR5IjoiU8OjbyBQYXVsbyIsImRpc3RyaWN0IjoiSXRhaW0iLCJ6aXBDb2RlIjoiMDE0NTItMDAxIiwic3RhdGUiOiJTUCIsInR5cGUiOiJTSElQUElORyIsImNvdW50cnkiOiJCUkEifV0sImN1c3RvbWVyIjp7ImlkIjoiQ1VTLUNTVkVGNkFaVjVOMCIsIm93bklkIjoicWVDZzdweVZ4VDNUZll5d1A4R2JTaXNhIiwiZnVsbG5hbWUiOiJKb2huIERvZSIsImNyZWF0ZWRBdCI6IjIwMTctMTAtMjdUMTQ6NTg6MDYuMDAwLTAyIiwiZW1haWwiOiJpbHNlQG1vaHJoYXJiZXIuY29tIiwiZnVuZGluZ0luc3RydW1lbnQiOnsiY3JlZGl0Q2FyZCI6eyJpZCI6IkNSQy1ITTAyNUNBNlpVNlQiLCJicmFuZCI6IlZJU0EiLCJmaXJzdDYiOiI0MDEyMDAiLCJsYXN0NCI6IjExMTIiLCJzdG9yZSI6dHJ1ZX0sIm1ldGhvZCI6IkNSRURJVF9DQVJEIn0sInBob25lIjp7ImNvdW50cnlDb2RlIjoiNTUiLCJhcmVhQ29kZSI6IjIxIiwibnVtYmVyIjoiMDAwMDAwMDAifSwidGF4RG9jdW1lbnQiOnsidHlwZSI6IkNQRiIsIm51bWJlciI6IjY3ODIyNDEyMTgzIn0sImFkZHJlc3NlcyI6W3sic3RyZWV0TnVtYmVyIjoiMTAwIiwic3RyZWV0IjoiQXZlbmlkYSBGYXJpYSBMaW1hIiwiY2l0eSI6IlPDo28gUGF1bG8iLCJkaXN0cmljdCI6Ikl0YWltIiwiemlwQ29kZSI6IjAxNDUyLTAwMSIsInN0YXRlIjoiU1AiLCJ0eXBlIjoiU0hJUFBJTkciLCJjb3VudHJ5IjoiQlJBIn1dLCJzaGlwcGluZ0FkZHJlc3MiOnsiemlwQ29kZSI6IjAxNDUyLTAwMSIsInN0cmVldCI6IkF2ZW5pZGEgRmFyaWEgTGltYSIsInN0cmVldE51bWJlciI6IjEwMCIsImNpdHkiOiJTw6NvIFBhdWxvIiwiZGlzdHJpY3QiOiJJdGFpbSIsInN0YXRlIjoiU1AiLCJjb3VudHJ5IjoiQlJBIn0sIl9saW5rcyI6eyJzZWxmIjp7ImhyZWYiOiJodHRwczovL3NhbmRib3gubW9pcC5jb20uYnIvdjIvY3VzdG9tZXJzL0NVUy1DU1ZFRjZBWlY1TjAifSwiaG9zdGVkQWNjb3VudCI6eyJyZWRpcmVjdEhyZWYiOiJodHRwczovL2hvc3RlZGFjY291bnQtc2FuZGJveC5tb2lwLmNvbS5icj90b2tlbj03M2U2NDliYi1iNDIzLTRlMWYtYjhmYy1mZGMwYzI3ODZiYWQmaWQ9Q1VTLUNTVkVGNkFaVjVOMCZtcGE9TVBBLTE2N0RERUMzQjM2MyJ9fSwiZnVuZGluZ0luc3RydW1lbnRzIjpbeyJjcmVkaXRDYXJkIjp7ImlkIjoiQ1JDLUhNMDI1Q0E2WlU2VCIsImJyYW5kIjoiVklTQSIsImZpcnN0NiI6IjQwMTIwMCIsImxhc3Q0IjoiMTExMiIsInN0b3JlIjp0cnVlfSwibWV0aG9kIjoiQ1JFRElUX0NBUkQifV19LCJwYXltZW50cyI6W10sImVzY3Jvd3MiOltdLCJyZWZ1bmRzIjpbXSwiZW50cmllcyI6W10sImV2ZW50cyI6W3sidHlwZSI6Ik9SREVSLkNSRUFURUQiLCJjcmVhdGVkQXQiOiIyMDE3LTEwLTI3VDE1OjIyOjM4LjU0NC0wMiIsImRlc2NyaXB0aW9uIjoiIn1dLCJyZWNlaXZlcnMiOlt7Im1vaXBBY2NvdW50Ijp7ImlkIjoiTVBBLTE2N0RERUMzQjM2MyIsImxvZ2luIjoiZ2FicmllbGEubGltYS5zZUBnbWFpbC5jb20iLCJmdWxsbmFtZSI6IkdhYnJpZWxhIFNlYWJyYSJ9LCJ0eXBlIjoiUFJJTUFSWSIsImFtb3VudCI6eyJ0b3RhbCI6MTk5OSwiZmVlcyI6MCwicmVmdW5kcyI6MH0sImZlZVBheW9yIjp0cnVlfV0sIl9saW5rcyI6eyJzZWxmIjp7ImhyZWYiOiJodHRwczovL3NhbmRib3gubW9pcC5jb20uYnIvdjIvb3JkZXJzL09SRC1aTE1LRDlHR0JKU0sifSwiY2hlY2tvdXQiOnsicGF5Q2hlY2tvdXQiOnsicmVkaXJlY3RIcmVmIjoiaHR0cHM6Ly9jaGVja291dC1uZXctc2FuZGJveC5tb2lwLmNvbS5icj90b2tlbj1hYjZhYzNmNi0yOTMyLTRiMzYtODhjNi0zMGZjNTc2ZmYxYzYmaWQ9T1JELVpMTUtEOUdHQkpTSyJ9LCJwYXlDcmVkaXRDYXJkIjp7InJlZGlyZWN0SHJlZiI6Imh0dHBzOi8vY2hlY2tvdXQtbmV3LXNhbmRib3gubW9pcC5jb20uYnI/dG9rZW49YWI2YWMzZjYtMjkzMi00YjM2LTg4YzYtMzBmYzU3NmZmMWM2JmlkPU9SRC1aTE1LRDlHR0JKU0smcGF5bWVudC1tZXRob2Q9Y3JlZGl0LWNhcmQifSwicGF5Qm9sZXRvIjp7InJlZGlyZWN0SHJlZiI6Imh0dHBzOi8vY2hlY2tvdXQtbmV3LXNhbmRib3gubW9pcC5jb20uYnI/dG9rZW49YWI2YWMzZjYtMjkzMi00YjM2LTg4YzYtMzBmYzU3NmZmMWM2JmlkPU9SRC1aTE1LRDlHR0JKU0smcGF5bWVudC1tZXRob2Q9Ym9sZXRvIn0sInBheU9ubGluZUJhbmtEZWJpdEl0YXUiOnsicmVkaXJlY3RIcmVmIjoiaHR0cHM6Ly9jaGVja291dC1zYW5kYm94Lm1vaXAuY29tLmJyL2RlYml0L2l0YXUvT1JELVpMTUtEOUdHQkpTSyJ9fX19
+        eyJpZCI6Ik9SRC1PNzFVTklQSDhQRk0iLCJvd25JZCI6IlI5NDcwMDY4NTItUFBCV0w4WDUiLCJzdGF0dXMiOiJDUkVBVEVEIiwicGxhdGZvcm0iOiJWMiIsImNyZWF0ZWRBdCI6IjIwMTctMTEtMDNUMTQ6MDU6NDkuNDI3LTAyIiwidXBkYXRlZEF0IjoiMjAxNy0xMS0wM1QxNDowNTo0OS40MjctMDIiLCJhbW91bnQiOnsicGFpZCI6MCwidG90YWwiOjE5OTksImZlZXMiOjAsInJlZnVuZHMiOjAsImxpcXVpZCI6MCwib3RoZXJSZWNlaXZlcnMiOjAsImN1cnJlbmN5IjoiQlJMIiwic3VidG90YWxzIjp7InNoaXBwaW5nIjowLCJhZGRpdGlvbiI6MCwiZGlzY291bnQiOjAsIml0ZW1zIjoxOTk5fX0sIml0ZW1zIjpbeyJwcmljZSI6MTk5OSwicXVhbnRpdHkiOjEsInByb2R1Y3QiOiJQcm9kdWN0ICMxIC0gNjI5NCJ9XSwiYWRkcmVzc2VzIjpbeyJzdHJlZXROdW1iZXIiOiIxMDAiLCJzdHJlZXQiOiJBdmVuaWRhIEZhcmlhIExpbWEiLCJjaXR5IjoiU8OjbyBQYXVsbyIsImRpc3RyaWN0IjoiSXRhaW0iLCJ6aXBDb2RlIjoiMDE0NTItMDAxIiwic3RhdGUiOiJTUCIsInR5cGUiOiJTSElQUElORyIsImNvdW50cnkiOiJCUkEifV0sImN1c3RvbWVyIjp7ImlkIjoiQ1VTLTU5WVNRRzZVSVhPUCIsIm93bklkIjoieTVkUWhMbndGd2pQRnVKYVExUVUyMmZSIiwiZnVsbG5hbWUiOiJTb21lIFBlcnNvbiIsImNyZWF0ZWRBdCI6IjIwMTctMTEtMDNUMTQ6MDU6MzguMDAwLTAyIiwiZW1haWwiOiJtYXJpc0BzY2hvZW5tY2xhdWdobGluLm5hbWUiLCJmdW5kaW5nSW5zdHJ1bWVudCI6eyJjcmVkaXRDYXJkIjp7ImlkIjoiQ1JDLU83SjFDUU5JMU5CWCIsImJyYW5kIjoiVklTQSIsImZpcnN0NiI6IjQwMTIwMCIsImxhc3Q0IjoiMTExMiIsInN0b3JlIjp0cnVlfSwibWV0aG9kIjoiQ1JFRElUX0NBUkQifSwicGhvbmUiOnsiY291bnRyeUNvZGUiOiI1NSIsImFyZWFDb2RlIjoiMjEiLCJudW1iZXIiOiIwMDAwMDAwMCJ9LCJ0YXhEb2N1bWVudCI6eyJ0eXBlIjoiQ1BGIiwibnVtYmVyIjoiNjc4MjI0MTIxODMifSwiYWRkcmVzc2VzIjpbeyJzdHJlZXROdW1iZXIiOiIxMDAiLCJzdHJlZXQiOiJBdmVuaWRhIEZhcmlhIExpbWEiLCJjaXR5IjoiU8OjbyBQYXVsbyIsImRpc3RyaWN0IjoiSXRhaW0iLCJ6aXBDb2RlIjoiMDE0NTItMDAxIiwic3RhdGUiOiJTUCIsInR5cGUiOiJTSElQUElORyIsImNvdW50cnkiOiJCUkEifV0sInNoaXBwaW5nQWRkcmVzcyI6eyJ6aXBDb2RlIjoiMDE0NTItMDAxIiwic3RyZWV0IjoiQXZlbmlkYSBGYXJpYSBMaW1hIiwic3RyZWV0TnVtYmVyIjoiMTAwIiwiY2l0eSI6IlPDo28gUGF1bG8iLCJkaXN0cmljdCI6Ikl0YWltIiwic3RhdGUiOiJTUCIsImNvdW50cnkiOiJCUkEifSwiX2xpbmtzIjp7InNlbGYiOnsiaHJlZiI6Imh0dHBzOi8vc2FuZGJveC5tb2lwLmNvbS5ici92Mi9jdXN0b21lcnMvQ1VTLTU5WVNRRzZVSVhPUCJ9LCJob3N0ZWRBY2NvdW50Ijp7InJlZGlyZWN0SHJlZiI6Imh0dHBzOi8vaG9zdGVkYWNjb3VudC1zYW5kYm94Lm1vaXAuY29tLmJyP3Rva2VuPTgyOGZlNGY0LWY0YWYtNGIwYy1hYzIxLTUwMWUxMTY0ZjY0YiZpZD1DVVMtNTlZU1FHNlVJWE9QJm1wYT1NUEEtMTY3RERFQzNCMzYzIn19LCJmdW5kaW5nSW5zdHJ1bWVudHMiOlt7ImNyZWRpdENhcmQiOnsiaWQiOiJDUkMtTzdKMUNRTkkxTkJYIiwiYnJhbmQiOiJWSVNBIiwiZmlyc3Q2IjoiNDAxMjAwIiwibGFzdDQiOiIxMTEyIiwic3RvcmUiOnRydWV9LCJtZXRob2QiOiJDUkVESVRfQ0FSRCJ9XX0sInBheW1lbnRzIjpbXSwiZXNjcm93cyI6W10sInJlZnVuZHMiOltdLCJlbnRyaWVzIjpbXSwiZXZlbnRzIjpbeyJ0eXBlIjoiT1JERVIuQ1JFQVRFRCIsImNyZWF0ZWRBdCI6IjIwMTctMTEtMDNUMTQ6MDU6NDkuNDI3LTAyIiwiZGVzY3JpcHRpb24iOiIifV0sInJlY2VpdmVycyI6W3sibW9pcEFjY291bnQiOnsiaWQiOiJNUEEtMTY3RERFQzNCMzYzIiwibG9naW4iOiJnYWJyaWVsYS5saW1hLnNlQGdtYWlsLmNvbSIsImZ1bGxuYW1lIjoiR2FicmllbGEgU2VhYnJhIn0sInR5cGUiOiJQUklNQVJZIiwiYW1vdW50Ijp7InRvdGFsIjowLCJmZWVzIjowLCJyZWZ1bmRzIjowfSwiZmVlUGF5b3IiOnRydWV9XSwiX2xpbmtzIjp7InNlbGYiOnsiaHJlZiI6Imh0dHBzOi8vc2FuZGJveC5tb2lwLmNvbS5ici92Mi9vcmRlcnMvT1JELU83MVVOSVBIOFBGTSJ9LCJjaGVja291dCI6eyJwYXlDaGVja291dCI6eyJyZWRpcmVjdEhyZWYiOiJodHRwczovL2NoZWNrb3V0LW5ldy1zYW5kYm94Lm1vaXAuY29tLmJyP3Rva2VuPTJkYzljMzU3LTQzYjktNDMzZC1iYzU2LTZhMmM5MDEzYTE5MyZpZD1PUkQtTzcxVU5JUEg4UEZNIn0sInBheUNyZWRpdENhcmQiOnsicmVkaXJlY3RIcmVmIjoiaHR0cHM6Ly9jaGVja291dC1uZXctc2FuZGJveC5tb2lwLmNvbS5icj90b2tlbj0yZGM5YzM1Ny00M2I5LTQzM2QtYmM1Ni02YTJjOTAxM2ExOTMmaWQ9T1JELU83MVVOSVBIOFBGTSZwYXltZW50LW1ldGhvZD1jcmVkaXQtY2FyZCJ9LCJwYXlCb2xldG8iOnsicmVkaXJlY3RIcmVmIjoiaHR0cHM6Ly9jaGVja291dC1uZXctc2FuZGJveC5tb2lwLmNvbS5icj90b2tlbj0yZGM5YzM1Ny00M2I5LTQzM2QtYmM1Ni02YTJjOTAxM2ExOTMmaWQ9T1JELU83MVVOSVBIOFBGTSZwYXltZW50LW1ldGhvZD1ib2xldG8ifSwicGF5T25saW5lQmFua0RlYml0SXRhdSI6eyJyZWRpcmVjdEhyZWYiOiJodHRwczovL2NoZWNrb3V0LXNhbmRib3gubW9pcC5jb20uYnIvZGViaXQvaXRhdS9PUkQtTzcxVU5JUEg4UEZNIn19fX0=
     http_version: 
-  recorded_at: Fri, 27 Oct 2017 17:22:37 GMT
+  recorded_at: Fri, 03 Nov 2017 16:05:49 GMT
 - request:
     method: post
-    uri: https://sandbox.moip.com.br/v2/orders/ORD-ZLMKD9GGBJSK/payments
+    uri: https://sandbox.moip.com.br/v2/orders/ORD-O71UNIPH8PFM/payments
     body:
       encoding: UTF-8
       string: '{"fundingInstrument":{"method":"CREDIT_CARD","creditCard":{"holder":{"fullname":"Spree
-        Commerce","birthdate":"1990-01-01","taxDocument":{"type":"CPF","number":"67822412183"}},"id":"CRC-HM025CA6ZU6T","cvc":"123"}},"installmentCount":1,"delayCapture":true}'
+        Commerce","birthdate":"1990-01-01","taxDocument":{"type":"CPF","number":"67822412183"}},"id":"CRC-O7J1CQNI1NBX","cvc":"123"}},"installmentCount":1,"delayCapture":true}'
     headers:
       Content-Type:
       - application/json
@@ -141,26 +135,24 @@ http_interactions:
       message: Created
     headers:
       Date:
-      - Fri, 27 Oct 2017 17:52:29 GMT
+      - Fri, 03 Nov 2017 16:05:51 GMT
       Server:
       - Apache
-      Status:
-      - 201 Created
       X-Newrelic-App-Data:
-      - PxQFUlBXAQoTUVFWDgEDUVYTGhE1AwE2QgNWEVlbQFtcC2VOYwRAFjNTVTIDEU5aUwE9TUEDa0kLQ1JWEBU/TUsNSgZdSn1WTjkWEVAYXgcKQkRBTjN3YGRNQ04HHwdKVB8EAVJeUFIFVBRQDQwYEFVQWAQJVgABB1QBUVMHXgUSSAcDW0JSOw==
+      - PxQFUlBXAQoTUVFWDgEDUVYTGhE1AwE2QgNWEVlbQFtcC2VOYwRAFjNTVTIDEU5aUwE9TUEDa0kLQ1JWEBU/TUsNSgZdSn1WTjkWEVAYXgcKQkRBTjN3YGRNQ04HHwdKVB8CA1RVVlAGVhRQDQwYEAtcCAMHWVBVUAVVUVRTWVUSSAcDW0JSOw==
       Content-Type:
       - application/json
       Content-Length:
-      - '1096'
+      - '1124'
       X-Content-Type-Options:
       - nosniff
       Vary:
       - Accept-Encoding,Origin
     body:
       encoding: UTF-8
-      string: '{"id":"PAY-FMYB5VWBLBCM","status":"IN_ANALYSIS","delayCapture":true,"amount":{"total":1999,"gross":1999,"fees":0,"refunds":0,"liquid":1999,"currency":"BRL"},"installmentCount":1,"fundingInstrument":{"creditCard":{"id":"CRC-HM025CA6ZU6T","brand":"VISA","first6":"401200","last4":"1112","store":true,"holder":{"birthdate":"1990-01-01","birthDate":"1990-01-01","taxDocument":{"type":"CPF","number":"67822412183"},"fullname":"John
-        Doe"}},"method":"CREDIT_CARD"},"fees":[{"type":"TRANSACTION","amount":0}],"events":[{"type":"PAYMENT.IN_ANALYSIS","createdAt":"2017-10-27T15:52:29.749-02"},{"type":"PAYMENT.CREATED","createdAt":"2017-10-27T15:52:29.602-02"}],"receivers":[{"moipAccount":{"id":"MPA-167DDEC3B363","login":"gabriela.lima.se@gmail.com","fullname":"Gabriela
-        Seabra"},"type":"PRIMARY","amount":{"total":1999,"refunds":0}}],"_links":{"self":{"href":"https://sandbox.moip.com.br/v2/payments/PAY-FMYB5VWBLBCM"},"order":{"href":"https://sandbox.moip.com.br/v2/orders/ORD-ZLMKD9GGBJSK","title":"ORD-ZLMKD9GGBJSK"}},"createdAt":"2017-10-27T15:52:29.600-02","updatedAt":"2017-10-27T15:52:29.749-02"}'
+      string: '{"id":"PAY-EEQESVXPUP9R","status":"IN_ANALYSIS","delayCapture":true,"amount":{"total":1999,"gross":1999,"fees":0,"refunds":0,"liquid":1999,"currency":"BRL"},"installmentCount":1,"fundingInstrument":{"creditCard":{"id":"CRC-O7J1CQNI1NBX","brand":"VISA","first6":"401200","last4":"1112","store":true,"holder":{"birthdate":"1990-01-01","birthDate":"1990-01-01","taxDocument":{"type":"CPF","number":"67822412183"},"fullname":"Some
+        Person"}},"method":"CREDIT_CARD"},"fees":[{"type":"TRANSACTION","amount":0}],"events":[{"type":"PAYMENT.IN_ANALYSIS","createdAt":"2017-11-03T14:05:51.793-02"},{"type":"PAYMENT.CREATED","createdAt":"2017-11-03T14:05:51.463-02"}],"receivers":[{"moipAccount":{"id":"MPA-167DDEC3B363","login":"gabriela.lima.se@gmail.com","fullname":"Gabriela
+        Seabra"},"type":"PRIMARY","amount":{"total":1999,"fees":0,"refunds":0},"feePayor":true}],"_links":{"self":{"href":"https://sandbox.moip.com.br/v2/payments/PAY-EEQESVXPUP9R"},"order":{"href":"https://sandbox.moip.com.br/v2/orders/ORD-O71UNIPH8PFM","title":"ORD-O71UNIPH8PFM"}},"createdAt":"2017-11-03T14:05:51.461-02","updatedAt":"2017-11-03T14:05:51.793-02"}'
     http_version: 
-  recorded_at: Fri, 27 Oct 2017 17:52:28 GMT
+  recorded_at: Fri, 03 Nov 2017 16:05:51 GMT
 recorded_with: VCR 3.0.3

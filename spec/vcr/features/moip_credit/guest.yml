@@ -5,8 +5,8 @@ http_interactions:
     uri: https://sandbox.moip.com.br/v2/orders
     body:
       encoding: UTF-8
-      string: '{"ownId":"R710317006-PQZQXA2Y","items":[{"product":"Product #1 - 9107","quantity":1,"price":1999}],"amount":{"currency":"BRL","subtotals":{"shipping":0,"addition":0,"discount":0}},"customer":{"ownId":"test","fullname":"John
-        Doe","email":"spree@example.com","taxDocument":{"type":"CPF","number":"67822412183"},"phone":{"countryCode":"55","areaCode":"21","number":"00000000"},"shippingAddress":{"street":"Avenida
+      string: '{"ownId":"R635859084-P5O88TP1","items":[{"product":"Product #1 - 2912","quantity":1,"price":1999}],"amount":{"currency":"BRL","subtotals":{"shipping":0,"addition":0,"discount":0}},"customer":{"ownId":"test","fullname":"Some
+        Person","email":"spree@example.com","taxDocument":{"type":"CPF","number":"67822412183"},"phone":{"countryCode":"55","areaCode":"21","number":"00000000"},"shippingAddress":{"street":"Avenida
         Faria Lima","streetNumber":100,"complement":null,"district":"Itaim","city":"São
         Paulo","state":"SP","country":"BRA","zipCode":"01452-001"}}}'
     headers:
@@ -22,17 +22,15 @@ http_interactions:
       message: Created
     headers:
       Date:
-      - Sun, 29 Oct 2017 07:44:53 GMT
+      - Fri, 03 Nov 2017 16:10:46 GMT
       Server:
       - Apache
-      Status:
-      - 201 Created
       X-Newrelic-App-Data:
-      - PxQFUlBXAQoTUVFWDgEDUVYTGhE1AwE2QgNWEVlbQFtcC2VOYwRAFjNTVTIDEU5aUwE9TUEDa0kLQ1JWEBVDSmAtazYRGhgCHVUVUR9RBFNQAg9ZVU8NBgJIQwECBg9UUgJQUVQHBwNRUg9AFF5VXkAAZA==
+      - PxQFUlBXAQoTUVFWDgEDUVYTGhE1AwE2QgNWEVlbQFtcC2VOYwRAFjNTVTIDEU5aUwE9TUEDa0kLQ1JWEBVDSmAtazYRGhgCHVUVUR9RBFZQAQdTSlYNBhxGAlMDUFRSBVNUUVUDW1pWWxpOXllYQVY4
       Content-Type:
       - application/json
       Content-Length:
-      - '2250'
+      - '2247'
       X-Content-Type-Options:
       - nosniff
       Vary:
@@ -40,12 +38,12 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        eyJpZCI6Ik9SRC1FR1JaMTlaN0lWSDQiLCJvd25JZCI6IlI3MTAzMTcwMDYtUFFaUVhBMlkiLCJzdGF0dXMiOiJDUkVBVEVEIiwicGxhdGZvcm0iOiJWMiIsImNyZWF0ZWRBdCI6IjIwMTctMTAtMjlUMDU6NDQ6NTMuNTYxLTAyIiwidXBkYXRlZEF0IjoiMjAxNy0xMC0yOVQwNTo0NDo1My41NjEtMDIiLCJhbW91bnQiOnsicGFpZCI6MCwidG90YWwiOjE5OTksImZlZXMiOjAsInJlZnVuZHMiOjAsImxpcXVpZCI6MCwib3RoZXJSZWNlaXZlcnMiOjAsImN1cnJlbmN5IjoiQlJMIiwic3VidG90YWxzIjp7InNoaXBwaW5nIjowLCJhZGRpdGlvbiI6MCwiZGlzY291bnQiOjAsIml0ZW1zIjoxOTk5fX0sIml0ZW1zIjpbeyJwcm9kdWN0IjoiUHJvZHVjdCAjMSAtIDkxMDciLCJwcmljZSI6MTk5OSwicXVhbnRpdHkiOjF9XSwiY3VzdG9tZXIiOnsiaWQiOiJDVVMtMUZNUFRUSE5aNjg1Iiwib3duSWQiOiJ0ZXN0IiwiZnVsbG5hbWUiOiJKb2huIERvZSIsImNyZWF0ZWRBdCI6IjIwMTctMTAtMjlUMDU6MjY6NDkuMDAwLTAyIiwiZW1haWwiOiJzcHJlZUBleGFtcGxlLmNvbSIsInBob25lIjp7ImNvdW50cnlDb2RlIjoiNTUiLCJhcmVhQ29kZSI6IjIxIiwibnVtYmVyIjoiMDAwMDAwMDAifSwidGF4RG9jdW1lbnQiOnsidHlwZSI6IkNQRiIsIm51bWJlciI6IjY3ODIyNDEyMTgzIn0sInNoaXBwaW5nQWRkcmVzcyI6eyJ6aXBDb2RlIjoiMDE0NTItMDAxIiwic3RyZWV0IjoiQXZlbmlkYSBGYXJpYSBMaW1hIiwic3RyZWV0TnVtYmVyIjoiMTAwIiwiY2l0eSI6IlPDo28gUGF1bG8iLCJkaXN0cmljdCI6Ikl0YWltIiwic3RhdGUiOiJTUCIsImNvdW50cnkiOiJCUkEifSwiX2xpbmtzIjp7InNlbGYiOnsiaHJlZiI6Imh0dHBzOi8vc2FuZGJveC5tb2lwLmNvbS5ici92Mi9jdXN0b21lcnMvQ1VTLTFGTVBUVEhOWjY4NSJ9LCJob3N0ZWRBY2NvdW50Ijp7InJlZGlyZWN0SHJlZiI6Imh0dHBzOi8vaG9zdGVkYWNjb3VudC1zYW5kYm94Lm1vaXAuY29tLmJyP3Rva2VuPWNiM2FiNzI1LWIyNmEtNDE4MC1hNWYyLWQ3Zjk4OTVjNDIwNiZpZD1DVVMtMUZNUFRUSE5aNjg1Jm1wYT1NUEEtMTY3RERFQzNCMzYzIn19fSwicGF5bWVudHMiOltdLCJlc2Nyb3dzIjpbXSwicmVmdW5kcyI6W10sImVudHJpZXMiOltdLCJldmVudHMiOlt7InR5cGUiOiJPUkRFUi5DUkVBVEVEIiwiY3JlYXRlZEF0IjoiMjAxNy0xMC0yOVQwNTo0NDo1My41NjEtMDIiLCJkZXNjcmlwdGlvbiI6IiJ9XSwicmVjZWl2ZXJzIjpbeyJtb2lwQWNjb3VudCI6eyJpZCI6Ik1QQS0xNjdEREVDM0IzNjMiLCJsb2dpbiI6ImdhYnJpZWxhLmxpbWEuc2VAZ21haWwuY29tIiwiZnVsbG5hbWUiOiJHYWJyaWVsYSBTZWFicmEifSwidHlwZSI6IlBSSU1BUlkiLCJhbW91bnQiOnsidG90YWwiOjE5OTksImZlZXMiOjAsInJlZnVuZHMiOjB9LCJmZWVQYXlvciI6dHJ1ZX1dLCJzaGlwcGluZ0FkZHJlc3MiOnsiemlwQ29kZSI6IjAxNDUyLTAwMSIsInN0cmVldCI6IkF2ZW5pZGEgRmFyaWEgTGltYSIsInN0cmVldE51bWJlciI6IjEwMCIsImNpdHkiOiJTw6NvIFBhdWxvIiwiZGlzdHJpY3QiOiJJdGFpbSIsInN0YXRlIjoiU1AiLCJjb3VudHJ5IjoiQlJBIn0sIl9saW5rcyI6eyJzZWxmIjp7ImhyZWYiOiJodHRwczovL3NhbmRib3gubW9pcC5jb20uYnIvdjIvb3JkZXJzL09SRC1FR1JaMTlaN0lWSDQifSwiY2hlY2tvdXQiOnsicGF5Q2hlY2tvdXQiOnsicmVkaXJlY3RIcmVmIjoiaHR0cHM6Ly9jaGVja291dC1uZXctc2FuZGJveC5tb2lwLmNvbS5icj90b2tlbj05M2UwZWQ1Yi1hMjQzLTQxYWYtYmQwMy0wZDA2YTg4MzQ4ZWEmaWQ9T1JELUVHUloxOVo3SVZINCJ9LCJwYXlDcmVkaXRDYXJkIjp7InJlZGlyZWN0SHJlZiI6Imh0dHBzOi8vY2hlY2tvdXQtbmV3LXNhbmRib3gubW9pcC5jb20uYnI/dG9rZW49OTNlMGVkNWItYTI0My00MWFmLWJkMDMtMGQwNmE4ODM0OGVhJmlkPU9SRC1FR1JaMTlaN0lWSDQmcGF5bWVudC1tZXRob2Q9Y3JlZGl0LWNhcmQifSwicGF5Qm9sZXRvIjp7InJlZGlyZWN0SHJlZiI6Imh0dHBzOi8vY2hlY2tvdXQtbmV3LXNhbmRib3gubW9pcC5jb20uYnI/dG9rZW49OTNlMGVkNWItYTI0My00MWFmLWJkMDMtMGQwNmE4ODM0OGVhJmlkPU9SRC1FR1JaMTlaN0lWSDQmcGF5bWVudC1tZXRob2Q9Ym9sZXRvIn0sInBheU9ubGluZUJhbmtEZWJpdEl0YXUiOnsicmVkaXJlY3RIcmVmIjoiaHR0cHM6Ly9jaGVja291dC1zYW5kYm94Lm1vaXAuY29tLmJyL2RlYml0L2l0YXUvT1JELUVHUloxOVo3SVZINCJ9fX19
+        eyJpZCI6Ik9SRC1NQ1FVNFQxV1dZRVUiLCJvd25JZCI6IlI2MzU4NTkwODQtUDVPODhUUDEiLCJzdGF0dXMiOiJDUkVBVEVEIiwicGxhdGZvcm0iOiJWMiIsImNyZWF0ZWRBdCI6IjIwMTctMTEtMDNUMTQ6MTA6NDYuNzMzLTAyIiwidXBkYXRlZEF0IjoiMjAxNy0xMS0wM1QxNDoxMDo0Ni43MzMtMDIiLCJhbW91bnQiOnsicGFpZCI6MCwidG90YWwiOjE5OTksImZlZXMiOjAsInJlZnVuZHMiOjAsImxpcXVpZCI6MCwib3RoZXJSZWNlaXZlcnMiOjAsImN1cnJlbmN5IjoiQlJMIiwic3VidG90YWxzIjp7InNoaXBwaW5nIjowLCJhZGRpdGlvbiI6MCwiZGlzY291bnQiOjAsIml0ZW1zIjoxOTk5fX0sIml0ZW1zIjpbeyJwcmljZSI6MTk5OSwicXVhbnRpdHkiOjEsInByb2R1Y3QiOiJQcm9kdWN0ICMxIC0gMjkxMiJ9XSwiY3VzdG9tZXIiOnsiaWQiOiJDVVMtMUZNUFRUSE5aNjg1Iiwib3duSWQiOiJ0ZXN0IiwiZnVsbG5hbWUiOiJKb2huIERvZSIsImNyZWF0ZWRBdCI6IjIwMTctMTAtMjlUMDU6MjY6NDkuMDAwLTAyIiwiZW1haWwiOiJzcHJlZUBleGFtcGxlLmNvbSIsInBob25lIjp7ImNvdW50cnlDb2RlIjoiNTUiLCJhcmVhQ29kZSI6IjIxIiwibnVtYmVyIjoiMDAwMDAwMDAifSwidGF4RG9jdW1lbnQiOnsidHlwZSI6IkNQRiIsIm51bWJlciI6IjY3ODIyNDEyMTgzIn0sInNoaXBwaW5nQWRkcmVzcyI6eyJ6aXBDb2RlIjoiMDE0NTItMDAxIiwic3RyZWV0IjoiQXZlbmlkYSBGYXJpYSBMaW1hIiwic3RyZWV0TnVtYmVyIjoiMTAwIiwiY2l0eSI6IlPDo28gUGF1bG8iLCJkaXN0cmljdCI6Ikl0YWltIiwic3RhdGUiOiJTUCIsImNvdW50cnkiOiJCUkEifSwiX2xpbmtzIjp7InNlbGYiOnsiaHJlZiI6Imh0dHBzOi8vc2FuZGJveC5tb2lwLmNvbS5ici92Mi9jdXN0b21lcnMvQ1VTLTFGTVBUVEhOWjY4NSJ9LCJob3N0ZWRBY2NvdW50Ijp7InJlZGlyZWN0SHJlZiI6Imh0dHBzOi8vaG9zdGVkYWNjb3VudC1zYW5kYm94Lm1vaXAuY29tLmJyP3Rva2VuPWNiM2FiNzI1LWIyNmEtNDE4MC1hNWYyLWQ3Zjk4OTVjNDIwNiZpZD1DVVMtMUZNUFRUSE5aNjg1Jm1wYT1NUEEtMTY3RERFQzNCMzYzIn19fSwicGF5bWVudHMiOltdLCJlc2Nyb3dzIjpbXSwicmVmdW5kcyI6W10sImVudHJpZXMiOltdLCJldmVudHMiOlt7InR5cGUiOiJPUkRFUi5DUkVBVEVEIiwiY3JlYXRlZEF0IjoiMjAxNy0xMS0wM1QxNDoxMDo0Ni43MzMtMDIiLCJkZXNjcmlwdGlvbiI6IiJ9XSwicmVjZWl2ZXJzIjpbeyJtb2lwQWNjb3VudCI6eyJpZCI6Ik1QQS0xNjdEREVDM0IzNjMiLCJsb2dpbiI6ImdhYnJpZWxhLmxpbWEuc2VAZ21haWwuY29tIiwiZnVsbG5hbWUiOiJHYWJyaWVsYSBTZWFicmEifSwidHlwZSI6IlBSSU1BUlkiLCJhbW91bnQiOnsidG90YWwiOjAsImZlZXMiOjAsInJlZnVuZHMiOjB9LCJmZWVQYXlvciI6dHJ1ZX1dLCJzaGlwcGluZ0FkZHJlc3MiOnsiemlwQ29kZSI6IjAxNDUyLTAwMSIsInN0cmVldCI6IkF2ZW5pZGEgRmFyaWEgTGltYSIsInN0cmVldE51bWJlciI6IjEwMCIsImNpdHkiOiJTw6NvIFBhdWxvIiwiZGlzdHJpY3QiOiJJdGFpbSIsInN0YXRlIjoiU1AiLCJjb3VudHJ5IjoiQlJBIn0sIl9saW5rcyI6eyJzZWxmIjp7ImhyZWYiOiJodHRwczovL3NhbmRib3gubW9pcC5jb20uYnIvdjIvb3JkZXJzL09SRC1NQ1FVNFQxV1dZRVUifSwiY2hlY2tvdXQiOnsicGF5Q2hlY2tvdXQiOnsicmVkaXJlY3RIcmVmIjoiaHR0cHM6Ly9jaGVja291dC1uZXctc2FuZGJveC5tb2lwLmNvbS5icj90b2tlbj1kOWY0M2IyNC0zOTRlLTQ2NzktYjg4Ni0yNTRiMjVmZjZjMDkmaWQ9T1JELU1DUVU0VDFXV1lFVSJ9LCJwYXlDcmVkaXRDYXJkIjp7InJlZGlyZWN0SHJlZiI6Imh0dHBzOi8vY2hlY2tvdXQtbmV3LXNhbmRib3gubW9pcC5jb20uYnI/dG9rZW49ZDlmNDNiMjQtMzk0ZS00Njc5LWI4ODYtMjU0YjI1ZmY2YzA5JmlkPU9SRC1NQ1FVNFQxV1dZRVUmcGF5bWVudC1tZXRob2Q9Y3JlZGl0LWNhcmQifSwicGF5Qm9sZXRvIjp7InJlZGlyZWN0SHJlZiI6Imh0dHBzOi8vY2hlY2tvdXQtbmV3LXNhbmRib3gubW9pcC5jb20uYnI/dG9rZW49ZDlmNDNiMjQtMzk0ZS00Njc5LWI4ODYtMjU0YjI1ZmY2YzA5JmlkPU9SRC1NQ1FVNFQxV1dZRVUmcGF5bWVudC1tZXRob2Q9Ym9sZXRvIn0sInBheU9ubGluZUJhbmtEZWJpdEl0YXUiOnsicmVkaXJlY3RIcmVmIjoiaHR0cHM6Ly9jaGVja291dC1zYW5kYm94Lm1vaXAuY29tLmJyL2RlYml0L2l0YXUvT1JELU1DUVU0VDFXV1lFVSJ9fX19
     http_version: 
-  recorded_at: Sun, 29 Oct 2017 07:44:52 GMT
+  recorded_at: Fri, 03 Nov 2017 16:10:46 GMT
 - request:
     method: post
-    uri: https://sandbox.moip.com.br/v2/orders/ORD-EGRZ19Z7IVH4/payments
+    uri: https://sandbox.moip.com.br/v2/orders/ORD-MCQU4T1WWYEU/payments
     body:
       encoding: UTF-8
       string: '{"fundingInstrument":{"method":"CREDIT_CARD","creditCard":{"holder":{"fullname":"Jane
@@ -63,26 +61,24 @@ http_interactions:
       message: Created
     headers:
       Date:
-      - Sun, 29 Oct 2017 07:44:55 GMT
+      - Fri, 03 Nov 2017 16:10:49 GMT
       Server:
       - Apache
-      Status:
-      - 201 Created
       X-Newrelic-App-Data:
-      - PxQFUlBXAQoTUVFWDgEDUVYTGhE1AwE2QgNWEVlbQFtcC2VOYwRAFjNTVTIDEU5aUwE9TUEDa0kLQ1JWEBU/TUsNSgZdSn1WTjkWEVAYXgcKQkRBTjN3YGRNQ04HHwdKVB8DBFBQUFIBTgtSABQWCwsHWAAAU1EAVQMPV1NXDxEcAgAORFRq
+      - PxQFUlBXAQoTUVFWDgEDUVYTGhE1AwE2QgNWEVlbQFtcC2VOYwRAFjNTVTIDEU5aUwE9TUEDa0kLQ1JWEBU/TUsNSgZdSn1WTjkWEVAYXgcKQkRBTjN3YGRNQ04HHwdKVB8EAlZRU1cDVBRRCAAYEFFTAVJTAwQABgMFA1RSAAUSSAcDW0JSOw==
       Content-Type:
       - application/json
       Content-Length:
-      - '1073'
+      - '1098'
       X-Content-Type-Options:
       - nosniff
       Vary:
       - Accept-Encoding,Origin
     body:
       encoding: UTF-8
-      string: '{"id":"PAY-0FF1XIVITOLW","status":"IN_ANALYSIS","delayCapture":true,"amount":{"total":1999,"gross":1999,"fees":0,"refunds":0,"liquid":1999,"currency":"BRL"},"installmentCount":1,"fundingInstrument":{"creditCard":{"brand":"VISA","first6":"401200","last4":"1112","store":false,"holder":{"birthdate":"1990-01-01","birthDate":"1990-01-01","taxDocument":{"type":"CPF","number":"67822412183"},"fullname":"Jane
-        Doe"}},"method":"CREDIT_CARD"},"fees":[{"type":"TRANSACTION","amount":0}],"events":[{"type":"PAYMENT.IN_ANALYSIS","createdAt":"2017-10-29T05:44:55.868-02"},{"type":"PAYMENT.CREATED","createdAt":"2017-10-29T05:44:55.341-02"}],"receivers":[{"moipAccount":{"id":"MPA-167DDEC3B363","login":"gabriela.lima.se@gmail.com","fullname":"Gabriela
-        Seabra"},"type":"PRIMARY","amount":{"total":1999,"refunds":0}}],"_links":{"self":{"href":"https://sandbox.moip.com.br/v2/payments/PAY-0FF1XIVITOLW"},"order":{"href":"https://sandbox.moip.com.br/v2/orders/ORD-EGRZ19Z7IVH4","title":"ORD-EGRZ19Z7IVH4"}},"createdAt":"2017-10-29T05:44:55.339-02","updatedAt":"2017-10-29T05:44:55.868-02"}'
+      string: '{"id":"PAY-V33YEEY71O1P","status":"IN_ANALYSIS","delayCapture":true,"amount":{"total":1999,"gross":1999,"fees":0,"refunds":0,"liquid":1999,"currency":"BRL"},"installmentCount":1,"fundingInstrument":{"creditCard":{"brand":"VISA","first6":"401200","last4":"1112","store":false,"holder":{"birthdate":"1990-01-01","birthDate":"1990-01-01","taxDocument":{"type":"CPF","number":"67822412183"},"fullname":"Jane
+        Doe"}},"method":"CREDIT_CARD"},"fees":[{"type":"TRANSACTION","amount":0}],"events":[{"type":"PAYMENT.IN_ANALYSIS","createdAt":"2017-11-03T14:10:49.298-02"},{"type":"PAYMENT.CREATED","createdAt":"2017-11-03T14:10:49.129-02"}],"receivers":[{"moipAccount":{"id":"MPA-167DDEC3B363","login":"gabriela.lima.se@gmail.com","fullname":"Gabriela
+        Seabra"},"type":"PRIMARY","amount":{"total":1999,"fees":0,"refunds":0},"feePayor":true}],"_links":{"self":{"href":"https://sandbox.moip.com.br/v2/payments/PAY-V33YEEY71O1P"},"order":{"href":"https://sandbox.moip.com.br/v2/orders/ORD-MCQU4T1WWYEU","title":"ORD-MCQU4T1WWYEU"}},"createdAt":"2017-11-03T14:10:49.127-02","updatedAt":"2017-11-03T14:10:49.298-02"}'
     http_version: 
-  recorded_at: Sun, 29 Oct 2017 07:44:54 GMT
+  recorded_at: Fri, 03 Nov 2017 16:10:49 GMT
 recorded_with: VCR 3.0.3

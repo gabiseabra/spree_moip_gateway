@@ -1,5 +1,7 @@
 FactoryGirl.modify do
   factory :address do
+    firstname 'Some'
+    lastname 'Person'
     address1 'Avenida Faria Lima'
     address2 ''
     street_number 100
